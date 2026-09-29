@@ -1,0 +1,53 @@
+name: Veille alternance
+
+on:
+  schedule:
+    # 06:00 UTC = 8h en France l'ete, 7h l'hiver. Un jour sur deux.
+    # GitHub peut decaler le declenchement de quelques minutes a une heure.
+    - cron: "0 6 */2 * *"
+  workflow_dispatch:        # bouton "Run workflow" pour un scan a la demande
+
+permissions:
+  contents: write           # necessaire pour reecrire etat.json et offres.json
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  scanner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer la dependance
+        run: pip install requests
+
+      - name: Lancer la veille
+        env:
+          MAIL_EXPEDITEUR: ${{ secrets.MAIL_EXPEDITEUR }}
+          MAIL_DESTINATAIRE: ${{ secrets.MAIL_DESTINATAIRE }}
+          MAIL_MOT_DE_PASSE: ${{ secrets.MAIL_MOT_DE_PASSE }}
+          URL_SUIVI: ${{ secrets.URL_SUIVI }}
+        run: python veille.py
+
+      - name: Enregistrer les offres et les annonces deja vues
+        run: |
+          git config user.name "veille-bot"
+          git config user.email "veille-bot@users.noreply.github.com"
+          git add etat.json offres.json veille.log || true
+          if git diff --staged --quiet; then
+            echo "Rien de nouveau a enregistrer."
+          else
+            git commit -m "Passage du $(date -u '+%d/%m/%Y %H:%M UTC')"
+            git pull --rebase --autostash || true
+            git push
+          fi
