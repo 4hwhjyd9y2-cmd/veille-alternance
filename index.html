@@ -73,6 +73,7 @@ textarea{width:100%;min-height:64px;resize:vertical}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:7px;border:1px solid var(--accent);
   background:var(--accent);color:var(--on-accent);font:500 .92rem var(--body);text-decoration:none;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--accent)}
+.btn.danger{background:transparent;border-color:var(--line);color:var(--off)}
 details.notes summary{cursor:pointer;color:var(--muted);font-size:.88rem}
 .save{font-size:.8rem;color:var(--muted);min-height:1em}
 .add,.outils{background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:12px 16px}
@@ -132,14 +133,14 @@ footer{color:var(--muted);font-size:.85rem}
 
 <script>
 (function(){
-  var CLE="suivi-alternance-v1";
+  var CLE="suivi-alternance-v1", CLE_SUPPR="suivi-alternance-supprimes";
   var STATUTS=[["a_etudier","A etudier"],["a_postuler","A postuler"],["postule","Postule"],["relance","Relance"],
                ["entretien","Entretien"],["accepte","Accepte"],["refus","Refus"],["archive","Archive"]];
   var LABEL={},ORDER={};STATUTS.forEach(function(s,i){LABEL[s[0]]=s[1];ORDER[s[0]]=i});
   var FAMILLES={technique:"Technique",energie:"Performance energetique et EnR",
                 projet:"Conduite de projet et d'affaires",qse:"QSE"};
   var CLOSED={refus:1,archive:1}, RELANCE_JOURS=10;
-  var offers=[], filter="encours";
+  var offers=[], filter="encours", supprimes={};
 
   function $(id){return document.getElementById(id)}
   function today(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
@@ -161,7 +162,7 @@ footer{color:var(--muted);font-size:.85rem}
     var connus={};offers.forEach(function(o){connus[o.id]=1});
     var ajout=0;
     (liste||[]).forEach(function(o){
-      if(!o||!o.id||connus[o.id])return;
+      if(!o||!o.id||connus[o.id]||supprimes[o.id])return;
       offers.push({id:o.id,titre:o.titre||"Sans intitule",employeur:o.employeur||"",groupe:o.groupe||"",
         commune:o.commune||"",famille:FAMILLES[o.famille]?o.famille:"technique",niveau:o.niveau||"",
         publiee:o.publiee||"",lien:o.lien||"",missions:o.missions||"",source:"veille",
@@ -228,6 +229,15 @@ footer{color:var(--muted);font-size:.85rem}
       el("label",{cls:"field"},[document.createTextNode("Statut"),sel]),
       el("label",{cls:"field"},[document.createTextNode("Candidature le"),dp])]);
     if(o.lien)ctr.appendChild(el("a",{cls:"btn ghost",href:o.lien,target:"_blank",rel:"noopener",text:"Voir l'annonce"}));
+    var sup=el("button",{cls:"btn danger",type:"button",text:"Supprimer"});
+    sup.addEventListener("click",function(){
+      if(!confirm("Supprimer definitivement « "+o.titre+" » du suivi ?"))return;
+      offers=offers.filter(function(x){return x.id!==o.id});
+      supprimes[o.id]=1;
+      try{localStorage.setItem(CLE_SUPPR,JSON.stringify(Object.keys(supprimes)))}catch(e){}
+      ecrire();render();
+    });
+    ctr.appendChild(sup);
 
     var ta=el("textarea",{id:"nt-"+o.id,placeholder:"Contact, date d'entretien, questions a poser…"});
     ta.value=o.notes||"";
@@ -297,6 +307,7 @@ footer{color:var(--muted);font-size:.85rem}
   });
 
   offers=lire();
+  try{(JSON.parse(localStorage.getItem(CLE_SUPPR)||"[]")||[]).forEach(function(id){supprimes[id]=1})}catch(e){}
   render();
   fetch("offres.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
     if(!d)return;
