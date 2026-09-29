@@ -1,5 +1,5 @@
 {
- "maj": "",
+ "maj": "2026-09-29T12:57Z",
  "offres": [
   {
    "id": "jobijoba-79c5a8837df976bfa8580d8e346ee06f",
@@ -42,6 +42,62 @@
    "missions": "Participer a la politique sante securite au travail, animer des actions de prevention et produire les indicateurs de suivi. Appui au preventeur sur l'analyse des accidents et la conformite reglementaire.",
    "source": "veille",
    "ajoutee": "2026-09-16"
+  },
+  {
+   "id": "jobijoba_spie-b65c591f11973bc5012ebb487c9b47d0",
+   "titre": "Technicien spécialisé / Technicienne spécialisée CVC (H/F)",
+   "employeur": "SPIE",
+   "groupe": "SPIE",
+   "commune": "Saint-Herblain 44800 Pays de la Loire",
+   "famille": "technique",
+   "niveau": "non precise",
+   "publiee": "2026-08-31",
+   "lien": "https://www.jobijoba.com/fr/annonce/54/b65c591f11973bc5012ebb487c9b47d0",
+   "missions": "Offre collectée par La bonne alternance : L'installateur chauffage et climatisation, installe et entretient les systèmes CVC (chauffage, climatisation et ventilation) selon les règles de sécurité et les normes environnementales. Développe la mise en place de systèmes plus efficac",
+   "source": "veille",
+   "ajoutee": "2026-09-29"
+  },
+  {
+   "id": "jobijoba_spie-79c5a8837df976bfa8580d8e346ee06f",
+   "titre": "Ingénieur d'affaires (H/F)",
+   "employeur": "SPIE THEPAULT",
+   "groupe": "SPIE",
+   "commune": "Saint-Herblain 44800 Pays de la Loire",
+   "famille": "projet",
+   "niveau": "ingenieur",
+   "publiee": "2026-09-18",
+   "lien": "https://www.jobijoba.com/fr/annonce/54/79c5a8837df976bfa8580d8e346ee06f",
+   "missions": "Vous recherchez une entreprise agile et innovante, dans laquelle vous vous épanouirez au sein d'une équipe dynamique et compétente ? Le milieu industriel et ses défis 4.0 vous intéressent ? Alors, venez écrire votre nouvelle page chez SPIE Thépault ! Dans le cadre de notre dévelo",
+   "source": "veille",
+   "ajoutee": "2026-09-29"
+  },
+  {
+   "id": "jobijoba_engie-3e88d0d238f50082a9d95043dd99f481",
+   "titre": "Alternance : alternant chargé de missions santé sécurité (h/f) détails du poste | engie - Saint-Étienne-de-Montluc - Offre d&#039;emploi Septembre 2026 - Jobijoba",
+   "employeur": "Engie",
+   "groupe": "Engie",
+   "commune": "",
+   "famille": "qse",
+   "niveau": "non precise",
+   "publiee": "",
+   "lien": "https://www.jobijoba.com/fr/annonce/54/3e88d0d238f50082a9d95043dd99f481",
+   "missions": "",
+   "source": "veille",
+   "ajoutee": "2026-09-29"
+  },
+  {
+   "id": "jobijoba_sncf-3483286d2ce54b1989d4f8f5fd241da4",
+   "titre": "Alternance : ALTERNANCE - Assistant(e) Gestionnaire d'actifs clients tertiaires",
+   "employeur": "SNCF",
+   "groupe": "SNCF",
+   "commune": "Nantes 44100 Pays de la Loire",
+   "famille": "projet",
+   "niveau": "non precise",
+   "publiee": "2026-09-26",
+   "lien": "https://www.jobijoba.com/fr/annonce/54/3483286d2ce54b1989d4f8f5fd241da4",
+   "missions": "Publiée le 24/09/2026 Description de l'employeur Le Groupe SNCF a pour vocation de simplifier les déplacements, fluidifier le transport des personnes et des marchandises, et développer la mobilité de demain. Au sein du Groupe SNCF, la société SNCF SA est en charge des responsabil",
+   "source": "veille",
+   "ajoutee": "2026-09-29"
   }
  ]
 }
