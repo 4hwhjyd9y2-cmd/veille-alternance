@@ -19,6 +19,7 @@ Usage
 """
 
 import configparser
+import html as _html
 import json
 import os
 import re
@@ -184,6 +185,8 @@ DOMAINE_KO = [
     "commercial", "vente", "sirh", "administrateur systeme", "developpeur",
     "data analyst", "gestionnaire de donnees", "assistant de gestion",
     "secretaire", "assistanat", "finance", "audit interne", "formation",
+    "assistant", "assistante", "gestionnaire d'actifs", "gestion d'actifs",
+    "chargee de clientele", "charge de clientele", "relation client", "back office",
 ]
 
 METIERS_KO = [
@@ -194,6 +197,8 @@ METIERS_KO = [
     "electricien", "electromecanicien", "technicien de maintenance",
     "negociateur", "conducteur de train", "conducteur de tram", "agent de maintenance",
     "plombier", "serrurier", "canalisateur", "manoeuvre", "magasinier",
+    "technicien", "technicienne", "installateur", "installatrice", "frigoriste",
+    "agent technique", "agent de proprete", "preparateur", "monteuse",
 ]
 
 # --------------------------------------------------------------------------
@@ -336,9 +341,50 @@ def _texte_html(html):
     t = re.sub(r"&[a-z]+;", " ", t)
     return re.sub(r"\s+", " ", t)
 
+MOIS = {"janvier":1,"fevrier":2,"mars":3,"avril":4,"mai":5,"juin":6,"juillet":7,
+        "aout":8,"septembre":9,"octobre":10,"novembre":11,"decembre":12}
+
+def date_dans_texte(texte):
+    """Beaucoup de fiches n'ont pas de bloc JobPosting et affichent leur date
+    en clair : 'Publiee le 11/11/2024', '11 novembre 2024', 'il y a 3 jours'.
+    Sans cette lecture, une annonce de 2024 passait pour une annonce du jour."""
+    t = sans_accents(texte)[:6000]
+
+    m = re.search(r"il y a (\d{1,3}) jour", t)
+    if m:
+        d = datetime.now(timezone.utc) - timedelta(days=int(m.group(1)))
+        return d.strftime("%Y-%m-%d")
+    if "aujourd" in t[:2000] or "il y a quelques heures" in t[:2000]:
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    m = re.search(r"(\d{4})-(\d{2})-(\d{2})", t)
+    if m:
+        return m.group(0)
+    m = re.search(r"(\d{1,2})[/.](\d{1,2})[/.](20\d{2})", t)
+    if m:
+        return "%s-%02d-%02d" % (m.group(3), int(m.group(2)), int(m.group(1)))
+    m = re.search(r"(\d{1,2})\s+(" + "|".join(MOIS) + r")\s+(20\d{2})", t)
+    if m:
+        return "%s-%02d-%02d" % (m.group(3), MOIS[m.group(2)], int(m.group(1)))
+    return ""
+
+
+def nettoyer_titre(brut):
+    """Un titre de repli vient de la balise title de la page et traine tout le
+    habillage du site : ' | engie - Nantes - Offre d'emploi Septembre 2026 -
+    Jobijoba'. On coupe au premier separateur et on decode les entites."""
+    t = _html.unescape(re.sub(r"<[^>]+>", "", brut or ""))
+    t = re.sub(r"\s+", " ", t).strip()
+    for sep in (" | ", " - Offre d", " - Emploi ", " details du poste", " | Jobijoba"):
+        i = sans_accents(t).find(sans_accents(sep))
+        if i > 10:
+            t = t[:i]
+    return t.strip(" -|")
+
+
 def analyser_fiche(html, url):
     """Renvoie un dictionnaire decrivant l'annonce."""
-    fiche = {"url": url, "titre": "", "employeur": "", "employeur_declare": "",
+    fiche = {"url": url, "titre": "", "titre_brut": "", "employeur": "", "employeur_declare": "",
              "commune": "", "date": "", "contrat": "", "description": "",
              "texte": _texte_html(html)[:12000]}
 
@@ -373,11 +419,17 @@ def analyser_fiche(html, url):
     if not fiche["titre"]:
         m = re.search(r"<title[^>]*>(.*?)</title>", html, re.S | re.I)
         if m:
-            fiche["titre"] = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", m.group(1))).strip()
+            fiche["titre_brut"] = _html.unescape(re.sub(r"<[^>]+>", "", m.group(1)))
+            fiche["titre"] = nettoyer_titre(m.group(1))
+    else:
+        fiche["titre"] = nettoyer_titre(fiche["titre"])
     if not fiche["date"]:
         m = re.search(r'"datePosted"\s*:\s*"(\d{4}-\d{2}-\d{2})', html)
         if m:
             fiche["date"] = m.group(1)
+    if not fiche["date"]:
+        # la date affichee en clair sur la page, en dernier recours
+        fiche["date"] = date_dans_texte(fiche["description"] + " " + fiche["texte"])
 
     fiche["employeur"] = fiche["employeur_declare"] or ""
     return fiche
@@ -399,7 +451,8 @@ def trouver_groupe(fiche):
     bas de page : c'est ce qui evitait de prendre Portzamparc pour la SNCF."""
     base = (fiche["employeur_declare"] + " " + fiche["titre"])
     if not fiche["employeur_declare"]:
-        base += " " + fiche["description"][:1500]
+        base += " " + fiche.get("titre_brut", "") + " " + fiche["description"][:1500]
+        base += " " + fiche.get("texte", "")[:800]
     if contient_mot(base, EMPLOYEURS_KO):
         return None
     for groupe, noms in EMPLOYEURS.items():
@@ -410,7 +463,8 @@ def trouver_groupe(fiche):
 def verifier(fiche):
     """Renvoie (groupe, famille) si l'offre est retenue, sinon (None, motif)."""
     titre = fiche["titre"]
-    tout = " ".join([fiche["employeur_declare"], titre, fiche["description"]])
+    tout = " ".join([fiche["employeur_declare"], titre, fiche.get("titre_brut", ""),
+                     fiche["contrat"], fiche["description"]])
 
     groupe = trouver_groupe(fiche)
     if not groupe:
@@ -431,13 +485,21 @@ def verifier(fiche):
         return None, "commune trop loin (%s)" % hors
     ici = contient_mot(lieu, COMMUNES_OK) or contient_mot(titre, COMMUNES_OK)
     if not ici:
-        ici = contient_mot(fiche["description"][:1200], COMMUNES_OK)
+        ici = contient_mot(fiche["description"][:1500], COMMUNES_OK)
+    if not ici:
+        ici = contient_mot(fiche.get("texte", "")[:3000], COMMUNES_OK)
     if not ici:
         return None, "commune hors Nantes (%s)" % (lieu.strip() or "non precisee")
 
     age = _age_jours(fiche["date"])
-    if age is not None and age > AGE_MAX_JOURS:
+    if age is None:
+        # aucune date lisible : c'est exactement ainsi qu'une annonce Engie de
+        # 2024 s'etait glissee dans le suivi. Dans le doute, on ecarte.
+        return None, "date introuvable"
+    if age > AGE_MAX_JOURS:
         return None, "annonce de plus de %d jours (%s)" % (AGE_MAX_JOURS, fiche["date"])
+    if age < -2:
+        return None, "date incoherente (%s)" % fiche["date"]
 
     metier = contient_mot(titre, METIERS_KO)
     if metier:
@@ -709,7 +771,7 @@ def passage(test=False):
             continue
         signatures.add(sig)
         offre = {
-            "id": (source + "-" + ref.split("/")[-1]).lower(),
+            "id": ("jobijoba-" + ref.split("/")[-1]).lower(),
             "titre": fiche["titre"],
             "employeur": fiche["employeur_declare"] or g,
             "groupe": g,
