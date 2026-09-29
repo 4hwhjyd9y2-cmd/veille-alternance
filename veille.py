@@ -711,7 +711,7 @@ def extraire_refs(html, motif):
             ordre.append(ref)
     return ordre
 
-def passage(test=False):
+def passage(test=False, force_mail=False):
     chrono = Chrono(BUDGET_SECONDES)
     etat = charger_etat()
     cfg = charger_config()
@@ -790,17 +790,23 @@ def passage(test=False):
         log("  RETENUE : %s (%s, %s)" % (offre["titre"], offre["employeur"], offre["commune"]))
 
     # Mail
-    envoyer_mail = bool(retenues)
+    envoyer_mail, motif_silence = bool(retenues), ""
     if not retenues:
         dernier = etat.get("dernier_mail", "")
         vieux = True
         if dernier:
             try:
-                vieux = (datetime.now(timezone.utc) -
-                         datetime.strptime(dernier, "%Y-%m-%d").replace(tzinfo=timezone.utc)).days >= 7
+                jours = (datetime.now(timezone.utc) -
+                         datetime.strptime(dernier, "%Y-%m-%d").replace(tzinfo=timezone.utc)).days
+                vieux = jours >= 7
+                motif_silence = ("rien de neuf, et un mail est deja parti il y a %d jour(s) "
+                                 "(regle des sept jours)" % jours)
             except Exception:
                 vieux = True
         envoyer_mail = vieux
+    if force_mail and not envoyer_mail:
+        envoyer_mail, motif_silence = True, ""
+        log("Lancement a la main : le mail part meme s'il n'y a rien de neuf.")
 
     if stats["pages"] == 0:
         # aucune page de liste lue : ce n'est pas "rien de neuf", c'est une panne
@@ -821,7 +827,9 @@ def passage(test=False):
         if envoyer(cfg, objet, texte, html_mail, test):
             etat["dernier_mail"] = aujourdhui
     else:
-        log("Rien de neuf et un mail est parti il y a moins de sept jours : pas d'envoi.")
+        log("MAIL NON ENVOYE : %s." % (motif_silence or "rien a signaler"))
+        log("Pour recevoir quand meme un mail, relance le workflow a la main : "
+            "un lancement manuel force l'envoi.")
 
     if not test:
         ecrire_etat(etat)
@@ -843,7 +851,9 @@ def main():
                 os.remove(f)
         log("Etat efface.")
         return
-    passage(test="--test" in sys.argv)
+    force = ("--force-mail" in sys.argv
+             or os.environ.get("GITHUB_EVENT_NAME", "") == "workflow_dispatch")
+    passage(test="--test" in sys.argv, force_mail=force)
 
 if __name__ == "__main__":
     main()
