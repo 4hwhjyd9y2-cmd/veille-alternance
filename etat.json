@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-09-29",
+ "dernier_mail": "2026-10-01",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -24,6 +24,14 @@
   "JOBIJOBA_AIRBUS|54/bc8db98d98c5c2b8582d16ab83fbbd72": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "JOBIJOBA_AIRBUS|54/bd9eb30b2a0367c9e5aa798dc1fd5b0d": {
+   "le": "2026-10-01",
+   "motif": "employeur hors perimetre (Adecco)"
+  },
+  "JOBIJOBA_AIRBUS|54/d71ea30ae9e824db9436286622a33364": {
+   "le": "2026-10-01",
+   "motif": "employeur hors perimetre (Adecco)"
   },
   "JOBIJOBA_AIRBUS|54/e4cb6d47f4be96a4a65e487bf37859b7": {
    "le": "2026-09-29",
@@ -133,6 +141,10 @@
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA_EIFFAGE|54/ae9e9a74136d9b852cfe25232a2b8c1c": {
+   "le": "2026-10-01",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA_EIFFAGE|54/b3ebabacad880d1f595281bfe4385d7f": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
@@ -160,6 +172,10 @@
   "JOBIJOBA_EIFFAGE|54/f6f1edfe25605b55afdb6ba16af75f19": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_ENGIE|54/07482225d30f65640813f73342e5900a": {
+   "le": "2026-10-01",
+   "motif": "fonction support (commercial)"
   },
   "JOBIJOBA_ENGIE|54/3e88d0d238f50082a9d95043dd99f481": {
    "le": "2026-09-29",
@@ -309,6 +325,10 @@
    "le": "2026-09-29",
    "motif": "annonce de plus de 30 jours (2026-07-27)"
   },
+  "JOBIJOBA_SPIE|54/4c7bf424b308930514498ccac97e8323": {
+   "le": "2026-10-01",
+   "motif": "metier d'execution (technicien de maintenance)"
+  },
   "JOBIJOBA_SPIE|54/79c5a8837df976bfa8580d8e346ee06f": {
    "le": "2026-09-29",
    "motif": "retenue"
@@ -353,6 +373,10 @@
    "le": "2026-09-29",
    "motif": "fonction support (commercial)"
   },
+  "JOBIJOBA_VEOLIA|54/35770595f6a1340e1922e583c7556c6a": {
+   "le": "2026-10-01",
+   "motif": "retenue"
+  },
   "JOBIJOBA_VEOLIA|54/5a98fd54c6762831824362d3fa316d2e": {
    "le": "2026-09-29",
    "motif": "fonction support (formation)"
@@ -363,6 +387,10 @@
   },
   "JOBIJOBA_VEOLIA|54/b7a27ef2e571be4239f8cadc6c55bf6c": {
    "le": "2026-09-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA_VEOLIA|54/ed239cd70648b6f34e6d38c0368024e6": {
+   "le": "2026-10-01",
    "motif": "date introuvable"
   },
   "JOBIJOBA_VINCI|54/0383aa81227ff875a3823cb857023507": {
@@ -384,6 +412,10 @@
   "JOBIJOBA_VINCI|54/3ee7abe2eb2f87661cb1a51dd0629c8d": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
+  },
+  "JOBIJOBA_VINCI|54/48bf8140a1a18761d24b20445123ed1b": {
+   "le": "2026-10-01",
+   "motif": "employeur hors perimetre (CFA Sup de Vinci)"
   },
   "JOBIJOBA_VINCI|54/5aabb0fc77df9fd3cb4bef774ddf3474": {
    "le": "2026-09-29",
