@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-10-01",
+ "dernier_mail": "2026-10-03",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -8,6 +8,10 @@
   "JOBIJOBA_AIRBUS|54/32b5a3efb636fad070919813700370ff": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Adecco)"
+  },
+  "JOBIJOBA_AIRBUS|54/6554bd0a4a6e53c6206b97d6becb5200": {
+   "le": "2026-10-03",
+   "motif": "employeur hors perimetre (Manpower)"
   },
   "JOBIJOBA_AIRBUS|54/66cb2b02eb90b2b50c6440d6b166abf0": {
    "le": "2026-09-29",
@@ -45,6 +49,10 @@
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Adecco)"
   },
+  "JOBIJOBA_AIRBUS|54/f82dedc7fec919d5da094ab3ea5130e5": {
+   "le": "2026-10-03",
+   "motif": "employeur hors perimetre (Manpower)"
+  },
   "JOBIJOBA_AIRBUS|54/fce7d1fd24a86a8dd1652a83f98438ae": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Adecco)"
@@ -73,6 +81,10 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_BOUYGUES|54/f35812e52137434fe3008ede0c68037d": {
+   "le": "2026-10-03",
+   "motif": "employeur hors perimetre (Dycom Industries, Inc.)"
+  },
   "JOBIJOBA_EDF|54/09cfa3a8093c6e06bedfd1514182d77c": {
    "le": "2026-09-29",
    "motif": "contrat non alternance"
@@ -93,6 +105,10 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_EIFFAGE|54/0c989addfb9f7eaa126cfb782cd98099": {
+   "le": "2026-10-03",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA_EIFFAGE|54/186a293bb606c7562f7d60978d87e5ef": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
@@ -101,12 +117,24 @@
    "le": "2026-09-29",
    "motif": "commune trop loin (saint-nazaire)"
   },
+  "JOBIJOBA_EIFFAGE|54/2c8c76dbb398716d49f646ab9231706f": {
+   "le": "2026-10-03",
+   "motif": "commune hors Nantes (Varades 44370 Pays de la Loire)"
+  },
+  "JOBIJOBA_EIFFAGE|54/4d15a7f9f8b883b263deee7ef430d53b": {
+   "le": "2026-10-03",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA_EIFFAGE|54/5f05d55fe17a62135bcd50ae3b4ed79b": {
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
   "JOBIJOBA_EIFFAGE|54/72d4165ff34a32ff334c662a25e35c4f": {
    "le": "2026-09-29",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/74e9740b559951abd748e2b52d9c8b11": {
+   "le": "2026-10-03",
    "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/846ffb8454b934cce485aefae20ce5f2": {
@@ -117,8 +145,16 @@
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA_EIFFAGE|54/8932dc0cba8153dd808d33860c1abc78": {
+   "le": "2026-10-03",
+   "motif": "commune hors Nantes (Varades 44370 Pays de la Loire)"
+  },
   "JOBIJOBA_EIFFAGE|54/8ad9631f7ecba664d4ea898dc3cb9030": {
    "le": "2026-09-29",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/8c986c48f5a145ef85addadd2ddc810a": {
+   "le": "2026-10-03",
    "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/941fb8f9258102b789c2ff27bdd03b8e": {
@@ -133,6 +169,10 @@
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA_EIFFAGE|54/9f56bbaaee254c84839f8210b48d41f7": {
+   "le": "2026-10-03",
+   "motif": "commune hors Nantes (Pays de la Loire)"
+  },
   "JOBIJOBA_EIFFAGE|54/a1ff1042eb2dded32c3ff5abd4f56d71": {
    "le": "2026-09-29",
    "motif": "metier d'execution (coffreur)"
@@ -141,17 +181,37 @@
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA_EIFFAGE|54/a961049c3a4427af73b51906302fa47d": {
+   "le": "2026-10-03",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA_EIFFAGE|54/ae9e9a74136d9b852cfe25232a2b8c1c": {
    "le": "2026-10-01",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/b2a601ce75a1fe2b44a132fdb633cf0a": {
+   "le": "2026-10-03",
    "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/b3ebabacad880d1f595281bfe4385d7f": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA_EIFFAGE|54/b76a88df1ff56f73951784088c63adca": {
+   "le": "2026-10-03",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA_EIFFAGE|54/c6bd02d5f1e8bc50857f2f159f626772": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/d36e3f111b8c766c729291dce3406163": {
+   "le": "2026-10-03",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/dd348affd48e9e297497fc954f98f5ae": {
+   "le": "2026-10-03",
+   "motif": "commune hors Nantes (Pays de la Loire)"
   },
   "JOBIJOBA_EIFFAGE|54/e8280f1e9e1c3794cc2153ef98b6a0d6": {
    "le": "2026-09-29",
@@ -171,6 +231,10 @@
   },
   "JOBIJOBA_EIFFAGE|54/f6f1edfe25605b55afdb6ba16af75f19": {
    "le": "2026-09-29",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/fe71bc0ea8e64037332734774e3828d8": {
+   "le": "2026-10-03",
    "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_ENGIE|54/07482225d30f65640813f73342e5900a": {
@@ -297,6 +361,10 @@
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Openclassrooms)"
   },
+  "JOBIJOBA_SNCF|54/85f2679e57630ea393bd03de535b1363": {
+   "le": "2026-10-03",
+   "motif": "employeur hors perimetre (Chantiers De L&apos;Atlantique)"
+  },
   "JOBIJOBA_SNCF|54/9acc7c04dfdc51b824f2ce928368b524": {
    "le": "2026-09-29",
    "motif": "contrat non alternance"
@@ -317,6 +385,14 @@
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Bnp Paribas)"
   },
+  "JOBIJOBA_SPIE|54/19039117ff3558407fb043137d24f4df": {
+   "le": "2026-10-03",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA_SPIE|54/1a3f71aca93cd1406458f189eaf48929": {
+   "le": "2026-10-03",
+   "motif": "contrat non alternance"
+  },
   "JOBIJOBA_SPIE|54/28dd987e7d58e5c713cdceb5c19ee6c0": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -324,6 +400,10 @@
   "JOBIJOBA_SPIE|54/3fd99273bb8be1644d29fe5355f74e69": {
    "le": "2026-09-29",
    "motif": "annonce de plus de 30 jours (2026-07-27)"
+  },
+  "JOBIJOBA_SPIE|54/4aa8d983c4e327a2ac4b61563abc39d5": {
+   "le": "2026-10-03",
+   "motif": "date introuvable"
   },
   "JOBIJOBA_SPIE|54/4c7bf424b308930514498ccac97e8323": {
    "le": "2026-10-01",
@@ -352,6 +432,10 @@
   "JOBIJOBA_SPIE|54/b65c591f11973bc5012ebb487c9b47d0": {
    "le": "2026-09-29",
    "motif": "metier d'execution (technicien)"
+  },
+  "JOBIJOBA_SPIE|54/d223dad5ac8247fb4ce5f424f543d00b": {
+   "le": "2026-10-03",
+   "motif": "contrat non alternance"
   },
   "JOBIJOBA_SPIE|54/fd324c07a370f58fc9edfd10888fa257": {
    "le": "2026-09-29",
@@ -388,6 +472,10 @@
   "JOBIJOBA_VEOLIA|54/b7a27ef2e571be4239f8cadc6c55bf6c": {
    "le": "2026-09-29",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA_VEOLIA|54/c658d5e224dc9911ee7397d581de6bc7": {
+   "le": "2026-10-03",
+   "motif": "retenue"
   },
   "JOBIJOBA_VEOLIA|54/ed239cd70648b6f34e6d38c0368024e6": {
    "le": "2026-10-01",
@@ -432,6 +520,10 @@
   "JOBIJOBA_VINCI|54/9442e33935662ea5306db9b562d6be1c": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
+  },
+  "JOBIJOBA_VINCI|54/beaa59751bf35a3bb943f530b8282735": {
+   "le": "2026-10-03",
+   "motif": "employeur hors perimetre (CFA Sup de Vinci)"
   },
   "JOBIJOBA_VINCI|54/c16ecbf2c8f7ae589a1afdfaac1dd29b": {
    "le": "2026-09-29",
