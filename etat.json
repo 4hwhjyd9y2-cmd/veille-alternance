@@ -105,6 +105,18 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_EDF|54/96ca2fb5976cf2a2900566ede43ddeff": {
+   "le": "2026-10-05",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA_EDF|54/b2fdfc08ca465d94c02f107c5130d7ce": {
+   "le": "2026-10-05",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA_EDF|54/e255b219f34f7e03b77cf9df81a8ca37": {
+   "le": "2026-10-05",
+   "motif": "contrat non alternance"
+  },
   "JOBIJOBA_EIFFAGE|54/0c989addfb9f7eaa126cfb782cd98099": {
    "le": "2026-10-03",
    "motif": "commune trop loin (ancenis)"
@@ -113,9 +125,21 @@
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA_EIFFAGE|54/1ae37c41c2be8a2e66473c49d4ec29c5": {
+   "le": "2026-10-05",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/27acbe93afb931c2bb4c2cd4ff255dd5": {
+   "le": "2026-10-05",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA_EIFFAGE|54/2a980bf84a09b42eaa09f69edd4970e0": {
    "le": "2026-09-29",
    "motif": "commune trop loin (saint-nazaire)"
+  },
+  "JOBIJOBA_EIFFAGE|54/2c5c6c09743979c2a44d20bc239c1846": {
+   "le": "2026-10-05",
+   "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/2c8c76dbb398716d49f646ab9231706f": {
    "le": "2026-10-03",
@@ -128,6 +152,10 @@
   "JOBIJOBA_EIFFAGE|54/5f05d55fe17a62135bcd50ae3b4ed79b": {
    "le": "2026-09-29",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA_EIFFAGE|54/6cc8859c30995b19f027a956fe0dec91": {
+   "le": "2026-10-05",
+   "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/72d4165ff34a32ff334c662a25e35c4f": {
    "le": "2026-09-29",
@@ -191,6 +219,10 @@
   },
   "JOBIJOBA_EIFFAGE|54/b2a601ce75a1fe2b44a132fdb633cf0a": {
    "le": "2026-10-03",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/b3b6b5d3e3eb86e016d18ec73791b985": {
+   "le": "2026-10-05",
    "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/b3ebabacad880d1f595281bfe4385d7f": {
@@ -407,6 +439,10 @@
   },
   "JOBIJOBA_SPIE|54/4c7bf424b308930514498ccac97e8323": {
    "le": "2026-10-01",
+   "motif": "metier d'execution (technicien de maintenance)"
+  },
+  "JOBIJOBA_SPIE|54/612696e6274572ffc4ae46037627bbf5": {
+   "le": "2026-10-05",
    "motif": "metier d'execution (technicien de maintenance)"
   },
   "JOBIJOBA_SPIE|54/79c5a8837df976bfa8580d8e346ee06f": {
