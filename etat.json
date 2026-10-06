@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-10-03",
+ "dernier_mail": "2026-10-06",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -348,6 +348,10 @@
   "JOBIJOBA_NAVALGROUP|54/42de65bda4bac45908b2446153f838bd": {
    "le": "2026-09-29",
    "motif": "commune hors Nantes (Pays de la Loire)"
+  },
+  "JOBIJOBA_SNCF|54/00c71a12269ef36cf581216806bcdcd5": {
+   "le": "2026-10-06",
+   "motif": "employeur hors perimetre (Portzamparc)"
   },
   "JOBIJOBA_SNCF|54/01766dd97737299741142ad3a0480160": {
    "le": "2026-09-29",
