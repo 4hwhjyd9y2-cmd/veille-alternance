@@ -89,6 +89,10 @@
    "le": "2026-09-29",
    "motif": "contrat non alternance"
   },
+  "JOBIJOBA_EDF|54/10911b48a3c39170a1338c45c2b2c057": {
+   "le": "2026-10-07",
+   "motif": "contrat non alternance"
+  },
   "JOBIJOBA_EDF|54/277247741b877bcbdf080d08d71d1dff": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -104,6 +108,10 @@
   "JOBIJOBA_EDF|54/7184e1e4ea04290a4d01be8bd5c575c1": {
    "le": "2026-09-29",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA_EDF|54/7c9cd3c8daa611fc6c49cef98e96a2d1": {
+   "le": "2026-10-07",
+   "motif": "commune hors Nantes (Pays de la Loire)"
   },
   "JOBIJOBA_EDF|54/96ca2fb5976cf2a2900566ede43ddeff": {
    "le": "2026-10-05",
@@ -144,6 +152,22 @@
   "JOBIJOBA_EIFFAGE|54/2c8c76dbb398716d49f646ab9231706f": {
    "le": "2026-10-03",
    "motif": "commune hors Nantes (Varades 44370 Pays de la Loire)"
+  },
+  "JOBIJOBA_EIFFAGE|54/3413887e6b0051426dac117391050406": {
+   "le": "2026-10-07",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
+  "JOBIJOBA_EIFFAGE|54/3b022edb8d9432adb51e8056d72ea74d": {
+   "le": "2026-10-07",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
+  "JOBIJOBA_EIFFAGE|54/4806abd2f086046ee706a29a3292a172": {
+   "le": "2026-10-07",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
+  "JOBIJOBA_EIFFAGE|54/49f82c79f7f8b7b0c84e1f7985c264b0": {
+   "le": "2026-10-07",
+   "motif": "employeur hors perimetre (Golden Bees)"
   },
   "JOBIJOBA_EIFFAGE|54/4d15a7f9f8b883b263deee7ef430d53b": {
    "le": "2026-10-03",
@@ -361,6 +385,10 @@
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Bnp Paribas)"
   },
+  "JOBIJOBA_SNCF|54/0c4972666fe45336a8c1689d30fa07e4": {
+   "le": "2026-10-07",
+   "motif": "employeur hors perimetre (Gamme Solutions)"
+  },
   "JOBIJOBA_SNCF|54/2b33baa710dee88cc52eaa723b5de6a0": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Stage)"
@@ -393,6 +421,10 @@
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "JOBIJOBA_SNCF|54/79826e4f7a6ee117d0722062e25788f2": {
+   "le": "2026-10-07",
+   "motif": "employeur hors perimetre (Gamme Solutions)"
+  },
   "JOBIJOBA_SNCF|54/80139881e91aa5fe31656f8ec9aa9eda": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Openclassrooms)"
@@ -420,6 +452,14 @@
   "JOBIJOBA_SNCF|54/d866764abfb9e78ad8c7b413b8afefc7": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Bnp Paribas)"
+  },
+  "JOBIJOBA_SNCF|54/e415109e223eb42103acd4e30f4b3d3b": {
+   "le": "2026-10-07",
+   "motif": "fonction support (secretaire)"
+  },
+  "JOBIJOBA_SNCF|54/e635ea642169d88f71101beadcdd246d": {
+   "le": "2026-10-07",
+   "motif": "employeur hors perimetre (Gamme Solutions)"
   },
   "JOBIJOBA_SPIE|54/19039117ff3558407fb043137d24f4df": {
    "le": "2026-10-03",
