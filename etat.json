@@ -133,6 +133,10 @@
    "le": "2026-10-05",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_EDF|54/cdb33c44e2e09377e2bac44ce69b5974": {
+   "le": "2026-10-11",
+   "motif": "date introuvable"
+  },
   "JOBIJOBA_EDF|54/e255b219f34f7e03b77cf9df81a8ca37": {
    "le": "2026-10-05",
    "motif": "contrat non alternance"
@@ -140,6 +144,14 @@
   "JOBIJOBA_EDF|54/e7f08f27d1c0d7f11a493dda97c299c6": {
    "le": "2026-10-09",
    "motif": "commune hors Nantes (Pays de la Loire)"
+  },
+  "JOBIJOBA_EDF|54/ec2b930a5f500afc97aa7a9b94b6ddd9": {
+   "le": "2026-10-11",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA_EDF|54/ee654fed3b31e373339259217429f669": {
+   "le": "2026-10-11",
+   "motif": "contrat non alternance"
   },
   "JOBIJOBA_EIFFAGE|54/0c989addfb9f7eaa126cfb782cd98099": {
    "le": "2026-10-03",
@@ -152,6 +164,14 @@
   "JOBIJOBA_EIFFAGE|54/1ae37c41c2be8a2e66473c49d4ec29c5": {
    "le": "2026-10-05",
    "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/1c2936ee59383383fed732edce80c4f1": {
+   "le": "2026-10-11",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
+  "JOBIJOBA_EIFFAGE|54/2772602f50f5b406e91d23bb9e3006f3": {
+   "le": "2026-10-11",
+   "motif": "employeur hors perimetre (Golden Bees)"
   },
   "JOBIJOBA_EIFFAGE|54/27acbe93afb931c2bb4c2cd4ff255dd5": {
    "le": "2026-10-05",
@@ -193,6 +213,10 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_EIFFAGE|54/69d76c199dddf0f5321fba751d3f6307": {
+   "le": "2026-10-11",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
   "JOBIJOBA_EIFFAGE|54/6cc8859c30995b19f027a956fe0dec91": {
    "le": "2026-10-05",
    "motif": "commune trop loin (ancenis)"
@@ -204,6 +228,10 @@
   "JOBIJOBA_EIFFAGE|54/74e9740b559951abd748e2b52d9c8b11": {
    "le": "2026-10-03",
    "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/8072807b704c1c22cbe842b8a6475fbb": {
+   "le": "2026-10-11",
+   "motif": "employeur hors perimetre (Golden Bees)"
   },
   "JOBIJOBA_EIFFAGE|54/846ffb8454b934cce485aefae20ce5f2": {
    "le": "2026-09-29",
@@ -236,6 +264,10 @@
   "JOBIJOBA_EIFFAGE|54/97ff4e7e77d79c95ee8e0d3fe5a16a08": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/99421f65ba5fdb1f38fa8ddcc14fd707": {
+   "le": "2026-10-11",
+   "motif": "employeur hors perimetre (Golden Bees)"
   },
   "JOBIJOBA_EIFFAGE|54/9f56bbaaee254c84839f8210b48d41f7": {
    "le": "2026-10-03",
@@ -304,6 +336,10 @@
   "JOBIJOBA_EIFFAGE|54/f6f1edfe25605b55afdb6ba16af75f19": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/f9f0b62af76efb9ac27f96ec60553ad3": {
+   "le": "2026-10-11",
+   "motif": "employeur hors perimetre (Golden Bees)"
   },
   "JOBIJOBA_EIFFAGE|54/fe71bc0ea8e64037332734774e3828d8": {
    "le": "2026-10-03",
@@ -484,6 +520,10 @@
   "JOBIJOBA_SPIE|54/1a3f71aca93cd1406458f189eaf48929": {
    "le": "2026-10-03",
    "motif": "contrat non alternance"
+  },
+  "JOBIJOBA_SPIE|54/212f8c72bd7bab75e489a7e81ff9e053": {
+   "le": "2026-10-11",
+   "motif": "fonction support (commercial)"
   },
   "JOBIJOBA_SPIE|54/28dd987e7d58e5c713cdceb5c19ee6c0": {
    "le": "2026-09-29",
