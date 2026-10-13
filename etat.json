@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-10-06",
+ "dernier_mail": "2026-10-13",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -8,6 +8,10 @@
   "JOBIJOBA_AIRBUS|54/32b5a3efb636fad070919813700370ff": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Adecco)"
+  },
+  "JOBIJOBA_AIRBUS|54/5fe38d0221912892561c9b2259c7740c": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/6554bd0a4a6e53c6206b97d6becb5200": {
    "le": "2026-10-03",
@@ -377,6 +381,10 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_ENGIE|54/90115cfd5071b8a878221fe9b3c90d75": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "JOBIJOBA_ENGIE|54/907e61d1ebf7325d5c513b1ff67b9cbf": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -425,6 +433,10 @@
    "le": "2026-09-29",
    "motif": "commune hors Nantes (Pays de la Loire)"
   },
+  "JOBIJOBA_NAVALGROUP|54/5c14249fac01e096db194386898ddd17": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (DCNS - BU PROPULSION)"
+  },
   "JOBIJOBA_SNCF|54/00c71a12269ef36cf581216806bcdcd5": {
    "le": "2026-10-06",
    "motif": "employeur hors perimetre (Portzamparc)"
@@ -444,6 +456,10 @@
   "JOBIJOBA_SNCF|54/2b33baa710dee88cc52eaa723b5de6a0": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Stage)"
+  },
+  "JOBIJOBA_SNCF|54/2cea115ef985548884827ca4f1040c2e": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (Europeenne De Travaux Ferroviaires)"
   },
   "JOBIJOBA_SNCF|54/3483286d2ce54b1989d4f8f5fd241da4": {
    "le": "2026-09-29",
@@ -593,6 +609,10 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_SUEZ|54/9253c7ab5483b349e2e0e7969a6e9d58": {
+   "le": "2026-10-13",
+   "motif": "date introuvable"
+  },
   "JOBIJOBA_SUEZ|54/d6d15f8d2e3822cf19ffb3978fee1556": {
    "le": "2026-09-29",
    "motif": "fonction support (commercial)"
@@ -633,6 +653,10 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_VINCI|54/2cea115ef985548884827ca4f1040c2e": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (Europeenne De Travaux Ferroviaires)"
+  },
   "JOBIJOBA_VINCI|54/3e71c092accd63fb538c02e6f0118eac": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
@@ -645,6 +669,10 @@
    "le": "2026-10-01",
    "motif": "employeur hors perimetre (CFA Sup de Vinci)"
   },
+  "JOBIJOBA_VINCI|54/4c3f188eb8bce8e28ce1a85510632658": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (CFA Sup de Vinci)"
+  },
   "JOBIJOBA_VINCI|54/5aabb0fc77df9fd3cb4bef774ddf3474": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
@@ -652,6 +680,10 @@
   "JOBIJOBA_VINCI|54/5bf83c3df706e4104bd31e8a6f01f11e": {
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_VINCI|54/73b649ac8d27ce6437cf897b53a4c724": {
+   "le": "2026-10-13",
+   "motif": "date introuvable"
   },
   "JOBIJOBA_VINCI|54/85f6c79e00a3b0e2535d7c134d2f10f8": {
    "le": "2026-09-29",
@@ -673,6 +705,10 @@
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
   },
+  "JOBIJOBA_VINCI|54/dca4e0beee8900d929bf1d60ae2f6cd9": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (CFA Sup de Vinci)"
+  },
   "JOBIJOBA_VINCI|54/dfdc116e51cfb3449fab8add241b257e": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -692,6 +728,10 @@
   "JOBIJOBA_VINCI|54/ebeb410495b6621bd4332908db82fa41": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
+  },
+  "JOBIJOBA_VINCI|54/f913c7dc7715757c4b03b5e44daabd10": {
+   "le": "2026-10-13",
+   "motif": "employeur hors perimetre (CFA Sup de Vinci)"
   }
  }
 }
