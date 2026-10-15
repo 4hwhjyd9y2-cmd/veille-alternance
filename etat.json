@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-10-13",
+ "dernier_mail": "2026-10-15",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -283,6 +283,10 @@
   },
   "JOBIJOBA_EIFFAGE|54/a3288921e360efa294540bdcc55b99ba": {
    "le": "2026-09-29",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA_EIFFAGE|54/a42867acac7990724982886277d17695": {
+   "le": "2026-10-15",
    "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/a961049c3a4427af73b51906302fa47d": {
@@ -624,6 +628,10 @@
   "JOBIJOBA_VEOLIA|54/5a98fd54c6762831824362d3fa316d2e": {
    "le": "2026-09-29",
    "motif": "fonction support (formation)"
+  },
+  "JOBIJOBA_VEOLIA|54/6e8e7cd4b4b78821b8d0f8d823e1d2a2": {
+   "le": "2026-10-15",
+   "motif": "retenue"
   },
   "JOBIJOBA_VEOLIA|54/6f8d0027a5f012fcb6ddb3a8828c2435": {
    "le": "2026-09-29",
