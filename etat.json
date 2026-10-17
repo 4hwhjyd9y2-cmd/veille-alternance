@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-10-15",
+ "dernier_mail": "2026-10-17",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -113,6 +113,10 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_EDF|54/296b27c3e6fc82542aead4688b7cd209": {
+   "le": "2026-10-17",
+   "motif": "commune trop loin (la baule)"
+  },
   "JOBIJOBA_EDF|54/375293a11026d2ca260456a5f517f025": {
    "le": "2026-09-29",
    "motif": "commune hors Nantes (Pays de la Loire)"
@@ -132,6 +136,10 @@
   "JOBIJOBA_EDF|54/96ca2fb5976cf2a2900566ede43ddeff": {
    "le": "2026-10-05",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA_EDF|54/a8e1f58dec9637738421cc7bb44ac67a": {
+   "le": "2026-10-17",
+   "motif": "retenue"
   },
   "JOBIJOBA_EDF|54/b2fdfc08ca465d94c02f107c5130d7ce": {
    "le": "2026-10-05",
@@ -156,6 +164,10 @@
   "JOBIJOBA_EDF|54/ee654fed3b31e373339259217429f669": {
    "le": "2026-10-11",
    "motif": "contrat non alternance"
+  },
+  "JOBIJOBA_EDF|54/fca0aea2e172dd0d8b7c05cf0eef9cff": {
+   "le": "2026-10-17",
+   "motif": "commune trop loin (la baule)"
   },
   "JOBIJOBA_EIFFAGE|54/0c989addfb9f7eaa126cfb782cd98099": {
    "le": "2026-10-03",
