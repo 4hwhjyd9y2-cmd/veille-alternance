@@ -109,6 +109,10 @@
    "le": "2026-10-07",
    "motif": "contrat non alternance"
   },
+  "JOBIJOBA_EDF|54/153c6d89b137622fd04fa85d0b4fd282": {
+   "le": "2026-10-19",
+   "motif": "commune trop loin (la baule)"
+  },
   "JOBIJOBA_EDF|54/277247741b877bcbdf080d08d71d1dff": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -133,9 +137,17 @@
    "le": "2026-10-07",
    "motif": "commune hors Nantes (Pays de la Loire)"
   },
+  "JOBIJOBA_EDF|54/8af5bef5c1aa2a280d66c4bccc892e1a": {
+   "le": "2026-10-19",
+   "motif": "metier d'execution (monteur)"
+  },
   "JOBIJOBA_EDF|54/96ca2fb5976cf2a2900566ede43ddeff": {
    "le": "2026-10-05",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA_EDF|54/a0161384c90bdca7c48cdd0153720629": {
+   "le": "2026-10-19",
+   "motif": "annonce de plus de 30 jours (2026-09-17)"
   },
   "JOBIJOBA_EDF|54/a8e1f58dec9637738421cc7bb44ac67a": {
    "le": "2026-10-17",
@@ -164,6 +176,10 @@
   "JOBIJOBA_EDF|54/ee654fed3b31e373339259217429f669": {
    "le": "2026-10-11",
    "motif": "contrat non alternance"
+  },
+  "JOBIJOBA_EDF|54/f7e5b654713a4399c671ecadcc990079": {
+   "le": "2026-10-19",
+   "motif": "annonce de plus de 30 jours (2026-09-17)"
   },
   "JOBIJOBA_EDF|54/fca0aea2e172dd0d8b7c05cf0eef9cff": {
    "le": "2026-10-17",
