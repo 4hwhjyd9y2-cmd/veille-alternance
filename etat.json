@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-10-17",
+ "dernier_mail": "2026-10-21",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -633,6 +633,14 @@
    "le": "2026-09-29",
    "motif": "fonction support (commercial)"
   },
+  "JOBIJOBA_SUEZ|54/31511413f7d5005c3cc9b0e319921827": {
+   "le": "2026-10-21",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
+  "JOBIJOBA_SUEZ|54/32b8df4b44107031039ca5240abb4351": {
+   "le": "2026-10-21",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
   "JOBIJOBA_SUEZ|54/3a940beba9ac6a3d0ed9746b33608b24": {
    "le": "2026-09-29",
    "motif": "fonction support (commercial)"
@@ -641,16 +649,32 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_SUEZ|54/9172bf2ccad9c403de7121e02663588d": {
+   "le": "2026-10-21",
+   "motif": "fonction support (commercial)"
+  },
   "JOBIJOBA_SUEZ|54/9253c7ab5483b349e2e0e7969a6e9d58": {
    "le": "2026-10-13",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA_SUEZ|54/b4beab3ad52cad87e6837459d728ac34": {
+   "le": "2026-10-21",
+   "motif": "employeur hors perimetre (Golden Bees)"
   },
   "JOBIJOBA_SUEZ|54/d6d15f8d2e3822cf19ffb3978fee1556": {
    "le": "2026-09-29",
    "motif": "fonction support (commercial)"
   },
+  "JOBIJOBA_SUEZ|54/d73bd4b419ea9b9c7a0d55b965e378d6": {
+   "le": "2026-10-21",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
   "JOBIJOBA_VEOLIA|54/35770595f6a1340e1922e583c7556c6a": {
    "le": "2026-10-01",
+   "motif": "retenue"
+  },
+  "JOBIJOBA_VEOLIA|54/4ec066e1655b09f5bac8fe150bb51f66": {
+   "le": "2026-10-21",
    "motif": "retenue"
   },
   "JOBIJOBA_VEOLIA|54/5a98fd54c6762831824362d3fa316d2e": {
@@ -725,9 +749,17 @@
    "le": "2026-09-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA_VINCI|54/91ce867dab8b67d9d34689153145222e": {
+   "le": "2026-10-21",
+   "motif": "employeur hors perimetre (Délégation Bâtiment Nord-Ouest)"
+  },
   "JOBIJOBA_VINCI|54/9442e33935662ea5306db9b562d6be1c": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
+  },
+  "JOBIJOBA_VINCI|54/abf243f4cf101b95a5038de0f8684a9a": {
+   "le": "2026-10-21",
+   "motif": "metier d'execution (coffreur)"
   },
   "JOBIJOBA_VINCI|54/beaa59751bf35a3bb943f530b8282735": {
    "le": "2026-10-03",
@@ -764,6 +796,10 @@
   "JOBIJOBA_VINCI|54/ebeb410495b6621bd4332908db82fa41": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Sup De Vinci Nantes)"
+  },
+  "JOBIJOBA_VINCI|54/f66a6a58a45c8d57a64c85c39fc812ab": {
+   "le": "2026-10-21",
+   "motif": "metier d'execution (coffreur)"
   },
   "JOBIJOBA_VINCI|54/f913c7dc7715757c4b03b5e44daabd10": {
    "le": "2026-10-13",
