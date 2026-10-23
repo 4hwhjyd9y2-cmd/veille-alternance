@@ -229,6 +229,10 @@
    "le": "2026-10-07",
    "motif": "employeur hors perimetre (Golden Bees)"
   },
+  "JOBIJOBA_EIFFAGE|54/3efabc5a15fc1504b227a6c5080de1cd": {
+   "le": "2026-10-23",
+   "motif": "commune trop loin (saint-nazaire)"
+  },
   "JOBIJOBA_EIFFAGE|54/4806abd2f086046ee706a29a3292a172": {
    "le": "2026-10-07",
    "motif": "employeur hors perimetre (Golden Bees)"
@@ -345,6 +349,10 @@
    "le": "2026-09-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA_EIFFAGE|54/cfd816ca083d6a032719a0f900817b2e": {
+   "le": "2026-10-23",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA_EIFFAGE|54/d36e3f111b8c766c729291dce3406163": {
    "le": "2026-10-03",
    "motif": "commune trop loin (ancenis)"
@@ -352,6 +360,10 @@
   "JOBIJOBA_EIFFAGE|54/dd348affd48e9e297497fc954f98f5ae": {
    "le": "2026-10-03",
    "motif": "commune hors Nantes (Pays de la Loire)"
+  },
+  "JOBIJOBA_EIFFAGE|54/df3b9d1a854cb8fd8f85b6420eb02df0": {
+   "le": "2026-10-23",
+   "motif": "commune trop loin (ancenis)"
   },
   "JOBIJOBA_EIFFAGE|54/e8280f1e9e1c3794cc2153ef98b6a0d6": {
    "le": "2026-09-29",
@@ -800,6 +812,10 @@
   "JOBIJOBA_VINCI|54/f66a6a58a45c8d57a64c85c39fc812ab": {
    "le": "2026-10-21",
    "motif": "metier d'execution (coffreur)"
+  },
+  "JOBIJOBA_VINCI|54/f6e7de2b582d672822b41b01bf09bc87": {
+   "le": "2026-10-23",
+   "motif": "employeur hors perimetre (Délégation Bâtiment Nord-Ouest)"
   },
   "JOBIJOBA_VINCI|54/f913c7dc7715757c4b03b5e44daabd10": {
    "le": "2026-10-13",
