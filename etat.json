@@ -1,5 +1,5 @@
 {
- "dernier_mail": "2026-10-21",
+ "dernier_mail": "2026-10-25",
  "vues": {
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -8,6 +8,10 @@
   "JOBIJOBA_AIRBUS|54/32b5a3efb636fad070919813700370ff": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Adecco)"
+  },
+  "JOBIJOBA_AIRBUS|54/38c136f2d3cd5b6e0fdeba9cf463154d": {
+   "le": "2026-10-25",
+   "motif": "employeur hors perimetre (Derichebourg Aeronautics Services)"
   },
   "JOBIJOBA_AIRBUS|54/5fe38d0221912892561c9b2259c7740c": {
    "le": "2026-10-13",
@@ -128,6 +132,10 @@
   "JOBIJOBA_EDF|54/42de65bda4bac45908b2446153f838bd": {
    "le": "2026-09-29",
    "motif": "commune hors Nantes (Pays de la Loire)"
+  },
+  "JOBIJOBA_EDF|54/44e42b46e8787e1f6d8683e1ca3a73e7": {
+   "le": "2026-10-25",
+   "motif": "metier d'execution (bobinier)"
   },
   "JOBIJOBA_EDF|54/7184e1e4ea04290a4d01be8bd5c575c1": {
    "le": "2026-09-29",
@@ -549,6 +557,18 @@
    "le": "2026-09-29",
    "motif": "contrat non alternance"
   },
+  "JOBIJOBA_SNCF|54/9e3239a3358fa83d67a0473d66d826ef": {
+   "le": "2026-10-25",
+   "motif": "employeur hors perimetre (Portzamparc)"
+  },
+  "JOBIJOBA_SNCF|54/a3649ddfbf89919d8853e3527334334d": {
+   "le": "2026-10-25",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
+  "JOBIJOBA_SNCF|54/b4275a5eee95bb57bdc82c6cac16a0f1": {
+   "le": "2026-10-25",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
   "JOBIJOBA_SNCF|54/c02a4beb9fffdcc9f61106a962896afd": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -569,9 +589,17 @@
    "le": "2026-10-07",
    "motif": "fonction support (secretaire)"
   },
+  "JOBIJOBA_SNCF|54/e5f4b4685208ffadb59451faab4374f2": {
+   "le": "2026-10-25",
+   "motif": "employeur hors perimetre (Golden Bees)"
+  },
   "JOBIJOBA_SNCF|54/e635ea642169d88f71101beadcdd246d": {
    "le": "2026-10-07",
    "motif": "employeur hors perimetre (Gamme Solutions)"
+  },
+  "JOBIJOBA_SNCF|54/f71e85fce11363570a83c9e7edb73380": {
+   "le": "2026-10-25",
+   "motif": "employeur hors perimetre (Golden Bees)"
   },
   "JOBIJOBA_SPIE|54/19039117ff3558407fb043137d24f4df": {
    "le": "2026-10-03",
@@ -692,6 +720,10 @@
   "JOBIJOBA_VEOLIA|54/5a98fd54c6762831824362d3fa316d2e": {
    "le": "2026-09-29",
    "motif": "fonction support (formation)"
+  },
+  "JOBIJOBA_VEOLIA|54/6d5c5a50de2f220125c36cc5dab6ffb0": {
+   "le": "2026-10-25",
+   "motif": "retenue"
   },
   "JOBIJOBA_VEOLIA|54/6e8e7cd4b4b78821b8d0f8d823e1d2a2": {
    "le": "2026-10-15",
