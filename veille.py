@@ -892,6 +892,18 @@ def charger_config():
             cfg["suivi"] = p.get("suivi", "url", fallback="")
     return cfg
 
+def resume(texte, longueur=280):
+    """Debut de la description, coupe au dernier mot entier."""
+    texte = re.sub(r"\s+", " ", texte or "").strip()
+    if len(texte) <= longueur:
+        return texte
+    coupe = texte[:longueur].rsplit(" ", 1)[0].rstrip(" ,;:.-")
+    return coupe + "\u2026"
+
+def lien_suivi(url_suivi, offre):
+    """Adresse de la page de suivi, ouverte directement sur la carte de l'offre."""
+    return "%s#offre-%s" % (url_suivi, offre["id"]) if url_suivi else ""
+
 def rediger(retenues, stats, url_suivi):
     par_famille = {}
     for o in retenues:
@@ -913,11 +925,19 @@ def rediger(retenues, stats, url_suivi):
             if o["missions"]:
                 lignes.append("  %s" % o["missions"])
             lignes.append("  %s" % o["lien"])
+            suivi = lien_suivi(url_suivi, o)
+            if suivi:
+                lignes.append("  Dans le suivi : %s" % suivi)
+            # tout est echappe : un titre ou une description d'API contenant
+            # < ou & casserait sinon le HTML du mail
+            e = lambda v: _html.escape(str(v or ""), quote=True)
             html.append(
                 "<li><b>%s</b><br>%s, %s<br>publiee le %s, niveau %s<br>%s<br>"
-                "<a href=\"%s\">Voir l'annonce</a></li>" %
-                (o["titre"], o["employeur"], o["commune"], o["publiee"] or "date inconnue",
-                 o["niveau"], o["missions"], o["lien"]))
+                "<a href=\"%s\">Voir l'annonce</a>%s</li>" %
+                (e(o["titre"]), e(o["employeur"]), e(o["commune"]),
+                 e(o["publiee"] or "date inconnue"), e(o["niveau"]), e(o["missions"]),
+                 e(o["lien"]),
+                 (" &middot; <a href=\"%s\">Ouvrir dans le suivi</a>" % e(suivi)) if suivi else ""))
         html.append("</ul>")
 
     if url_suivi:
@@ -1090,7 +1110,7 @@ def passage(test=False, force_mail=False):
             "niveau": fiche.get("niveau", "non precise"),
             "publiee": fiche["date"],
             "lien": url,
-            "missions": fiche["description"][:280],
+            "missions": resume(fiche["description"]),
             "source": "veille",
             "ajoutee": aujourdhui,
         }

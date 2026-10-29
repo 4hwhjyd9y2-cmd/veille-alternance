@@ -293,3 +293,14 @@ for nom, attendu in [("ELECTRICITE DE FRANCE", "EDF"), ("GAZ RESEAU DISTRIBUTION
                      ("SPIE BATIGNOLLES PAYSAGE", None), ("IDEX ENERGIES", None)]:
     g = veille.trouver_groupe({"employeur_declare": nom, "titre": "Alternance", "description": ""})
     print("%-4s %-36s -> %s" % ("OK" if g == attendu else "RATE", nom, g or "hors perimetre"))
+
+print("\nMail et resume des missions :")
+r = veille.resume("mot " * 100)
+print("%-4s resume coupe au mot (%d car.) -> ...%s" % ("OK" if len(r) <= 281 and r.endswith("mot…") else "RATE", len(r), r[-12:].encode("ascii", "replace").decode()))
+print("%-4s texte court intact" % ("OK" if veille.resume("Audit energetique.") == "Audit energetique." else "RATE"))
+o = {"id": "lba-6ac", "titre": "R&D <ingenieur>", "employeur": "EDF", "commune": "Nantes", "publiee": "2026-10-28",
+     "niveau": "ingenieur", "missions": "a & b", "lien": "https://x.test/?a=1&b=2", "famille": "technique"}
+_, texte, html_mail = veille.rediger([o], {"par_groupe": {}, "vues": 1, "ouvertes": 1, "reportees": 0},
+                                     "https://exemple.github.io/veille/")
+print("%-4s HTML echappe" % ("OK" if "R&amp;D &lt;ingenieur&gt;" in html_mail and "<ingenieur>" not in html_mail else "RATE"))
+print("%-4s lien vers la carte du suivi" % ("OK" if "https://exemple.github.io/veille/#offre-lba-6ac" in texte else "RATE"))

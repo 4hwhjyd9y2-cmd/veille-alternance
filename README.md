@@ -284,7 +284,22 @@ offres supprimees a la main sont memorisees sous la cle
 
 **Sauvegarde** : boutons d'export et d'import en JSON. Indispensable, puisque
 le stockage navigateur ne survit ni a un effacement des donnees de navigation,
-ni a un changement d'appareil.
+ni a un changement d'appareil. Le fichier contient les offres et la liste des
+offres supprimees (`{"format": "suivi-alternance", "version": 2, "offres":
+[...], "supprimes": [...]}`) ; l'ancien format, une simple liste, reste lisible.
+A l'import, la sauvegarde l'emporte : une offre deja presente est remise dans
+l'etat de la sauvegarde. Sinon, sur un nouvel appareil, la page ayant deja
+ajoute les offres de la veille au statut « a etudier », l'import perdait tous
+les statuts et les notes.
+
+**Recherche** : un champ filtre les cartes sur l'intitule, l'employeur, le
+groupe, la commune et les notes, sans tenir compte des accents.
+
+**Lien direct** : `index.html#offre-<identifiant>` ouvre la page sur la carte
+de l'offre et la met en evidence. Chaque offre du mail porte ce lien.
+
+**Liens surs** : seuls les liens `http` et `https` sont affiches, puisqu'une
+partie d'entre eux vient desormais d'une API exterieure.
 
 **Limite connue** : la page doit etre servie par une adresse `https`. Chrome
 refuse le stockage local a une page ouverte depuis un fichier telecharge.

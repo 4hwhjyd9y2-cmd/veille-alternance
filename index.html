@@ -52,6 +52,9 @@ button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-vis
 .list{display:flex;flex-direction:column;gap:10px}
 .offer{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:10px}
 .offer.is-closed{opacity:.72}
+.offer.cible{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.field.recherche{flex-direction:row;align-items:center;gap:10px}
+.field.recherche input{flex:1;min-width:0}
 .top{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
 .title{font:600 1.05rem/1.3 var(--body);margin:0;text-wrap:balance}
 .meta{color:var(--muted);font-size:.9rem;margin-top:2px}
@@ -89,29 +92,30 @@ footer{color:var(--muted);font-size:.85rem}
 <div class="wrap">
   <header>
     <h1>Candidatures alternance Nantes</h1>
-    <p>Les offres retenues par la veille arrivent ici a chaque passage. Change leur statut au fil de tes candidatures : le suivi te signale les relances, dix jours apres l'envoi. Tout est enregistre dans ce navigateur.</p>
+    <p>Les offres retenues par la veille arrivent ici à chaque passage. Change leur statut au fil de tes candidatures : le suivi te signale les relances, dix jours après l'envoi. Tout est enregistré dans ce navigateur.</p>
   </header>
 
   <nav class="pipeline" id="pipeline" aria-label="Filtrer par statut"></nav>
+  <label class="field recherche">Rechercher<input id="q" type="search" placeholder="Intitulé, employeur, commune…" autocomplete="off"></label>
   <div id="alert" class="alert" hidden></div>
   <div id="notice" class="notice">Chargement…</div>
   <section class="list" id="list" aria-live="polite"></section>
 
   <details class="add" id="add-box">
-    <summary>Ajouter une offre a la main</summary>
+    <summary>Ajouter une offre à la main</summary>
     <form id="add-form">
-      <label class="field full">Intitule<input id="f-titre" required placeholder="Alternant ingenieur methodes"></label>
+      <label class="field full">Intitulé<input id="f-titre" required placeholder="Alternant ingénieur méthodes"></label>
       <label class="field">Employeur<input id="f-employeur" required placeholder="SPIE Industrie"></label>
       <label class="field">Commune<input id="f-commune" placeholder="Nantes"></label>
       <label class="field">Famille
         <select id="f-famille">
           <option value="technique">Technique</option>
-          <option value="energie">Performance energetique et EnR</option>
+          <option value="energie">Performance énergétique et EnR</option>
           <option value="projet">Conduite de projet et d'affaires</option>
           <option value="qse">QSE</option>
         </select>
       </label>
-      <label class="field">Publiee le<input id="f-publiee" type="date"></label>
+      <label class="field">Publiée le<input id="f-publiee" type="date"></label>
       <label class="field full">Lien de l'annonce<input id="f-lien" type="url" placeholder="https://"></label>
       <div class="full"><button class="btn" type="submit">Ajouter au suivi</button> <span class="save" id="f-state"></span></div>
     </form>
@@ -120,34 +124,51 @@ footer{color:var(--muted);font-size:.85rem}
   <details class="outils">
     <summary>Sauvegarde</summary>
     <div class="rangee">
-      <button class="btn ghost" id="export">Exporter mes donnees</button>
+      <button class="btn ghost" id="export">Exporter mes données</button>
       <label class="btn ghost" for="import">Importer un fichier</label>
       <input id="import" type="file" accept="application/json" hidden>
       <span class="save" id="io-state"></span>
     </div>
-    <p class="meta">Le suivi vit dans ce navigateur. Exporte de temps en temps, et surtout avant d'effacer les donnees de navigation ou de changer d'appareil.</p>
+    <p class="meta">Le suivi vit dans ce navigateur. Exporte de temps en temps, et surtout avant d'effacer les données de navigation ou de changer d'appareil. L'import remet chaque offre dans l'état de la sauvegarde, statuts et notes compris, et retire les offres supprimées.</p>
   </details>
 
-  <footer>Relance conseillee dix jours apres la candidature ou la derniere relance. Les offres refusees ou archivees sont masquees de la vue « En cours ». <span id="maj" class="mono"></span></footer>
+  <footer>Relance conseillée dix jours après la candidature ou la dernière relance. Les offres refusées ou archivées sont masquées de la vue « En cours ». <span id="maj" class="mono"></span></footer>
 </div>
 
 <script>
 (function(){
   var CLE="suivi-alternance-v1", CLE_SUPPR="suivi-alternance-supprimes";
-  var STATUTS=[["a_etudier","A etudier"],["a_postuler","A postuler"],["postule","Postule"],["relance","Relance"],
-               ["entretien","Entretien"],["accepte","Accepte"],["refus","Refus"],["archive","Archive"]];
+  var STATUTS=[["a_etudier","À étudier"],["a_postuler","À postuler"],["postule","Postulé"],["relance","Relancé"],
+               ["entretien","Entretien"],["accepte","Accepté"],["refus","Refusé"],["archive","Archivé"]];
   var LABEL={},ORDER={};STATUTS.forEach(function(s,i){LABEL[s[0]]=s[1];ORDER[s[0]]=i});
-  var FAMILLES={technique:"Technique",energie:"Performance energetique et EnR",
+  var FAMILLES={technique:"Technique",energie:"Performance énergétique et EnR",
                 projet:"Conduite de projet et d'affaires",qse:"QSE"};
   var CLOSED={refus:1,archive:1}, RELANCE_JOURS=10;
-  var offers=[], filter="encours", supprimes={};
+  var offers=[], filter="encours", supprimes={}, recherche="", cible=null;
 
   function $(id){return document.getElementById(id)}
   function today(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
   function daysSince(iso){if(!iso)return null;var t=Date.parse(iso+"T12:00:00");return isNaN(t)?null:Math.floor((Date.now()-t)/86400000)}
   function frDate(iso){if(!iso)return "";var p=String(iso).split("-");if(p.length!==3)return iso;
-    var m=["janv.","fevr.","mars","avr.","mai","juin","juil.","aout","sept.","oct.","nov.","dec."][+p[1]-1];
+    var m=["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."][+p[1]-1];
     return (+p[2])+" "+m+" "+p[0]}
+  // sans accents ni majuscules, pour la recherche
+  function plat(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()}
+  // seuls les liens web sont suivis : un lien d'API en javascript: ne doit rien executer
+  function lienSur(u){u=String(u||"").trim();return /^https?:\/\//i.test(u)?u:""}
+  function heureParis(iso){var t=Date.parse(iso);if(isNaN(t))return iso;
+    try{return new Date(t).toLocaleString("fr-FR",{timeZone:"Europe/Paris",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}
+    catch(e){return iso}}
+  // une offre importee ou lue sur le disque a toujours tous ses champs, et un statut connu
+  function propre(o){
+    var p={id:String(o.id),titre:o.titre||"Sans intitulé",employeur:o.employeur||"",groupe:o.groupe||"",
+      commune:o.commune||"",famille:FAMILLES[o.famille]?o.famille:"technique",niveau:o.niveau||"",
+      publiee:o.publiee||"",lien:lienSur(o.lien),missions:o.missions||"",source:o.source||"veille",
+      ajoutee:o.ajoutee||today(),statut:LABEL[o.statut]?o.statut:"a_etudier",notes:o.notes||"",
+      datePostule:o.datePostule||"",dateRelance:o.dateRelance||""};
+    if(o.majLe)p.majLe=o.majLe;
+    return p}
+  function memoriserSupprimes(){try{localStorage.setItem(CLE_SUPPR,JSON.stringify(Object.keys(supprimes)))}catch(e){}}
   function el(tag,a,kids){var n=document.createElement(tag);if(a)for(var k in a){
     if(k==="text")n.textContent=a[k];else if(k==="cls")n.className=a[k];else n.setAttribute(k,a[k])}
     (kids||[]).forEach(function(c){if(c)n.appendChild(c)});return n}
@@ -156,17 +177,17 @@ footer{color:var(--muted);font-size:.85rem}
 
   function lire(){try{var b=localStorage.getItem(CLE);return b?JSON.parse(b):[]}catch(e){return []}}
   function ecrire(){try{localStorage.setItem(CLE,JSON.stringify(offers));return true}
-    catch(e){$("notice").hidden=false;$("notice").textContent="Ce navigateur refuse d'enregistrer. Ouvre la page par son adresse https, pas depuis un fichier local, et desactive la navigation privee.";return false}}
+    catch(e){$("notice").hidden=false;$("notice").textContent="Ce navigateur refuse d'enregistrer. Ouvre la page par son adresse https, pas depuis un fichier local, et désactive la navigation privée.";return false}}
 
   function fusionner(liste){
     var connus={};offers.forEach(function(o){connus[o.id]=1});
     var ajout=0;
     (liste||[]).forEach(function(o){
       if(!o||!o.id||connus[o.id]||supprimes[o.id])return;
-      offers.push({id:o.id,titre:o.titre||"Sans intitule",employeur:o.employeur||"",groupe:o.groupe||"",
-        commune:o.commune||"",famille:FAMILLES[o.famille]?o.famille:"technique",niveau:o.niveau||"",
-        publiee:o.publiee||"",lien:o.lien||"",missions:o.missions||"",source:"veille",
-        ajoutee:o.ajoutee||today(),statut:"a_etudier",notes:"",datePostule:"",dateRelance:""});
+      // une offre de la veille arrive toujours vierge : statut, notes et dates sont les tiens
+      offers.push(propre({id:o.id,titre:o.titre,employeur:o.employeur,groupe:o.groupe,commune:o.commune,
+        famille:o.famille,niveau:o.niveau,publiee:o.publiee,lien:o.lien,missions:o.missions,
+        source:"veille",ajoutee:o.ajoutee}));
       ajout++;
     });
     if(ajout)ecrire();
@@ -190,7 +211,7 @@ footer{color:var(--muted);font-size:.85rem}
     var d=offers.filter(due),a=$("alert");
     if(!d.length){a.hidden=true;return}
     a.hidden=false;a.textContent="";
-    a.appendChild(el("strong",{text:d.length===1?"1 relance a faire":d.length+" relances a faire"}));
+    a.appendChild(el("strong",{text:d.length===1?"1 relance à faire":d.length+" relances à faire"}));
     a.appendChild(el("span",{text:d.map(function(o){return o.employeur||o.titre}).join(", ")}));
   }
 
@@ -203,14 +224,14 @@ footer{color:var(--muted);font-size:.85rem}
     var chips=el("div",{cls:"chips"});
     if(FAMILLES[o.famille])chips.appendChild(el("span",{cls:"chip fam",text:FAMILLES[o.famille]}));
     if(o.niveau)chips.appendChild(el("span",{cls:"chip",text:o.niveau}));
-    if(due(o))chips.appendChild(el("span",{cls:"chip due",text:"Relance conseillee"}));
+    if(due(o))chips.appendChild(el("span",{cls:"chip due",text:"Relance conseillée"}));
     if(o.statut==="a_etudier"&&daysSince(o.ajoutee)!==null&&daysSince(o.ajoutee)<=2)
       chips.appendChild(el("span",{cls:"chip new",text:"Nouvelle"}));
 
     var head=el("div",{cls:"top"},[
       el("div",null,[el("h2",{cls:"title",text:o.titre}),
         el("div",{cls:"meta",text:[o.employeur,o.commune].filter(Boolean).join(" · ")}),
-        o.publiee?el("div",{cls:"meta mono",text:"Publiee le "+frDate(o.publiee)}):null]),
+        o.publiee?el("div",{cls:"meta mono",text:"Publiée le "+frDate(o.publiee)}):null]),
       chips]);
 
     var sel=el("select",{cls:"st","data-s":o.statut,"aria-label":"Statut","id":"st-"+o.id});
@@ -222,24 +243,25 @@ footer{color:var(--muted);font-size:.85rem}
       maj(o,p);
     });
 
-    var dp=el("input",{type:"date",id:"dp-"+o.id,value:o.datePostule||""});
-    dp.addEventListener("change",function(){maj(o,{datePostule:dp.value})});
-
-    var ctr=el("div",{cls:"controls"},[
-      el("label",{cls:"field"},[document.createTextNode("Statut"),sel]),
-      el("label",{cls:"field"},[document.createTextNode("Candidature le"),dp])]);
-    if(o.lien)ctr.appendChild(el("a",{cls:"btn ghost",href:o.lien,target:"_blank",rel:"noopener",text:"Voir l'annonce"}));
+    var ctr=el("div",{cls:"controls"},[el("label",{cls:"field"},[document.createTextNode("Statut"),sel])]);
+    // la date de candidature n'a de sens qu'une fois la candidature partie
+    if(ORDER[o.statut]>=ORDER.postule||o.datePostule){
+      var dp=el("input",{type:"date",id:"dp-"+o.id,value:o.datePostule||""});
+      dp.addEventListener("change",function(){maj(o,{datePostule:dp.value})});
+      ctr.appendChild(el("label",{cls:"field"},[document.createTextNode("Candidature le"),dp]));
+    }
+    var lien=lienSur(o.lien);
+    if(lien)ctr.appendChild(el("a",{cls:"btn ghost",href:lien,target:"_blank",rel:"noopener",text:"Voir l'annonce"}));
     var sup=el("button",{cls:"btn danger",type:"button",text:"Supprimer"});
     sup.addEventListener("click",function(){
-      if(!confirm("Supprimer definitivement « "+o.titre+" » du suivi ?"))return;
+      if(!confirm("Supprimer définitivement « "+o.titre+" » du suivi ?"))return;
       offers=offers.filter(function(x){return x.id!==o.id});
-      supprimes[o.id]=1;
-      try{localStorage.setItem(CLE_SUPPR,JSON.stringify(Object.keys(supprimes)))}catch(e){}
+      supprimes[o.id]=1;memoriserSupprimes();
       ecrire();render();
     });
     ctr.appendChild(sup);
 
-    var ta=el("textarea",{id:"nt-"+o.id,placeholder:"Contact, date d'entretien, questions a poser…"});
+    var ta=el("textarea",{id:"nt-"+o.id,placeholder:"Contact, date d'entretien, questions à poser…"});
     ta.value=o.notes||"";
     ta.addEventListener("change",function(){maj(o,{notes:ta.value})});
     var notes=el("details",{cls:"notes"},[el("summary",{text:o.notes?"Notes":"Ajouter une note"}),ta]);
@@ -248,7 +270,8 @@ footer{color:var(--muted);font-size:.85rem}
     var kids=[head];
     if(o.missions)kids.push(el("p",{cls:"missions",text:o.missions}));
     kids.push(ctr,notes);
-    return el("article",{cls:"offer"+(CLOSED[o.statut]?" is-closed":""),"data-id":o.id},kids);
+    return el("article",{cls:"offer"+(CLOSED[o.statut]?" is-closed":"")+(o.id===cible?" cible":""),
+                         "data-id":o.id,id:"offre-"+o.id},kids);
   }
 
   function render(){
@@ -257,7 +280,11 @@ footer{color:var(--muted);font-size:.85rem}
     var act=document.activeElement,id=act&&act.id&&list.contains(act)?act.id:null;
     var val=id?act.value:null,sel=id&&act.selectionStart!=null?[act.selectionStart,act.selectionEnd]:null;
     list.textContent="";
-    var vus=offers.filter(function(o){return filter==="encours"?!CLOSED[o.statut]:o.statut===filter});
+    var q=plat(recherche).trim();
+    var vus=offers.filter(function(o){
+      if(filter==="encours"?CLOSED[o.statut]:o.statut!==filter)return false;
+      return !q||plat([o.titre,o.employeur,o.groupe,o.commune,o.notes].join(" ")).indexOf(q)>=0;
+    });
     vus.sort(function(a,b){
       var da=due(a)?-1:0,db=due(b)?-1:0;if(da!==db)return da-db;
       var s=(ORDER[a.statut]||0)-(ORDER[b.statut]||0);if(s)return s;
@@ -265,8 +292,8 @@ footer{color:var(--muted);font-size:.85rem}
     });
     vus.forEach(function(o){list.appendChild(carte(o))});
     var n=$("notice");
-    if(!offers.length){n.hidden=false;n.textContent="Aucune offre pour l'instant. Le prochain passage de la veille deposera ici ce qu'elle trouve, ou ajoute une offre a la main ci-dessous."}
-    else if(!vus.length){n.hidden=false;n.textContent="Aucune offre dans ce statut."}
+    if(!offers.length){n.hidden=false;n.textContent="Aucune offre pour l'instant. Le prochain passage de la veille déposera ici ce qu'elle trouve, ou ajoute une offre à la main ci-dessous."}
+    else if(!vus.length){n.hidden=false;n.textContent=q?"Aucune offre ne correspond à « "+recherche.trim()+" » dans ce statut.":"Aucune offre dans ce statut."}
     else n.hidden=true;
     if(id){var k=$(id);if(k){if(k.tagName==="TEXTAREA"||k.type==="date")k.value=val;k.focus();
       if(sel&&k.setSelectionRange)try{k.setSelectionRange(sel[0],sel[1])}catch(e){}}}
@@ -276,19 +303,24 @@ footer{color:var(--muted);font-size:.85rem}
     ev.preventDefault();
     var t=$("f-titre").value.trim(),e=$("f-employeur").value.trim();
     if(!t||!e)return;
-    offers.push({id:"manuel-"+Date.now(),titre:t,employeur:e,commune:$("f-commune").value.trim(),
+    offers.push(propre({id:"manuel-"+Date.now(),titre:t,employeur:e,commune:$("f-commune").value.trim(),
       famille:$("f-famille").value,publiee:$("f-publiee").value,lien:$("f-lien").value.trim(),
-      niveau:"",missions:"",groupe:"",source:"manuel",ajoutee:today(),statut:"a_etudier",
-      notes:"",datePostule:"",dateRelance:""});
-    if(ecrire()){$("add-form").reset();$("f-state").textContent="Ajoutee";render()}
+      source:"manuel"}));
+    if(ecrire()){$("add-form").reset();$("f-state").textContent="Ajoutée";render()}
   });
 
+  $("q").addEventListener("input",function(){recherche=this.value;render()});
+
   $("export").addEventListener("click",function(){
-    var b=new Blob([JSON.stringify(offers,null,1)],{type:"application/json"});
-    var a=document.createElement("a");
-    a.href=URL.createObjectURL(b);a.download="suivi-candidatures-"+today()+".json";
+    // les offres supprimees partent aussi : sans elles, la veille les
+    // remettrait dans le suivi sur un nouvel appareil
+    var d={format:"suivi-alternance",version:2,exporte:today(),offres:offers,supprimes:Object.keys(supprimes)};
+    var b=new Blob([JSON.stringify(d,null,1)],{type:"application/json"});
+    var a=document.createElement("a"),url=URL.createObjectURL(b);
+    a.href=url;a.download="suivi-candidatures-"+today()+".json";
     document.body.appendChild(a);a.click();a.remove();
-    $("io-state").textContent="Fichier enregistre";
+    setTimeout(function(){URL.revokeObjectURL(url)},1000);
+    $("io-state").textContent="Fichier enregistré";
   });
 
   $("import").addEventListener("change",function(ev){
@@ -297,25 +329,50 @@ footer{color:var(--muted);font-size:.85rem}
     r.onload=function(){
       try{
         var d=JSON.parse(r.result);
-        if(!Array.isArray(d))throw 0;
-        var connus={};offers.forEach(function(o){connus[o.id]=1});
-        var n=0;d.forEach(function(o){if(o&&o.id&&!connus[o.id]){offers.push(o);n++}});
-        ecrire();render();$("io-state").textContent=n+" offre(s) ajoutee(s)";
+        // ancien format : la liste seule ; nouveau : {offres, supprimes}
+        var liste=Array.isArray(d)?d:d&&Array.isArray(d.offres)?d.offres:null;
+        if(!liste)throw 0;
+        (Array.isArray(d.supprimes)?d.supprimes:[]).forEach(function(id){supprimes[id]=1});
+        // la sauvegarde l'emporte : sur un nouvel appareil, la page a deja
+        // ajoute les offres de la veille, vierges, avant l'import
+        var place={};offers.forEach(function(o,i){place[o.id]=i});
+        var ajout=0,remis=0;
+        liste.forEach(function(o){
+          if(!o||!o.id)return;
+          var p=propre(o);
+          if(p.id in place){offers[place[p.id]]=p;remis++}else{place[p.id]=offers.length;offers.push(p);ajout++}
+        });
+        offers=offers.filter(function(o){return !supprimes[o.id]});
+        memoriserSupprimes();ecrire();render();
+        $("io-state").textContent=ajout+" offre(s) ajoutée(s), "+remis+" remise(s) dans l'état de la sauvegarde";
       }catch(e){$("io-state").textContent="Fichier illisible."}
+      ev.target.value="";
     };
     r.readAsText(f);
   });
 
-  offers=lire();
+  // lien d'un mail : #offre-<id> ouvre la page sur cette offre
+  function allerA(){
+    var h=decodeURIComponent(location.hash.slice(1));
+    if(h.indexOf("offre-")!==0)return;
+    var id=h.slice(6),o=offers.filter(function(x){return x.id===id})[0];
+    if(!o)return;
+    cible=id;recherche="";$("q").value="";
+    filter=CLOSED[o.statut]?o.statut:"encours";
+    render();
+    var n=$("offre-"+id);if(n)n.scrollIntoView({block:"center"});
+  }
+  window.addEventListener("hashchange",allerA);
+
+  offers=lire().filter(function(o){return o&&o.id}).map(propre);
   try{(JSON.parse(localStorage.getItem(CLE_SUPPR)||"[]")||[]).forEach(function(id){supprimes[id]=1})}catch(e){}
   render();
   fetch("offres.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
     if(!d)return;
-    var n=fusionner(d.offres);
-    if(d.maj)$("maj").textContent="Derniere veille : "+d.maj.replace("T"," ").replace("Z"," UTC");
+    fusionner(d.offres);
+    if(d.maj)$("maj").textContent="Dernière veille : "+heureParis(d.maj);
     render();
-    if(n)$("notice").hidden=true;
-  }).catch(function(){});
+  }).catch(function(){}).then(allerA);
 })();
 </script>
 </body>
