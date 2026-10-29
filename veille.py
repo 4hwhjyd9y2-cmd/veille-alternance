@@ -76,7 +76,9 @@ EMPLOYEURS = {
                     "citeos", "sogea", "sdel", "cegelec", "eurovia", "axians",
                     "actemium", "botte fondations", "gtie", "gtm ouest",
                     "europeenne de travaux ferroviaires"],
-    "EDF":         ["edf", "enedis", "dalkia", "edf renouvelables", "framatome",
+    # les raisons sociales comptent aussi : La bonne alternance donne
+    # « ELECTRICITE DE FRANCE », jamais « EDF »
+    "EDF":         ["edf", "electricite de france", "enedis", "dalkia", "edf renouvelables", "framatome",
                     "jeumont electric", "citelum"],
     "Engie":       ["engie", "engie solutions", "engie green", "endel", "storengy",
                     "cofely"],
@@ -85,10 +87,11 @@ EMPLOYEURS = {
                     "bouygues batiment", "axima", "ineo"],
     "Airbus":      ["airbus", "airbus atlantic", "testia", "stelia"],
     "SNCF":        ["sncf", "keolis", "geodis", "sncf reseau", "sncf voyageurs"],
-    "GRDF":        ["grdf"],
-    "NaTran":      ["natran", "grtgaz"],
-    "RTE":         ["rte"],
-    "Naval Group": ["naval group"],
+    "GRDF":        ["grdf", "gaz reseau distribution france"],
+    "NaTran":      ["natran", "grtgaz", "grt gaz"],
+    "RTE":         ["rte", "reseau de transport d'electricite",
+                    "reseau de transport d electricite"],
+    "Naval Group": ["naval group", "dcns"],
     "Veolia":      ["veolia"],
     "Suez":        ["suez"],
 }

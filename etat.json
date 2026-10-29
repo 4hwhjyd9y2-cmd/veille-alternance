@@ -1405,10 +1405,6 @@
    "le": "2026-09-29",
    "motif": "commune hors Nantes (Pays de la Loire)"
   },
-  "JOBIJOBA_NAVALGROUP|54/5c14249fac01e096db194386898ddd17": {
-   "le": "2026-10-13",
-   "motif": "employeur hors perimetre (DCNS - BU PROPULSION)"
-  },
   "JOBIJOBA_SNCF|54/00c71a12269ef36cf581216806bcdcd5": {
    "le": "2026-10-06",
    "motif": "employeur hors perimetre (Portzamparc)"
@@ -1841,10 +1837,6 @@
    "le": "2026-10-29",
    "motif": "commune trop loin (ancenis)"
   },
-  "JOBIJOBA|54/5c14249fac01e096db194386898ddd17": {
-   "le": "2026-10-29",
-   "motif": "employeur hors perimetre (DCNS - BU PROPULSION)"
-  },
   "JOBIJOBA|54/61e438b147228ca9fd697d744d8781d7": {
    "le": "2026-10-29",
    "motif": "commune trop loin (machecoul)"
@@ -2069,21 +2061,9 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (SARL RUBAN BLEU)"
   },
-  "LBA|6acfa793eb1fb948b46aba2d": {
-   "le": "2026-10-29",
-   "motif": "employeur hors perimetre (ELECTRICITE DE FRANCE)"
-  },
-  "LBA|6acfa795eb1fb948b46aba30": {
-   "le": "2026-10-29",
-   "motif": "employeur hors perimetre (ELECTRICITE DE FRANCE)"
-  },
   "LBA|6acfa79922ce23a2ad444383": {
    "le": "2026-10-29",
    "motif": "metier d'execution (bobinier)"
-  },
-  "LBA|6acfa7bc22ce23a2ad4443a6": {
-   "le": "2026-10-29",
-   "motif": "employeur hors perimetre (ELECTRICITE DE FRANCE)"
   },
   "LBA|6acfa7c722ce23a2ad4443b1": {
    "le": "2026-10-29",

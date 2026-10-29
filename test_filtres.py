@@ -286,3 +286,10 @@ for brut, attendu in [("abc123\n", "abc123"), ("  abc123 \r\n", "abc123"), ("Bea
     r = veille.secret("SECRET_ESSAI")
     print("%-4s %-22r -> %r" % ("OK" if r == attendu else "RATE", brut, r))
 del os.environ["SECRET_ESSAI"]
+
+print("\nRaisons sociales des groupes :")
+for nom, attendu in [("ELECTRICITE DE FRANCE", "EDF"), ("GAZ RESEAU DISTRIBUTION FRANCE", "GRDF"),
+                     ("RESEAU DE TRANSPORT D'ELECTRICITE", "RTE"), ("DCNS - BU PROPULSION", "Naval Group"),
+                     ("SPIE BATIGNOLLES PAYSAGE", None), ("IDEX ENERGIES", None)]:
+    g = veille.trouver_groupe({"employeur_declare": nom, "titre": "Alternance", "description": ""})
+    print("%-4s %-36s -> %s" % ("OK" if g == attendu else "RATE", nom, g or "hors perimetre"))
