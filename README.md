@@ -408,6 +408,11 @@ chaque annonce retenue, et chaque annonce ecartee avec son motif en clair.
   Elles ont ete branchees avant l'obtention des cles. Au premier passage avec
   les secrets, lire les lignes `API` du journal : un code d'erreur ou
   « 0 annonces » signale un parametre a corriger.
+- **API France Travail indisponible.** En octobre 2026, l'API Offres d'emploi
+  v2 a quitte le catalogue francetravail.io, le temps d'une analyse de ses
+  conditions de diffusion ; l'acces se demande par le formulaire de contact.
+  Le code reste en place mais ne tourne pas sans secrets. La bonne alternance
+  reprend de toute facon les offres d'alternance diffusees par France Travail.
 - **HelloWork, premiere page seulement.** Le `robots.txt` interdit la
   pagination. Un jour ou plus de vingt offres sortent sur une meme liste, les
   plus anciennes de la journee peuvent echapper au passage.
