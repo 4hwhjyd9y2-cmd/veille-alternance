@@ -1,6 +1,674 @@
 {
- "dernier_mail": "2026-10-25",
+ "dernier_mail": "2026-10-29",
+ "dernier_passage": "2026-10-29",
+ "signatures": {
+  "Veolia|offre d chef de projet support outils di": "2026-10-29"
+ },
  "vues": {
+  "HELLOWORK|15972647": {
+   "le": "2026-10-29",
+   "motif": "domaine hors cible"
+  },
+  "HELLOWORK|15972655": {
+   "le": "2026-10-29",
+   "motif": "metier d'execution (negociateur)"
+  },
+  "HELLOWORK|72053774": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|73658379": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|73742258": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|74884588": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|74884592": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75367199": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75538839": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75711706": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75753541": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75976503": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75976507": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75976510": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76014904": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|76118438": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76118600": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76137268": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76153030": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76204612": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76377142": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76525984": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76605165": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76941502": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|77006584": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77024818": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77058458": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77058604": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77059319": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77198576": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|77266024": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|77266382": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|77315011": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77441237": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77461041": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77485735": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77857720": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78063701": {
+   "le": "2026-10-29",
+   "motif": "metier d'execution (bobinier)"
+  },
+  "HELLOWORK|78221843": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78393671": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78560872": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78813930": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78980856": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79173232": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79245964": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79338187": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|79348776": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79395315": {
+   "le": "2026-10-29",
+   "motif": "fonction support (commercial)"
+  },
+  "HELLOWORK|79494849": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79494855": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79494858": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79960927": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80277665": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|80277666": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|80307126": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80382744": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80463717": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80469394": {
+   "le": "2026-10-29",
+   "motif": "metier d'execution (coffreur)"
+  },
+  "HELLOWORK|80521769": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|80626413": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|81525656": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|81558628": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|81889501": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82363709": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|82688025": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|82704788": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|82740735": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|82913520": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82999246": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83043642": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83166666": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83319207": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83477685": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|83548927": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|83554823": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83691418": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83692129": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83713832": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83742494": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|83742497": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|83864224": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83888077": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83939346": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84023682": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84061485": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84256561": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84261765": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84330473": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84350468": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84381008": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84402923": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84406152": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84435346": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84437576": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84437591": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84445212": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84453119": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84455791": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84575237": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84601883": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84606992": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84617656": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84619012": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84619204": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84622284": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84637309": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84653185": {
+   "le": "2026-10-29",
+   "motif": "retenue"
+  },
+  "HELLOWORK|84671927": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84729654": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84729951": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84731365": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84731386": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84731454": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84731464": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84731476": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84738218": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84738259": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84738260": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84738275": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84738288": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84745807": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84746007": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84746079": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84753779": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84774504": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84789324": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84803801": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84807791": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84822187": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84888214": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84888369": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84888491": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84901270": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84902484": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84902577": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84905905": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84910501": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84910531": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84917438": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84917440": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84917443": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84923643": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84929681": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84930159": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84930459": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84930575": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84930774": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84930837": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84930879": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84930986": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931052": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931096": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931105": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931107": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931151": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931236": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931276": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931291": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931324": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931371": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931410": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931416": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931479": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84931577": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84937010": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84937026": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Adecco)"
@@ -872,6 +1540,142 @@
   "JOBIJOBA_VINCI|54/f913c7dc7715757c4b03b5e44daabd10": {
    "le": "2026-10-13",
    "motif": "employeur hors perimetre (CFA Sup de Vinci)"
+  },
+  "JOBIJOBA|54/063349666877813d54abd31cd0d43e94": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "JOBIJOBA|54/07fd50ffb60348ab0e8fb266cdfcc5c8": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "JOBIJOBA|54/0d14db8acaaeab96c5f739228993c9f2": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (Pays de la Loire)"
+  },
+  "JOBIJOBA|54/0e2c254dd24352899a34be94f75198ab": {
+   "le": "2026-10-29",
+   "motif": "domaine hors cible"
+  },
+  "JOBIJOBA|54/0e6e33c0403c0ddb8f3b93f314a89e7b": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/0f9b3adbe4de8313d4dae54b3a2cfae0": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/1275b973675b1840134fecbcfe4cc84e": {
+   "le": "2026-10-29",
+   "motif": "fonction support (gestion des contrats)"
+  },
+  "JOBIJOBA|54/29e467e7e0de97decce8fa16b9257bda": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/2e9fb470f40f4cc672ee04970258a425": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "JOBIJOBA|54/32d9ae957d632beb4f82d62bb097ee4a": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/43e9ff053b4f5287670cc97fa1a031ea": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "JOBIJOBA|54/45b7cd366397ad37646ce95a6454eea8": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
+  },
+  "JOBIJOBA|54/559a1f96835539b49ff2e6371e568513": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/5a8ae23812121854139969d86abb25e8": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA|54/5c14249fac01e096db194386898ddd17": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (DCNS - BU PROPULSION)"
+  },
+  "JOBIJOBA|54/61e438b147228ca9fd697d744d8781d7": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (machecoul)"
+  },
+  "JOBIJOBA|54/75cd6dab3a09acb49b3ca0ee3d5478be": {
+   "le": "2026-10-29",
+   "motif": "fonction support (gestion des contrats)"
+  },
+  "JOBIJOBA|54/8914f3b97089560acc5c69c194cd8b62": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (ancenis)"
+  },
+  "JOBIJOBA|54/8ec427628cbe444e73f40a7391792e3e": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (STADE FORMATION)"
+  },
+  "JOBIJOBA|54/910651e7273dd8c5367dfee644af8087": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "JOBIJOBA|54/9dbc13448c17078c0ed2fb4f20f8b958": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Stade Formation)"
+  },
+  "JOBIJOBA|54/a526c1da666aaed259bc2f9f8fc7bb80": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (chateaubriant)"
+  },
+  "JOBIJOBA|54/a8b857de0bdcea21a83757d00659f647": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
+  },
+  "JOBIJOBA|54/bdf57a27594cddb618a8117197d9c0e4": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/becb3c01e7911641950696156ff2addd": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/c2a9c4aea8a6a84efda83785a62f5d10": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (chateaubriant)"
+  },
+  "JOBIJOBA|54/c397ce96c6a4440aadb9388d5c19003d": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
+  },
+  "JOBIJOBA|54/cc6e841bcab1d3a6daf6c42a66ef9342": {
+   "le": "2026-10-29",
+   "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/ce41b4adae5cfeb0a2e66cec55e73d0d": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "JOBIJOBA|54/d17fcd86fe3228aa1443c9231aa308a3": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (machecoul)"
+  },
+  "JOBIJOBA|54/d24abb696b3fd50c96aba819d8bc0c99": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Stage)"
+  },
+  "JOBIJOBA|54/e22861e806f940197081e5e19fd91a1f": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (machecoul)"
+  },
+  "JOBIJOBA|54/edce39cf1d7ea3da9469a1fb161fe28f": {
+   "le": "2026-10-29",
+   "motif": "fonction support (finance)"
+  },
+  "JOBIJOBA|54/ee3e8183fdbb0f82a6900a473a8d16f1": {
+   "le": "2026-10-29",
+   "motif": "domaine hors cible"
   }
  }
 }

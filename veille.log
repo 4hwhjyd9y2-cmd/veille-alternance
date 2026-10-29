@@ -1037,3 +1037,295 @@
 29/10 12:01:02  MAIL NON ENVOYE : rien de neuf, et un mail est deja parti il y a 4 jour(s) (regle des sept jours).
 29/10 12:01:02  Pour recevoir quand meme un mail, relance le workflow a la main : un lancement manuel force l'envoi.
 
+29/10 14:20:31    La bonne alternance : echec (InvalidHeader)
+29/10 14:20:31    France Travail : jeton refuse, code 400
+29/10 14:20:31  Lecture des pages de liste
+29/10 14:20:35    SPIE         SPIE                         7 annonces dont 7 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:37    SPIE         SPIE                         0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:20:39    SPIE         SPIE+Thepault                0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:42    SPIE         SPIE+Industrie               0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:44    SPIE         SPIE+Facilities              7 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:47    SPIE         SPIE+Citynetworks            4 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:49    SPIE         SPIE+Building+Solutions      0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:51    VINCI        VINCI                       16 annonces dont 16 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:53    VINCI        VINCI                       14 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:20:56    VINCI        VINCI+Energies               0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:20:59    VINCI        VINCI+Construction           8 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:01    VINCI        Omexom                       0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:04    VINCI        Citeos                     page inconnue de Jobijoba, ignoree
+29/10 14:21:07    VINCI        Cegelec                      0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:10    VINCI        Actemium                   page inconnue de Jobijoba, ignoree
+29/10 14:21:12    VINCI        Axians                     page inconnue de Jobijoba, ignoree
+29/10 14:21:14    VINCI        Sogea                        5 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:16    VINCI        SDEL                       page inconnue de Jobijoba, ignoree
+29/10 14:21:19    VINCI        Eurovia                      0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:21    VINCI        Botte+Fondations           page inconnue de Jobijoba, ignoree
+29/10 14:21:23    VINCI        GTM+Ouest                  page inconnue de Jobijoba, ignoree
+29/10 14:21:26    EDF          EDF                          5 annonces dont 5 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:28    EDF          EDF                          2 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:21:31    EDF          Enedis                       6 annonces dont 5 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:33    EDF          Dalkia                       2 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:35    EDF          EDF+Renouvelables            0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:37    EDF          Framatome                  page inconnue de Jobijoba, ignoree
+29/10 14:21:39    Engie        ENGIE                       14 annonces dont 14 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:41    Engie        ENGIE                        6 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:21:43    Engie        Engie+Solutions            page inconnue de Jobijoba, ignoree
+29/10 14:21:45    Engie        Engie+Green                  0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:48    Engie        Endel                      page inconnue de Jobijoba, ignoree
+29/10 14:21:50    Engie        Storengy                   page inconnue de Jobijoba, ignoree
+29/10 14:21:52    Eiffage      Eiffage                      5 annonces dont 5 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:54    Eiffage      Eiffage                      1 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:21:56    Eiffage      Eiffage+Energie+Systemes     2 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:21:58    Eiffage      Clemessy                     0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:00    Bouygues     Bouygues                     9 annonces dont 9 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:03    Bouygues     Bouygues                     1 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:22:06    Bouygues     Bouygues+Construction        3 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:08    Bouygues     Axima                       15 annonces dont 11 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:11    Bouygues     Equans                     page inconnue de Jobijoba, ignoree
+29/10 14:22:13    Bouygues     Ineo                       page inconnue de Jobijoba, ignoree
+29/10 14:22:16    Bouygues     Colas                        2 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:18    Bouygues     Aximum                     page inconnue de Jobijoba, ignoree
+29/10 14:22:21    Airbus       Airbus+Group                12 annonces dont 12 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:24    Airbus       Airbus+Group                 1 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:22:26    Airbus       Airbus                      12 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:28    Airbus       Airbus+Atlantic             10 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:31    SNCF         SNCF                         6 annonces dont 6 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:33    SNCF         SNCF                         3 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:22:36    SNCF         SNCF+Reseau                  6 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:38    SNCF         SNCF+Voyageurs               6 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:41    SNCF         Keolis                      16 annonces dont 16 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:44    GRDF         GRDF                         8 annonces dont 8 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:46    GRDF         GRDF                         2 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:22:48    NaTran       Grtgaz                       0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:51    NaTran       Grtgaz                       0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:22:53    NaTran       NaTran                       0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:55    RTE          RTE                          0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:22:58    RTE          RTE                          0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:23:00    Naval Group  Naval+Group                  1 annonces dont 1 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:23:02    Naval Group  Naval+Group                  0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:23:04    Veolia       Veolia                       3 annonces dont 3 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:23:07    Veolia       Veolia                       3 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:23:09    Suez         Suez                         5 annonces dont 5 nouvelles pour le groupe  (Loire-atlantique)
+29/10 14:23:12    Suez         Suez                         5 annonces dont 0 nouvelles pour le groupe  (Nantes)
+29/10 14:23:14    HelloWork    hellowork                   20 annonces dont 20 nouvelles pour le groupe  (mot-cle_master-ville_nantes-44000.html)
+29/10 14:23:16    HelloWork    hellowork                   20 annonces dont 20 nouvelles pour le groupe  (ville_nantes-44000.html)
+29/10 14:23:17    HelloWork    hellowork                   20 annonces dont 20 nouvelles pour le groupe  (ville_saint-herblain-44800.html)
+29/10 14:23:19    HelloWork    hellowork                   20 annonces dont 18 nouvelles pour le groupe  (ville_carquefou-44470.html)
+29/10 14:23:20    HelloWork    hellowork                   20 annonces dont 19 nouvelles pour le groupe  (ville_reze-44400.html)
+29/10 14:23:22    HelloWork    hellowork                   20 annonces dont 15 nouvelles pour le groupe  (ville_bouguenais-44340.html)
+29/10 14:23:24    HelloWork    hellowork                   20 annonces dont 15 nouvelles pour le groupe  (ville_orvault-44700.html)
+29/10 14:23:25    Bouygues     hellowork                   20 annonces dont 20 nouvelles pour le groupe  (ville_nantes-44000.html)
+29/10 14:23:27    VINCI        hellowork                   20 annonces dont 20 nouvelles pour le groupe  (actemium-loire-ocean-117258.html)
+29/10 14:23:28    SPIE         hellowork                    5 annonces dont 5 nouvelles pour le groupe  (ville_nantes-44000.html)
+29/10 14:23:30    Bouygues     hellowork                   20 annonces dont 20 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:31    EDF          hellowork                    3 annonces dont 3 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:33    EDF          hellowork                   12 annonces dont 12 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:35    EDF          hellowork                    4 annonces dont 4 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:36    Veolia       hellowork                   11 annonces dont 11 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:38    RTE          hellowork                    1 annonces dont 1 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:39    NaTran       hellowork                    1 annonces dont 1 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:41    Naval Group  hellowork                    2 annonces dont 2 nouvelles pour le groupe  (contrat_alternance.html)
+29/10 14:23:41  260 annonces jamais vues
+29/10 14:23:43    ecartee : Alternance : Finances - Gestion F/H (2026-184767)       fonction support (finance)
+29/10 14:23:45    ecartee : Finances - Gestion F/H                                  commune hors Nantes (Pays de la Loire)
+29/10 14:23:47    ecartee : Alternance : Appui à la gestion des contrats d'alternan fonction support (gestion des contrats)
+29/10 14:23:49    ecartee : Appui à la gestion des contrats d'alternance F/H        fonction support (gestion des contrats)
+29/10 14:23:50    ecartee : Finances - gestion f/h - Nantes                         contrat non alternance
+29/10 14:23:54    ecartee : Coffreur bancheur alternance f/h - Nantes               date introuvable
+29/10 14:23:56    ecartee : Alternant chef de chantier grands projets plomberie (h/ date introuvable
+29/10 14:23:58    ecartee : Alternant technicien d'études plomberie (h/f) - Nantes  date introuvable
+29/10 14:24:00    ecartee : Alternant communication & graphisme (h/f) - Nantes      date introuvable
+29/10 14:24:02    ecartee : Alternant technicien d’etudes projet cvc (h/f) - Nantes date introuvable
+29/10 14:24:04    ecartee : Alternant contrôleur de gestion h/f - Nantes            date introuvable
+29/10 14:24:07    ecartee : Ingénieur avant-projet chiffrage h/f - Nantes           contrat non alternance
+29/10 14:24:09    ecartee : Alternante couvreur (f/h) - Nantes                      domaine hors cible
+29/10 14:24:13    ecartee : Alternante ingénieure enveloppe du bâtiment (f/h) - Nan domaine hors cible
+29/10 14:24:16    ecartee : Alternant technicien d’etudes exécution en génie climat date introuvable
+29/10 14:24:18    ecartee : Alternant technicien d’etudes projet en sécurité incend date introuvable
+29/10 14:24:20    ecartee : Technicien de maintenance cvc (h/f) - Bouguenais        contrat non alternance
+29/10 14:24:22    ecartee : Alternance : Alternant Soudeur - Ecole des Chantiers de employeur hors perimetre (Stage)
+29/10 14:24:24    ecartee : Alternance : Apprenti Ambulancier F/H                   commune trop loin (ancenis)
+29/10 14:24:26    ecartee : Alternance : Apprenti Ambulancier F/H                   commune trop loin (chateaubriant)
+29/10 14:24:28    ecartee : Apprenti Ambulancier F/H                                commune trop loin (ancenis)
+29/10 14:24:30    ecartee : Apprenti Ambulancier F/H                                commune trop loin (saint-philbert-de-grand-lieu)
+29/10 14:24:31    ecartee : Apprenti Ambulancier F/H                                commune trop loin (machecoul)
+29/10 14:24:33    ecartee : Alternance : Apprenti Ambulancier F/H                   commune trop loin (saint-philbert-de-grand-lieu)
+29/10 14:24:35    ecartee : Alternance : Apprenti Ambulancier F/H                   commune trop loin (machecoul)
+29/10 14:24:37    ecartee : Apprenti Ambulancier F/H                                commune trop loin (chateaubriant)
+29/10 14:24:39    ecartee : Éducateur Sportif H/F - Apprentissage – Villages Vacanc employeur hors perimetre (Stade Formation)
+29/10 14:24:41    ecartee : Alternant pilotage qualité des améliorations de robuste employeur hors perimetre (inconnu)
+29/10 14:24:43    ecartee : MRS Tuyauteur en construction navale (H/F)              employeur hors perimetre (DCNS - BU PROPULSION)
+29/10 14:24:45    ecartee : Alternance- charge(e) de programmes nantes h/f - Nantes employeur hors perimetre (inconnu)
+29/10 14:24:47    ecartee : Apprenti Ambulancier F/H - St Philbert de Grand Lieu (H commune trop loin (saint-philbert-de-grand-lieu)
+29/10 14:24:49    ecartee : Apprenti Ambulancier F/H - Machecoul (H/F)              commune trop loin (machecoul)
+29/10 14:24:51    ecartee : ÉDUCATEUR SPORTIF H/F - APPRENTISSAGE – VILLAGES VACANC employeur hors perimetre (STADE FORMATION)
+29/10 14:24:53    ecartee : Alternance – expert pv - Saint-Nazaire                  employeur hors perimetre (inconnu)
+29/10 14:24:55    ecartee : Offre d'Alternance Apprentissage Master 1 Business Deve employeur hors perimetre (inconnu)
+29/10 14:24:56    RETENUE : Offre d'Alternance Chef de Projet Support Outils Direction Technique Nantes (44) (Veolia, )
+29/10 14:24:58    ecartee : Offre Emploi Alternance Digital Analyst Nantes (44)     employeur hors perimetre (inconnu)
+29/10 14:24:59    ecartee : Offre Emploi Alternance Chef de Projet Data en Alternan employeur hors perimetre (inconnu)
+29/10 14:25:01    ecartee : Offre d'Alternance Alternant Bureau d'Études Mécanique  employeur hors perimetre (inconnu)
+29/10 14:25:03    ecartee : Offre d'Alternance Auditeur Financier Alternant Nantes  employeur hors perimetre (inconnu)
+29/10 14:25:04    ecartee : Offre Emploi Promoteur des Ventes en Alternance Nantes  employeur hors perimetre (inconnu)
+29/10 14:25:06    ecartee : Offre Emploi Chargé de Relation Clientèle Réservation A employeur hors perimetre (inconnu)
+29/10 14:25:08    ecartee : Offre d'Alternance Alternant Floor Manager Nantes (44)  employeur hors perimetre (inconnu)
+29/10 14:25:09    ecartee : Offre d'Alternance Alternant QSE Nantes (44)            employeur hors perimetre (inconnu)
+29/10 14:25:11    ecartee : Offre d'Alternance Chargé·e de Communication Nantes (44 employeur hors perimetre (inconnu)
+29/10 14:25:12    ecartee : Offre d'Alternance Alternant Commercial Animateur de Li employeur hors perimetre (inconnu)
+29/10 14:25:14    ecartee : Offre d'Alternance Alternant Cuisinier Cuisiniere Nante employeur hors perimetre (inconnu)
+29/10 14:25:16    ecartee : Offre Emploi Alternance Assistant Commercial Saint-Étie fonction support (commercial)
+29/10 14:25:17    ecartee : Offre Emploi Alternance Designer Graphique Junior Nante employeur hors perimetre (inconnu)
+29/10 14:25:19    ecartee : Offre Emploi 70614 Commercial B To B en Alternance Sain employeur hors perimetre (inconnu)
+29/10 14:25:21    ecartee : Offre Emploi Alternance Chargé de Communication Digital employeur hors perimetre (inconnu)
+29/10 14:25:22    ecartee : Offre d'Alternance Alternant Commercial Vigneux-de-Bret employeur hors perimetre (inconnu)
+29/10 14:25:24    ecartee : Offre d'Alternance Alternant Commercial Vigneux-de-Bret employeur hors perimetre (inconnu)
+29/10 14:25:25    ecartee : Offre d'Alternance Assistant Marketing & Communication  employeur hors perimetre (inconnu)
+29/10 14:25:27    ecartee : Offre Emploi Alternance Commercial Terrain Nantes (44)  employeur hors perimetre (inconnu)
+29/10 14:25:29    ecartee : Offre Emploi Alternance Assistant RH Spécialiste du Dro employeur hors perimetre (inconnu)
+29/10 14:25:30    ecartee : Offre Emploi Alternance Assistant Comptable Nantes (44) employeur hors perimetre (inconnu)
+29/10 14:25:32    ecartee : Offre Emploi Alternance Comptable Nantes (44)           employeur hors perimetre (inconnu)
+29/10 14:25:34    ecartee : Offre Emploi Alternance Gestionnaire de Paie Nantes (44 employeur hors perimetre (inconnu)
+29/10 14:25:35    ecartee : Offre Emploi Alternance Assistant de Projet Digital Nan employeur hors perimetre (inconnu)
+29/10 14:25:37    ecartee : Offre Emploi Alternance -Assistant de Direction Nantes  employeur hors perimetre (inconnu)
+29/10 14:25:38    ecartee : Offre Emploi Alternance Assistant RH Nantes (44)        employeur hors perimetre (inconnu)
+29/10 14:25:40    ecartee : Offre Emploi Alternance Conseiller Immobilier Nantes (4 employeur hors perimetre (inconnu)
+29/10 14:25:42    ecartee : Offre d'Alternance Alternant Employé de Commerce Nantes employeur hors perimetre (inconnu)
+29/10 14:25:43    ecartee : Offre Emploi Alternance Assistant RH Nantes (44)        employeur hors perimetre (inconnu)
+29/10 14:25:45    ecartee : Offre Emploi Alternance Assistant de Projet Digital Nan employeur hors perimetre (inconnu)
+29/10 14:25:46    ecartee : Offre Emploi Alternance Contrôleur Financier Nantes (44 employeur hors perimetre (inconnu)
+29/10 14:25:48    ecartee : Offre Emploi Alternance Trésorier Junior Nantes (44)    employeur hors perimetre (inconnu)
+29/10 14:25:50    ecartee : Offre Emploi Alternance Conseiller Immobilier Nantes (4 employeur hors perimetre (inconnu)
+29/10 14:25:51    ecartee : Offre Emploi Alternance Assistant Chef de Projet Digita employeur hors perimetre (inconnu)
+29/10 14:25:53    ecartee : Offre Emploi Alternance Assistant Juridique Nantes (44) employeur hors perimetre (inconnu)
+29/10 14:25:54    ecartee : Offre Emploi Alternance Responsable Administratif et Fi employeur hors perimetre (inconnu)
+29/10 14:25:56    ecartee : Offre Emploi Alternance Assistant Manager de Point de V employeur hors perimetre (inconnu)
+29/10 14:25:58    ecartee : Offre Emploi Alternance Responsable Marketing Nantes (4 employeur hors perimetre (inconnu)
+29/10 14:25:59    ecartee : Offre Emploi Alternance Bac+2 Mco Conseiller Clientèle  employeur hors perimetre (inconnu)
+29/10 14:26:01    ecartee : Offre Emploi Auxiliaire de Vie en Alternance Saint-Herb employeur hors perimetre (inconnu)
+29/10 14:26:03    ecartee : Offre Emploi 54436 Assistant Manager en Alternance Sain employeur hors perimetre (inconnu)
+29/10 14:26:04    ecartee : Offre Emploi Alternance Bac+2 Mco Vendeur 29 Saint-Herb employeur hors perimetre (inconnu)
+29/10 14:26:06    ecartee : Offre Emploi 54478 Employé Commercial en Alternance Sai employeur hors perimetre (inconnu)
+29/10 14:26:07    ecartee : Offre Emploi Alternance Ingénieur Travaux Télécom Saint domaine hors cible
+29/10 14:26:09    ecartee : Offre Emploi Alternance Negociateur Télécom Saint-Herbl metier d'execution (negociateur)
+29/10 14:26:11    ecartee : Offre Emploi Alternance Business Developer Saint-Herbla employeur hors perimetre (inconnu)
+29/10 14:26:12    ecartee : Offre Emploi Alternance Bac+2 Mco Assistant Manager 01  employeur hors perimetre (inconnu)
+29/10 14:26:14    ecartee : Offre Emploi Alternance Bac+2 Mco Conseiller de Vente 0 employeur hors perimetre (inconnu)
+29/10 14:26:15    ecartee : Offre Emploi Coffreur Bancheur Alternance Saint-Herblai metier d'execution (coffreur)
+29/10 14:26:17    ecartee : Offre d'Alternance Employé Polyvalent de Restauration e employeur hors perimetre (inconnu)
+29/10 14:26:19    ecartee : Offre Emploi Secrétaire Commercial en Alternance Saint- employeur hors perimetre (inconnu)
+29/10 14:26:20    ecartee : Offre Emploi Alternance Chargé de Projet RSE Saint-Herb employeur hors perimetre (inconnu)
+29/10 14:26:22    ecartee : Offre Emploi Alternance Dev Data IA Saint-Herblain (44) employeur hors perimetre (inconnu)
+29/10 14:26:23    ecartee : Offre Emploi Assistant Commercial en Alternance Saint-H employeur hors perimetre (inconnu)
+29/10 14:26:25    ecartee : Offre Emploi Alternance Chargé de Projet RSE Saint-Herb employeur hors perimetre (inconnu)
+29/10 14:26:27    ecartee : Offre Emploi Alternance Chargé de Projet Méthode Saint- employeur hors perimetre (inconnu)
+29/10 14:26:28    ecartee : Offre Emploi Alternance Assistant Achats Saint-Herblain employeur hors perimetre (inconnu)
+29/10 14:26:30    ecartee : Offre Emploi 54474 Assistant Administratif en Alternanc employeur hors perimetre (inconnu)
+29/10 14:26:31    ecartee : Offre Emploi Alternance Bac+5 Mda Assistant Commercial  employeur hors perimetre (inconnu)
+29/10 14:26:33    ecartee : Offre Emploi Alternance Bac+3 Rmcan Assistant Manager 0 employeur hors perimetre (inconnu)
+29/10 14:26:35    ecartee : Offre Emploi Alternance Bac+2 Mco Vendeur 12 Carquefou  employeur hors perimetre (inconnu)
+29/10 14:26:36    ecartee : Offre d'Alternance Manager de Restauration Rapide Burge employeur hors perimetre (inconnu)
+29/10 14:26:38    ecartee : Offre Emploi Alternance Assistant Achat & Développement employeur hors perimetre (inconnu)
+29/10 14:26:39    ecartee : Offre Emploi Alternance Bac+3 Rmcan Commercial Sédentai employeur hors perimetre (inconnu)
+29/10 14:26:41    ecartee : Offre d'Alternance Chauffeur PL SPL TP avec Grue Auxill employeur hors perimetre (inconnu)
+29/10 14:26:43    ecartee : Offre Emploi Alternance Bac+2 Gpme Acheteur 13 Carquefo employeur hors perimetre (inconnu)
+29/10 14:26:44    ecartee : Offre Emploi Alternance Gestionnaire des Opérations de  employeur hors perimetre (inconnu)
+29/10 14:26:46    ecartee : Offre d'Alternance Cqpm Bobinier Jeumont Electric Carqu metier d'execution (bobinier)
+29/10 14:26:47    ecartee : Offre Emploi Alternance Bac+3 Rmcan Chargé Commercial e employeur hors perimetre (inconnu)
+29/10 14:26:49    ecartee : Offre d'Alternance Chauffeur PL SPL TP avec Grue Auxill employeur hors perimetre (inconnu)
+29/10 14:26:51    ecartee : Offre d'Alternance Chauffeur PL SPL TP avec Grue Auxill employeur hors perimetre (inconnu)
+29/10 14:26:52    ecartee : Offre d'Alternance Peintre Etancheur Aéronautique Carqu employeur hors perimetre (inconnu)
+29/10 14:26:54    ecartee : Offre d'Alternance Traiteur Traiteuse Carquefou (44)    employeur hors perimetre (inconnu)
+29/10 14:26:55    ecartee : Offre d'Alternance Conducteur Routier Conductrice Routi employeur hors perimetre (inconnu)
+29/10 14:26:57    ecartee : Offre Emploi Alternance Assistant Comptable Vertou (44) employeur hors perimetre (inconnu)
+29/10 14:26:59    ecartee : Offre Emploi Alternance Assistant Comptable Vertou (44) employeur hors perimetre (inconnu)
+29/10 14:27:00    ecartee : Offre Emploi Apprenti Réceptionniste en Hôtellerie Port employeur hors perimetre (inconnu)
+29/10 14:27:02    ecartee : Offre Emploi Alternance Bac+3 Crcrh Assistant RH et Com employeur hors perimetre (inconnu)
+29/10 14:27:04    ecartee : Offre Emploi Alternance Bac+3 Rmcan Assistant RH et Com employeur hors perimetre (inconnu)
+29/10 14:27:05    ecartee : Offre d'Alternance Apprenti Employé Libre-Service Rayon employeur hors perimetre (inconnu)
+29/10 14:27:07    ecartee : Offre Emploi Alternance Bac+2 Mco Vendeur Conseil 27 Re employeur hors perimetre (inconnu)
+29/10 14:27:08    ecartee : Offre Emploi Alternance Bac+2 Mco Vendeur 11 Rezé (44)  employeur hors perimetre (inconnu)
+29/10 14:27:10    ecartee : Offre Emploi 54478 Employé Commercial en Alternance Rez employeur hors perimetre (inconnu)
+29/10 14:27:12    ecartee : Offre Emploi Alternance Chargé de Développement Commerc employeur hors perimetre (inconnu)
+29/10 14:27:13    ecartee : Offre Emploi Secrétaire Médical en Alternance Rezé (44) employeur hors perimetre (inconnu)
+29/10 14:27:15    ecartee : Offre Emploi Alternance Bac+3 Rmcan Commercial 19 Rezé  employeur hors perimetre (inconnu)
+29/10 14:27:16    ecartee : Offre Emploi Alternance Employé Polyvalent en Grande Di employeur hors perimetre (inconnu)
+29/10 14:27:18    ecartee : Offre Emploi Conducteur de Travaux Formation en Alterna employeur hors perimetre (inconnu)
+29/10 14:27:20    ecartee : Offre Emploi 54506 Secrétaire Médicale en Alternance Re employeur hors perimetre (inconnu)
+29/10 14:27:21    ecartee : Offre Emploi Alternance Bac+2 Gpme Secrétaire Commercia employeur hors perimetre (inconnu)
+29/10 14:27:23    ecartee : Offre Emploi Alternance Bac+2 Mco Conseiller Vendeur 23 employeur hors perimetre (inconnu)
+29/10 14:27:25    ecartee : Offre d'Alternance Commis Commise de Bar Rezé (44)      employeur hors perimetre (inconnu)
+29/10 14:27:26    ecartee : Offre Emploi Alternance Rezé (44)                       employeur hors perimetre (inconnu)
+29/10 14:27:28    ecartee : Offre d'Alternance Apprenti Vendeur Vendeuse en Chaussu employeur hors perimetre (inconnu)
+29/10 14:27:29    ecartee : Offre d'Alternance Alternant Conseiller de Vente en Bou employeur hors perimetre (inconnu)
+29/10 14:27:31    ecartee : Offre Emploi Apprenti Réceptionniste en Hôtellerie Port employeur hors perimetre (inconnu)
+29/10 14:27:33    ecartee : Offre d'Alternance Assistant Agent de Transit Bouguenai employeur hors perimetre (inconnu)
+29/10 14:27:34    ecartee : Offre d'Alternance Chauffeur PL Grue Formation Bouguena employeur hors perimetre (inconnu)
+29/10 14:27:36    ecartee : Offre Emploi Assistant Événementiel Équipier de Loisirs employeur hors perimetre (inconnu)
+29/10 14:27:37    ecartee : Offre d'Alternance Apprenti Élagueur-Grimpeur Bouguenai employeur hors perimetre (inconnu)
+29/10 14:27:39    ecartee : Offre Emploi Assistant Évènementiel Équipier de Loisirs employeur hors perimetre (inconnu)
+29/10 14:27:41    ecartee : Offre d'Alternance Ajusteur Monteur Aéronautique Bougue employeur hors perimetre (inconnu)
+29/10 14:27:42    ecartee : Offre d'Alternance Ajusteur Monteur Aéronautique Bougue employeur hors perimetre (inconnu)
+29/10 14:27:44    ecartee : Offre d'Alternance Ajusteur et Métiers Aéro Manpower on employeur hors perimetre (inconnu)
+29/10 14:27:45    ecartee : Offre d'Alternance Chargé de Travaux Bouguenais (44)    employeur hors perimetre (inconnu)
+29/10 14:27:47    ecartee : Offre Emploi Alternance Vendeur en Commerce de Proximit employeur hors perimetre (inconnu)
+29/10 14:27:49    ecartee : Offre d'Alternance Technicien Maintenance Bouguenais (4 employeur hors perimetre (inconnu)
+29/10 14:27:50    ecartee : Offre Emploi Alternance Assistant Commercial en Magasin employeur hors perimetre (inconnu)
+29/10 14:27:52    ecartee : Offre d'Alternance Technicien Maintenance Bouguenais (4 employeur hors perimetre (inconnu)
+29/10 14:27:53    ecartee : Offre Emploi Alternance Assistant de Gestion Nantes (44 employeur hors perimetre (inconnu)
+29/10 14:27:55    ecartee : Offre Emploi Auxiliaire de Vie en Alternance Orvault (4 employeur hors perimetre (inconnu)
+29/10 14:27:56    ecartee : Offre Emploi Alternance Bac+3 Crcrh Chargé de Recruteme employeur hors perimetre (inconnu)
+29/10 14:27:58    ecartee : Offre Emploi Agent·e de Maintenance des Bâtiments Rénov employeur hors perimetre (inconnu)
+29/10 14:28:00    ecartee : Offre Emploi 54478 Conseiller Vendeur en Alternance Orv employeur hors perimetre (inconnu)
+29/10 14:28:01    ecartee : Offre Emploi Alternance Responsable Commercial Marketin employeur hors perimetre (inconnu)
+29/10 14:28:03    ecartee : Offre Emploi 54478 Conseiller Client Après-Vente en Alt employeur hors perimetre (inconnu)
+29/10 14:28:05    ecartee : Offre Emploi Chef de Rayon en Alternance Orvault (44)   employeur hors perimetre (inconnu)
+29/10 14:28:06    ecartee : Offre Emploi Alternance Agent de Restauration Orvault ( employeur hors perimetre (inconnu)
+29/10 14:28:08    ecartee : Offre Emploi Alternance Serveur Orvault (44)            employeur hors perimetre (inconnu)
+29/10 14:28:09    ecartee : Offre Emploi Commercial B To B en Alternance Orvault (4 employeur hors perimetre (inconnu)
+29/10 14:28:11    ecartee : Offre Emploi Commerciaux Sédentaires en Alternance Bili employeur hors perimetre (inconnu)
+29/10 14:28:13    ecartee : Offre Emploi Alternance Bac+3 Rmcan Vendeur Conseil 17  employeur hors perimetre (inconnu)
+29/10 14:28:14    ecartee : Offre Emploi Alternance Bac+3 Rmcan Chef de Rayon 13 Or employeur hors perimetre (inconnu)
+29/10 14:28:16    ecartee : Offre d'Alternance Commercial B2b Orvault (44)          employeur hors perimetre (inconnu)
+29/10 14:28:18    ecartee : Offre Emploi Assistant Dentaire en Alternance Orvault ( employeur hors perimetre (inconnu)
+29/10 14:28:19    ecartee : Offre Emploi CDI Ingénieur Études CVC Nantes (44)       contrat non alternance
+29/10 14:28:21    ecartee : Offre Emploi CDI Magasinier Nantes (44)                 contrat non alternance
+29/10 14:28:22    ecartee : Offre Emploi Chargé·e de Missions RH CDD Nantes (44)    contrat non alternance
+29/10 14:28:24    ecartee : Offre Emploi CDI Technicien Monteur Frigoriste Froid Co contrat non alternance
+29/10 14:28:26    ecartee : Offre Emploi CDI Directeur de Projet Eia Nantes (44)    contrat non alternance
+29/10 14:28:27    ecartee : Offre Emploi CDI Chef de Chantier Électricien Grands Pr contrat non alternance
+29/10 14:28:29    ecartee : Offre Emploi CDI Chef de Chantier Électricien Grands Pr contrat non alternance
+29/10 14:28:30    ecartee : Offre Emploi CDI Juriste Opérationnel Nantes (44)       contrat non alternance
+29/10 14:28:32    ecartee : Offre Emploi CDI Chef de Projet Bim Spécialité Electric contrat non alternance
+29/10 14:28:34    ecartee : Offre Emploi CDI Responsable de Groupe Paie et Administ contrat non alternance
+29/10 14:28:35    ecartee : Offre Emploi CDI Chargé d'Affaires Grands Projets CVC E contrat non alternance
+29/10 14:28:37    ecartee : Offre Emploi CDI Technicien d'Etudes en Plomberie Nante contrat non alternance
+29/10 14:28:38    ecartee : Offre Emploi Stage Developpements d'Agents IA Métiers N contrat non alternance
+29/10 14:28:40    ecartee : Offre Emploi CDI Ingénieur Suivi Fournisseurs Électriqu contrat non alternance
+29/10 14:28:42    ecartee : Offre Emploi Stage Ingénieur Travaux Grands Projets Plo contrat non alternance
+29/10 14:28:43    ecartee : Offre Emploi CDI Ingénieur Études HVAC Exécution Nantes contrat non alternance
+29/10 14:28:45    ecartee : Offre Emploi CDI Manager de Site Oeuvrant Nantes (44)   contrat non alternance
+29/10 14:28:46    ecartee : Offre Emploi CDI Chef de Chantier Grands Projets Electr contrat non alternance
+29/10 14:28:48    ecartee : Offre Emploi CDI Dessinateur Projeteur en Electricité N contrat non alternance
+29/10 14:28:50    ecartee : Offre Emploi CDI Responsable Travaux Grands Projets Ele contrat non alternance
+29/10 14:28:51    ecartee : Offre Emploi CDI Electricien Saint-Aignan-Grandlieu (44 contrat non alternance
+29/10 14:28:53    ecartee : Offre Emploi CDI Responsable Projets Electricité Indust contrat non alternance
+29/10 14:28:54    ecartee : Offre Emploi CDI Conducteur de Travaux Électricité Indu contrat non alternance
+29/10 14:28:56    ecartee : Offre Emploi CDI Electromécanicien La Roche-sur-Yon (85 contrat non alternance
+29/10 14:28:58    ecartee : Offre Emploi CDI Responsable d'Affaires Saint-Aignan-Gr contrat non alternance
+29/10 14:28:59    ecartee : Offre Emploi CDI Electromécanicien Laval (53)           contrat non alternance
+29/10 14:29:01    ecartee : Offre Emploi CDI Chef de Chantier Electricien Saint-Aig contrat non alternance
+29/10 14:29:02    ecartee : Offre Emploi CDI Electrotechnicien Montoir-de-Bretagne  contrat non alternance
+29/10 14:29:04    ecartee : Offre Emploi CDI Electromécanicien Montoir-de-Bretagne  contrat non alternance
+29/10 14:29:06    ecartee : Offre Emploi CDI Projeteur en Électricité Industrielle  contrat non alternance
+29/10 14:29:07    ecartee : Offre Emploi CDI Chef de Chantier Electricité Montoir-d contrat non alternance
+29/10 14:29:09    ecartee : Offre Emploi CDI Electricien BT HT Montoir-de-Bretagne  contrat non alternance
+29/10 14:29:10    ecartee : Offre Emploi CDI Electromécanicien Saint-Aignan-Grandli contrat non alternance
+29/10 14:29:12    ecartee : Offre Emploi CDI Chef de Chantier Electromécanicien Sai contrat non alternance
+29/10 14:29:14    ecartee : Offre Emploi CDI Electricien Industriel Bressuire (79)  contrat non alternance
+29/10 14:29:15    ecartee : Offre Emploi CDI Chef de Chantier Dangé-Saint-Romain (8 contrat non alternance
+29/10 14:29:17    ecartee : Offre Emploi CDI Chef d'Équipe Electromécanicien Saint- contrat non alternance
+29/10 14:29:18    ecartee : Offre Emploi CDI Electricien Industriel Thouars (79)    contrat non alternance
+29/10 14:29:20    ecartee : Offre Emploi CDI Electromécanicien Ancenis-Saint-Géréon contrat non alternance
+29/10 14:29:20  Arret : 60 annonces reportees au prochain passage.
+29/10 14:29:21  Mail envoye a marinprioux@gmail.com
+

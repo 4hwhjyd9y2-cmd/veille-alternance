@@ -1,5 +1,5 @@
 {
- "maj": "2026-10-29T12:01Z",
+ "maj": "2026-10-29T14:29Z",
  "offres": [
   {
    "id": "jobijoba-79c5a8837df976bfa8580d8e346ee06f",
@@ -182,6 +182,20 @@
    "missions": "Description de l'entreprise Veolia, leader mondial des services à l’environnement, participe chaque jour à construire la sécurité environnementale. Présent sur les cinq continents, le groupe dépollue, décarbone et régénère les ressources à travers des solutions concrètes combinan",
    "source": "veille",
    "ajoutee": "2026-10-25"
+  },
+  {
+   "id": "hellowork-84653185",
+   "titre": "Offre d'Alternance Chef de Projet Support Outils Direction Technique Nantes (44)",
+   "employeur": "Veolia",
+   "groupe": "Veolia",
+   "commune": "",
+   "famille": "projet",
+   "niveau": "non precise",
+   "publiee": "2026-10-21",
+   "lien": "https://www.hellowork.com/fr-fr/emplois/84653185.html",
+   "missions": "",
+   "source": "veille",
+   "ajoutee": "2026-10-29"
   }
  ]
 }
