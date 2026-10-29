@@ -41,6 +41,10 @@ jobs:
           MAIL_DESTINATAIRE: ${{ secrets.MAIL_DESTINATAIRE }}
           MAIL_MOT_DE_PASSE: ${{ secrets.MAIL_MOT_DE_PASSE }}
           URL_SUIVI: ${{ secrets.URL_SUIVI }}
+          # API facultatives : sans ces secrets, la source est simplement sautee
+          LBA_CLE: ${{ secrets.LBA_CLE }}
+          FT_CLIENT_ID: ${{ secrets.FT_CLIENT_ID }}
+          FT_CLIENT_SECRET: ${{ secrets.FT_CLIENT_SECRET }}
         run: python veille.py
 
       - name: Enregistrer les offres et les annonces deja vues

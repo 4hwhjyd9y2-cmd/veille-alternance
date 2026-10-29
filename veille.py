@@ -335,6 +335,137 @@ def sources_hellowork():
 SOURCES = sources_jobijoba() + sources_hellowork()
 
 # --------------------------------------------------------------------------
+# Troisieme source : les API publiques de l'alternance. Les offres arrivent
+# deja structurees, sans fiche a ouvrir : on construit directement le
+# dictionnaire que produirait analyser_fiche, et les memes filtres trient.
+# Chaque API ne tourne que si ses identifiants sont dans les secrets du depot.
+# --------------------------------------------------------------------------
+
+NANTES_GPS = (47.2184, -1.5536)
+RAYON_KM = 25                     # Nantes et sa peripherie ; le filtre commune affine
+
+# La bonne alternance (beta.gouv) : cle gratuite sur api.apprentissage.beta.gouv.fr,
+# secret LBA_CLE. Niveau 7 = bac+5 ; l'API y ajoute les offres sans niveau precise.
+LBA_URL = "https://api.apprentissage.beta.gouv.fr/api/job/v1/search"
+
+# France Travail, API Offres d'emploi v2 : application declaree sur
+# francetravail.io, secrets FT_CLIENT_ID et FT_CLIENT_SECRET.
+# E2 = contrat d'apprentissage, FS = contrat de professionnalisation.
+FT_JETON = ("https://entreprise.francetravail.fr/connexion/oauth2/access_token"
+            "?realm=%2Fpartenaire")
+FT_RECHERCHE = "https://api.francetravail.io/partenaire/offresdemploi/v2/offres/search"
+FT_COMMUNE_NANTES = "44109"       # code INSEE
+FT_PAR_PAGE = 150                 # maximum autorise par requete
+
+GROUPES_BILAN = list(EMPLOYEURS) + ["HelloWork", "La bonne alternance", "France Travail"]
+
+def fiche_api(url, titre, employeurs, commune, date, contrat, description):
+    """Meme forme que le resultat d'analyser_fiche, a partir de champs d'API."""
+    noms = []
+    for n in employeurs:
+        n = (n or "").strip()
+        if n and n.lower() not in [x.lower() for x in noms]:
+            noms.append(n)
+    texte = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", description or ""))
+    employeur = " / ".join(noms)
+    return {"url": url, "titre": nettoyer_titre(titre or ""), "titre_brut": "",
+            "employeur": employeur, "employeur_declare": employeur,
+            "commune": commune or "", "date": (date or "")[:10],
+            "contrat": contrat or "", "description": texte[:6000], "texte": ""}
+
+def _ref_api(valeur):
+    return re.sub(r"[^A-Za-z0-9_.:-]", "_", str(valeur))
+
+def offres_lba(cle):
+    """Renvoie [(reference, fiche)] depuis La bonne alternance."""
+    r = requests.get(LBA_URL, timeout=TIMEOUT, headers={
+        "Authorization": "Bearer " + cle, "Accept": "application/json"}, params={
+        "latitude": NANTES_GPS[0], "longitude": NANTES_GPS[1], "radius": RAYON_KM,
+        "target_diploma_level": "7"})
+    time.sleep(DELAI_ENTRE_REQUETES)
+    if r.status_code != 200:
+        log("  La bonne alternance : code %s" % r.status_code)
+        return None
+    offres = []
+    for job in r.json().get("jobs") or []:
+        ident = job.get("identifier") or {}
+        ref = ident.get("id") or "%s:%s" % (ident.get("partner_label", ""),
+                                             ident.get("partner_job_id", ""))
+        lieu = job.get("workplace") or {}
+        offre = job.get("offer") or {}
+        contrat = job.get("contract") or {}
+        offres.append((_ref_api(ref), fiche_api(
+            (job.get("apply") or {}).get("url") or "",
+            offre.get("title"),
+            [lieu.get("brand"), lieu.get("name"), lieu.get("legal_name")],
+            (lieu.get("location") or {}).get("address", ""),
+            (offre.get("publication") or {}).get("creation"),
+            " ".join(contrat.get("type") or []) + " apprentissage",
+            offre.get("description"))))
+    return offres
+
+def offres_france_travail(client_id, secret):
+    """Renvoie [(reference, fiche)] depuis l'API Offres d'emploi de France Travail."""
+    r = requests.post(FT_JETON, timeout=TIMEOUT, data={
+        "grant_type": "client_credentials", "client_id": client_id,
+        "client_secret": secret, "scope": "api_offresdemploiv2 o2dsoffre"})
+    if r.status_code != 200:
+        log("  France Travail : jeton refuse, code %s" % r.status_code)
+        return None
+    entetes = {"Authorization": "Bearer " + r.json()["access_token"],
+               "Accept": "application/json"}
+    offres = []
+    for nature in ("E2", "FS"):
+        debut = 0
+        while debut < 1150:           # au-dela, l'API refuse la pagination
+            r = requests.get(FT_RECHERCHE, headers=entetes, timeout=TIMEOUT, params={
+                "commune": FT_COMMUNE_NANTES, "distance": RAYON_KM,
+                "natureContrat": nature, "publieeDepuis": 31,
+                "range": "%d-%d" % (debut, debut + FT_PAR_PAGE - 1)})
+            time.sleep(DELAI_ENTRE_REQUETES)
+            if r.status_code == 204:
+                break
+            if r.status_code not in (200, 206):
+                log("  France Travail %s : code %s" % (nature, r.status_code))
+                break
+            lot = r.json().get("resultats") or []
+            for o in lot:
+                lieu = o.get("lieuTravail") or {}
+                origine = (o.get("origineOffre") or {}).get("urlOrigine")
+                offres.append((_ref_api(o.get("id")), fiche_api(
+                    origine or "https://candidat.francetravail.fr/offres/recherche/detail/%s" % o.get("id"),
+                    o.get("intitule"),
+                    [(o.get("entreprise") or {}).get("nom")],
+                    "%s %s" % (lieu.get("libelle", ""), lieu.get("codePostal", "")),
+                    o.get("dateCreation"),
+                    "%s %s" % (o.get("natureContrat", ""), o.get("typeContratLibelle", "")),
+                    o.get("description"))))
+            if r.status_code == 200 or len(lot) < FT_PAR_PAGE:
+                break
+            debut += FT_PAR_PAGE
+    return offres
+
+def sources_api():
+    """Renvoie [(groupe du bilan, site, offres)] pour chaque API configuree ;
+    offres vaut None si l'API n'a pas repondu."""
+    appels = []
+    if os.environ.get("LBA_CLE"):
+        appels.append(("La bonne alternance", "LBA", offres_lba, (os.environ["LBA_CLE"],)))
+    if os.environ.get("FT_CLIENT_ID") and os.environ.get("FT_CLIENT_SECRET"):
+        appels.append(("France Travail", "FT", offres_france_travail,
+                       (os.environ["FT_CLIENT_ID"], os.environ["FT_CLIENT_SECRET"])))
+    sortie = []
+    for groupe, site, fonction, args in appels:
+        try:
+            offres = fonction(*args)
+        except Exception as e:
+            # le type seulement : le message pourrait contenir un identifiant
+            log("  %s : echec (%s)" % (groupe, type(e).__name__))
+            offres = None
+        sortie.append((groupe, site, offres))
+    return sortie
+
+# --------------------------------------------------------------------------
 # Petits outils
 # --------------------------------------------------------------------------
 
@@ -848,12 +979,28 @@ def passage(test=False, force_mail=False):
     aujourdhui = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     stats = {"vues": 0, "ouvertes": 0, "reportees": 0, "pages": 0, "par_groupe": {}}
-    for g in list(EMPLOYEURS) + ["HelloWork"]:
+    for g in GROUPES_BILAN:
         stats["par_groupe"][g] = {"vues": 0, "ouvertes": 0, "retenues": 0}
 
-    a_examiner = []   # (groupe, source, ref, url)
+    a_examiner = []   # (groupe, source, ref, url, fiche deja construite ou None)
     connus = set()
-    vues_groupe = {g: set() for g in list(EMPLOYEURS) + ["HelloWork"]}
+    vues_groupe = {g: set() for g in GROUPES_BILAN}
+
+    # Les API d'abord : leurs offres ne coutent aucune requete, elles passent
+    # donc toujours, meme quand le plafond de fiches est atteint ensuite.
+    for groupe, site, offres in sources_api():
+        if offres is None:
+            continue
+        stats["pages"] += 1
+        refs = [ref for ref, _ in offres]
+        vues_groupe[groupe].update(refs)
+        log("  %-12s %-26s %3d annonces" % ("API", groupe, len(refs)))
+        for ref, fiche in offres:
+            cle = site + "|" + ref
+            if cle in deja or cle in connus:
+                continue
+            connus.add(cle)
+            a_examiner.append((groupe, site, ref, fiche["url"], fiche))
 
     log("Lecture des pages de liste")
     for src in SOURCES:
@@ -884,7 +1031,7 @@ def passage(test=False, force_mail=False):
             if cle in deja or ancienne in deja or cle in connus:
                 continue
             connus.add(cle)
-            a_examiner.append((src["groupe"], site, ref, src["fiche"] % ref))
+            a_examiner.append((src["groupe"], site, ref, src["fiche"] % ref, None))
 
     for g, refs in vues_groupe.items():
         stats["par_groupe"][g]["vues"] = len(refs)
@@ -893,18 +1040,21 @@ def passage(test=False, force_mail=False):
     log("%d annonces jamais vues" % len(a_examiner))
 
     retenues, signatures = [], set()
-    for i, (groupe, source, ref, url) in enumerate(a_examiner):
-        if chrono.depasse() or i >= MAX_FICHES_PAR_PASSAGE:
-            stats["reportees"] = len(a_examiner) - i
-            log("Arret : %d annonces reportees au prochain passage." % stats["reportees"])
-            break
-        html = telecharger(url)
+    telechargees = 0
+    for i, (groupe, source, ref, url, fiche) in enumerate(a_examiner):
         cle = source + "|" + ref
-        if html is None:
-            continue
+        if fiche is None:
+            if chrono.depasse() or telechargees >= MAX_FICHES_PAR_PASSAGE:
+                stats["reportees"] = len(a_examiner) - i
+                log("Arret : %d annonces reportees au prochain passage." % stats["reportees"])
+                break
+            html = telecharger(url)
+            telechargees += 1
+            if html is None:
+                continue
+            fiche = analyser_fiche(html, url)
         stats["ouvertes"] += 1
         stats["par_groupe"][groupe]["ouvertes"] += 1
-        fiche = analyser_fiche(html, url)
         g, famille_ou_motif = verifier(fiche)
         if not g:
             deja[cle] = {"le": aujourdhui, "motif": famille_ou_motif}

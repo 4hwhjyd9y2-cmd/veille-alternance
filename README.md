@@ -60,6 +60,7 @@ GitHub Actions (cron quotidien a 06:00 et 07:00 UTC, un seul passage a 8h de Par
         |-- lit  etat.json       (annonces deja vues, pour ne rien signaler deux fois)
         |-- lit  67 pages de liste Jobijoba (14 groupes et leurs filiales)
         |-- lit  18 pages de liste HelloWork (listes Nantes et pages entreprise)
+        |-- interroge les API La bonne alternance et France Travail, si leurs secrets existent
         |-- lit  chaque fiche jamais vue, et son bloc JSON-LD JobPosting
         |-- filtre : employeur, contrat, lieu, date, metier, niveau, domaine
         |-- ecrit etat.json et offres.json
@@ -113,6 +114,17 @@ toute pagination : seule la premiere page de chaque liste est lue, soit les
 vingt offres les plus recentes. Avec un passage quotidien, c'est suffisant.
 Une meme offre publiee sur les deux sites n'est signalee qu'une fois : son
 empreinte est gardee soixante jours dans `etat.json`, cle `signatures`.
+
+**Deux API publiques, facultatives.** Si leurs secrets sont presents, le
+script interroge aussi La bonne alternance (beta.gouv, offres d'apprentissage
+de niveau bac+5 ou sans niveau precise, dans un rayon de 25 km autour de
+Nantes) et l'API Offres d'emploi de France Travail (contrats d'apprentissage
+et de professionnalisation, meme rayon, publies depuis 31 jours). Les offres
+arrivent deja structurees : `fiche_api` en fait le meme dictionnaire
+qu'`analyser_fiche`, sans aucune page a ouvrir, et les memes filtres trient.
+Elles passent avant les fiches des sites, donc le plafond de fiches ne les
+touche pas. Sans secret, l'API est simplement sautee ; en cas d'erreur, le
+journal le dit et le passage continue avec les autres sources.
 
 **Le piege des noms inconnus.** Quand Jobijoba ne connait pas un nom
 d'entreprise, il ne renvoie pas une page vide : il renvoie toutes les
@@ -349,6 +361,9 @@ un nouveau probleme apparait : c'est ce qui evite les regressions.
 | `MAIL_DESTINATAIRE` | l'adresse qui recoit |
 | `MAIL_MOT_DE_PASSE` | les 16 lettres d'un mot de passe d'application Google, pas le mot de passe du compte |
 | `URL_SUIVI` | l'adresse de la page Pages, ajoutee en bas des mails |
+| `LBA_CLE` | facultatif : la cle API de production La bonne alternance |
+| `FT_CLIENT_ID` | facultatif : l'identifiant de l'application France Travail |
+| `FT_CLIENT_SECRET` | facultatif : la cle secrete de cette application |
 
 **Permissions** : Settings, Actions, General, Workflow permissions doit etre
 sur **Read and write**, sans quoi le commit de fin de passage echoue.
@@ -386,9 +401,13 @@ chaque annonce retenue, et chaque annonce ecartee avec son motif en clair.
 
 ## 10. Limites assumees
 
-- **Deux sources seulement.** Si Jobijoba et HelloWork tombent ou changent
-  leurs adresses, la veille s'arrete. Le mail « sources injoignables » sert
-  d'alarme.
+- **Peu de sources.** Sans les API, si Jobijoba et HelloWork tombent ou
+  changent leurs adresses, la veille s'arrete. Le mail « sources
+  injoignables » sert d'alarme.
+- **API ecrites d'apres leur documentation, pas encore essayees en vrai.**
+  Elles ont ete branchees avant l'obtention des cles. Au premier passage avec
+  les secrets, lire les lignes `API` du journal : un code d'erreur ou
+  « 0 annonces » signale un parametre a corriger.
 - **HelloWork, premiere page seulement.** Le `robots.txt` interdit la
   pagination. Un jour ou plus de vingt offres sortent sur une meme liste, les
   plus anciennes de la journee peuvent echapper au passage.

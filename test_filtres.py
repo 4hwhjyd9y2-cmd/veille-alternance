@@ -218,3 +218,63 @@ print("\nTitres HelloWork de repli :")
 brut = "Offre Emploi Alternance Ingénieur Travaux Télécom Saint-Herblain (44) - Recrutement par Axians | HelloWork"
 t = veille.nettoyer_titre(brut)
 print("%-4s %s" % ("OK" if "recrutement" not in veille.sans_accents(t) else "RATE", t))
+
+# --- API : reponses simulees, pour tester la lecture sans cle --------------
+print("\nLecture des API (reponses simulees) :")
+
+class Reponse:
+    def __init__(self, code, donnees):
+        self.status_code, self._d = code, donnees
+    def json(self):
+        return self._d
+
+HIER = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%dT08:00:00.000Z")
+LBA = {"jobs": [
+    {"identifier": {"id": "6721abc", "partner_label": "La bonne alternance", "partner_job_id": "x"},
+     "workplace": {"name": "ENEDIS", "brand": None, "legal_name": "ENEDIS",
+                   "location": {"address": "12 rue X 44000 Nantes"}},
+     "apply": {"url": "https://labonnealternance.apprentissage.beta.gouv.fr/emploi/6721abc"},
+     "contract": {"type": ["Apprentissage"]},
+     "offer": {"title": "Alternance ingenieur poste source H/F", "publication": {"creation": HIER},
+               "description": "<p>Ecole d'ingenieur, etudes de raccordement HTA.</p>"}},
+    {"identifier": {"id": None, "partner_label": "Hellowork", "partner_job_id": "84/65"},
+     "workplace": {"name": "Boulangerie Dupont", "location": {"address": "Reze"}},
+     "apply": {"url": "https://exemple.test/2"}, "contract": {"type": ["Apprentissage"]},
+     "offer": {"title": "Apprenti vendeur", "publication": {"creation": HIER}, "description": "CAP"}},
+], "recruiters": [], "warnings": []}
+
+FT = {"resultats": [
+    {"id": "190XYZK", "intitule": "Alternant(e) chef de projet efficacite energetique",
+     "description": "Master 2 energie, audit energetique des sites.",
+     "dateCreation": HIER, "lieuTravail": {"libelle": "44 - SAINT HERBLAIN", "codePostal": "44800"},
+     "entreprise": {"nom": "DALKIA"}, "natureContrat": "Contrat apprentissage",
+     "typeContratLibelle": "Contrat a duree determinee - 24 Mois",
+     "origineOffre": {"urlOrigine": "https://candidat.francetravail.fr/offres/recherche/detail/190XYZK"}},
+]}
+
+vrai_get, vrai_post, vrai_delai = veille.requests.get, veille.requests.post, veille.DELAI_ENTRE_REQUETES
+veille.DELAI_ENTRE_REQUETES = 0
+def faux_get(url, **kw):
+    if "apprentissage.beta" in url:
+        return Reponse(200, LBA)
+    nature = kw["params"]["natureContrat"]
+    return Reponse(200, FT) if nature == "E2" else Reponse(204, None)
+veille.requests.get = faux_get
+veille.requests.post = lambda url, **kw: Reponse(200, {"access_token": "jeton"})
+try:
+    lus = veille.offres_lba("cle") + veille.offres_france_travail("id", "secret")
+finally:
+    veille.requests.get, veille.requests.post = vrai_get, vrai_post
+    veille.DELAI_ENTRE_REQUETES = vrai_delai
+
+CAS_API = [  # (reference attendue, retenue attendue, famille attendue)
+    ("6721abc", True, "technique"),
+    ("Hellowork:84_65", False, None),
+    ("190XYZK", True, "projet"),
+]
+for (ref_att, attendu, famille), (ref, f) in zip(CAS_API, lus):
+    g, r = veille.verifier(f)
+    juste = ref == ref_att and (g is not None) == attendu and (not attendu or r == famille)
+    print("%-4s %-16s %-48s -> %s" % ("OK" if juste else "RATE", ref, f["titre"][:48],
+          ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
+print("%-4s %d offres lues sur 3 attendues" % ("OK" if len(lus) == 3 else "RATE", len(lus)))

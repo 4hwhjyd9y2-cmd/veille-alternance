@@ -14,6 +14,11 @@ Cnam. Deux pieces, sans serveur ni IA a l'execution :
 - `index.html` : page de suivi des candidatures servie par GitHub Pages. Elle lit
   `offres.json` et garde statuts et notes dans le `localStorage` du navigateur.
 
+Deux API facultatives completent les sites : La bonne alternance (secret
+`LBA_CLE`) et France Travail (`FT_CLIENT_ID`, `FT_CLIENT_SECRET`). Sans
+secret, elles sont sautees ; leurs offres passent par `fiche_api` puis les
+memes filtres. Ne jamais journaliser ni committer ces identifiants.
+
 Une seule dependance : `requests`. `README.md` est la description complete et
 fait reference ; sa section 6 liste les faux positifs deja corriges, a ne pas
 reintroduire.
