@@ -304,13 +304,20 @@ HELLOWORK = [
     ("HelloWork", "alternance/ville_orvault-44700.html"),
     # pages entreprise a Nantes, tous contrats confondus : le filtre contrat trie
     ("Bouygues", "entreprises/equans-1338/ville_nantes-44000.html"),
-    ("Engie",    "entreprises/engie-cofely-8032/ville_nantes-44000.html"),
     ("VINCI",    "entreprises/actemium-loire-ocean-117258.html"),
-    ("Veolia",   "entreprises/veolia-103310/ville_nantes-44000.html"),
-    ("EDF",      "entreprises/edf-5489/ville_nantes-44000.html"),
     ("SPIE",     "entreprises/spie-industrie-et-tertiaire-division-industrie-75834/ville_nantes-44000.html"),
-    ("RTE",      "entreprises/rte-7029/ville_nantes-44000.html"),
-    ("NaTran",   "entreprises/natran-33461/ville_nantes-44000.html"),
+    # pages entreprise « alternance », toute la France : la page « ville de
+    # Nantes » ignore la peripherie (Saint-Herblain, Carquefou...) et etait vide
+    # pour EDF, Veolia, RTE et NaTran en octobre 2026. Ces listes nationales sont
+    # courtes (1 a 20 offres), et le filtre commune trie ensuite.
+    ("Bouygues", "entreprises/equans-1338/contrat_alternance.html"),
+    ("EDF",      "entreprises/edf-5489/contrat_alternance.html"),
+    ("EDF",      "entreprises/enedis-219004/contrat_alternance.html"),
+    ("EDF",      "entreprises/dalkia-474/contrat_alternance.html"),
+    ("Veolia",   "entreprises/veolia-103310/contrat_alternance.html"),
+    ("RTE",      "entreprises/rte-7029/contrat_alternance.html"),
+    ("NaTran",   "entreprises/natran-33461/contrat_alternance.html"),
+    ("Naval Group", "entreprises/naval-group-1209/contrat_alternance.html"),
 ]
 
 def sources_hellowork():

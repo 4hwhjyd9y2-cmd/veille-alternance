@@ -59,7 +59,7 @@ GitHub Actions (cron quotidien a 06:00 et 07:00 UTC, un seul passage a 8h de Par
     veille.py
         |-- lit  etat.json       (annonces deja vues, pour ne rien signaler deux fois)
         |-- lit  67 pages de liste Jobijoba (14 groupes et leurs filiales)
-        |-- lit  15 pages de liste HelloWork (listes Nantes et pages entreprise)
+        |-- lit  18 pages de liste HelloWork (listes Nantes et pages entreprise)
         |-- lit  chaque fiche jamais vue, et son bloc JSON-LD JobPosting
         |-- filtre : employeur, contrat, lieu, date, metier, niveau, domaine
         |-- ecrit etat.json et offres.json
@@ -154,7 +154,7 @@ uniquement dans le navigateur.
 |---|---|---|
 | `DELAI_ENTRE_REQUETES` | 1.0 s | politesse envers les sites interroges |
 | `TIMEOUT` | 30 s | abandon d'une requete trop lente |
-| `MAX_FICHES_PAR_PASSAGE` | 120 | plafond de securite |
+| `MAX_FICHES_PAR_PASSAGE` | 200 | plafond de securite |
 | `BUDGET_SECONDES` | 20 min | le vrai garde-fou : le passage s'arrete au temps, pas au nombre |
 | `AGE_MAX_JOURS` | 30 | au-dela, l'annonce est consideree comme perimee |
 
@@ -177,7 +177,7 @@ uniquement dans le navigateur.
 ### Fonctions principales
 
 - `sources_jobijoba()` construit les 67 pages de liste a interroger a partir de `SLUGS`.
-- `sources_hellowork()` construit les 15 pages HelloWork a partir de `HELLOWORK`.
+- `sources_hellowork()` construit les 18 pages HelloWork a partir de `HELLOWORK`.
 - `page_generique(html, slug)` detecte une page que Jobijoba a remplacee par la liste
   generique du departement, et la fait ignorer.
 - `telecharger(url)` respecte `robots.txt` avant chaque requete, via
