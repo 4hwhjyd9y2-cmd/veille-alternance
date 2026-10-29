@@ -305,6 +305,11 @@ erreurs.
 | La meme offre signalee deux fois, une fois par site | identifiant different sur chaque site | empreinte gardee soixante jours |
 | Lancement manuel sans reponse | la regle des sept jours s'appliquait aussi aux lancements manuels | un lancement manuel force l'envoi |
 | Un mail au HTML casse suivi d'un correctif | le HTML etait place dans le corps texte | deux versions distinctes, `set_content` en texte et `add_alternative` en HTML |
+| HelloWork entierement « interdit par robots.txt » | `rp.read()` lit robots.txt avec l'agent Python-urllib, que HelloWork refuse (403), et robotparser conclut alors que tout est interdit | `autorise` lit robots.txt avec nos propres entetes, puis l'analyse |
+| « Appui a la gestion des contrats d'alternance » Enedis retenu | fonction support RH non reconnue | « gestion des contrats », « appui a la gestion », « gestion administrative » dans `DOMAINE_KO` |
+| La meme offre Enedis retenue deux fois | un titre portait la reference « (2026-184204) », l'autre non, donc deux empreintes | `signature` ignore la reference entre parentheses et la commune en fin de titre |
+| « Alternance Ingenieur Travaux Telecom » HelloWork ecartee en « fonction support » | le titre de repli HelloWork finit par « - Recrutement par … », et « recrutement » est dans `DOMAINE_KO` | `nettoyer_titre` coupe aussi a « - Recrutement par » |
+| « Apprenti ambulancier » Keolis retenu | metier absent de `METIERS_KO`, et Saint-Philbert-de-Grand-Lieu absent de `COMMUNES_KO` | ambulancier, chauffeur, conducteur de bus ajoutes ; Saint-Philbert ecarte |
 
 ---
 

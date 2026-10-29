@@ -168,3 +168,53 @@ for attendu, famille, f in CAS_HW:
     juste = (g is not None) == attendu and (not attendu or r == famille)
     print("%-4s %-52s -> %s" % ("OK" if juste else "RATE", f["titre"][:52],
           ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
+
+# --- passage de test du 29 octobre : faux positifs et doublon --------------
+print("\nCas du passage de test du 29 octobre :")
+CAS_OCT = [
+    (False, fiche("Alternance : Appui a la gestion des contrats d'alternance F/H (2026-184204)",
+                  "Enedis", "Nantes", "Master ressources humaines, suivi administratif et qualite.")),
+    (False, fiche("Apprenti Ambulancier F/H", "Keolis Sante", "Nantes",
+                  "Formation au diplome d'Etat, securite et qualite des transports.")),
+    (False, fiche("Alternance ingenieur QSE", "Keolis", "Saint-Philbert-de-Grand-Lieu",
+                  "Ecole d'ingenieur, sante securite.")),
+]
+for attendu, f in CAS_OCT:
+    g, r = veille.verifier(f)
+    juste = (g is not None) == attendu
+    print("%-4s %-52s -> %s" % ("OK" if juste else "RATE", f["titre"][:52],
+          ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
+
+print("\nEmpreintes de doublons :")
+CAS_SIG = [
+    (True,  "Alternance : Appui a la gestion des contrats d'alternance F/H (2026-184204)",
+            "Appui a la gestion des contrats d'alternance F/H"),
+    (True,  "Alternant controleur de gestion h/f - Nantes", "Alternant controleur de gestion H/F"),
+    (False, "Alternance Master 1 QSE", "Alternance Master 2 QSE"),
+    (False, "Chef de projet - Eolien", "Chef de projet - Solaire"),
+]
+for attendu, a, b in CAS_SIG:
+    pareil = veille.signature({"titre": a}, "EDF") == veille.signature({"titre": b}, "EDF")
+    print("%-4s %-40s / %-34s -> %s" % ("OK" if pareil == attendu else "RATE", a[:40], b[:34],
+          "meme offre" if pareil else "offres distinctes"))
+
+# --- robots.txt : HelloWork refuse l'agent Python-urllib, pas le notre ----
+print("\nLecture de robots.txt :")
+import urllib.robotparser
+rp = urllib.robotparser.RobotFileParser()
+rp.parse(["User-Agent: *", "Disallow: /*?", "Disallow: /fr-fr/candidat/", "",
+          "User-Agent: Python-urllib", "User-Agent: Wget", "Disallow: /"])
+UA = veille.ENTETES["User-Agent"]
+CAS_ROBOTS = [
+    (True,  "/fr-fr/alternance/ville_nantes-44000.html"),
+    (True,  "/fr-fr/entreprises/equans-1338/ville_nantes-44000.html"),
+    (False, "/fr-fr/candidat/compte.html"),
+]
+for attendu, chemin in CAS_ROBOTS:
+    r = rp.can_fetch(UA, "https://www.hellowork.com" + chemin)
+    print("%-4s %-56s -> %s" % ("OK" if r == attendu else "RATE", chemin, "autorise" if r else "interdit"))
+
+print("\nTitres HelloWork de repli :")
+brut = "Offre Emploi Alternance Ingénieur Travaux Télécom Saint-Herblain (44) - Recrutement par Axians | HelloWork"
+t = veille.nettoyer_titre(brut)
+print("%-4s %s" % ("OK" if "recrutement" not in veille.sans_accents(t) else "RATE", t))

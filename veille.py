@@ -122,6 +122,7 @@ COMMUNES_KO = [
     "saint-nazaire", "saint nazaire", "montoir", "donges", "la baule", "pornic",
     "ancenis", "chateaubriant", "guerande", "savenay", "pontchateau", "clisson",
     "blain", "nort-sur-erdre", "machecoul", "saint-brevin", "paimboeuf",
+    "saint-philbert-de-grand-lieu", "saint philbert de grand lieu", "st philbert",
 ]
 
 # --------------------------------------------------------------------------
@@ -195,6 +196,8 @@ DOMAINE_KO = [
     "secretaire", "assistanat", "finance", "audit interne", "formation",
     "assistant", "assistante", "gestionnaire d'actifs", "gestion d'actifs",
     "chargee de clientele", "charge de clientele", "relation client", "back office",
+    "gestion des contrats", "appui a la gestion", "gestion administrative",
+    "administration du personnel",
 ]
 
 METIERS_KO = [
@@ -207,6 +210,8 @@ METIERS_KO = [
     "plombier", "serrurier", "canalisateur", "manoeuvre", "magasinier",
     "technicien", "technicienne", "installateur", "installatrice", "frigoriste",
     "agent technique", "agent de proprete", "preparateur", "monteuse",
+    "ambulancier", "ambulanciere", "chauffeur", "conducteur de bus",
+    "conducteur de car",
 ]
 
 # --------------------------------------------------------------------------
@@ -371,10 +376,18 @@ def autorise(url):
         p = urlparse(url)
         racine = "%s://%s" % (p.scheme, p.netloc)
         if racine not in _robots:
+            # robots.txt est lu avec nos propres entetes : rp.read() enverrait
+            # l'agent Python-urllib, que HelloWork refuse (403), et robotparser
+            # en deduirait que tout est interdit.
             rp = urllib.robotparser.RobotFileParser()
-            rp.set_url(racine + "/robots.txt")
             try:
-                rp.read()
+                r = requests.get(racine + "/robots.txt", headers=ENTETES, timeout=TIMEOUT)
+                if r.status_code in (401, 403):
+                    rp.disallow_all = True
+                elif r.status_code >= 400:
+                    rp.allow_all = True
+                else:
+                    rp.parse(r.text.splitlines())
             except Exception:
                 rp = None
             _robots[racine] = rp
@@ -470,7 +483,10 @@ def nettoyer_titre(brut):
     Jobijoba'. On coupe au premier separateur et on decode les entites."""
     t = _html.unescape(re.sub(r"<[^>]+>", "", brut or ""))
     t = re.sub(r"\s+", " ", t).strip()
-    for sep in (" | ", " - Offre d", " - Emploi ", " details du poste", " | Jobijoba"):
+    # " - Recrutement par" : suffixe des titres HelloWork, qui sinon declenche
+    # le filtre des fonctions support sur le mot recrutement
+    for sep in (" | ", " - Offre d", " - Emploi ", " details du poste", " | Jobijoba",
+                " - Recrutement par"):
         i = sans_accents(t).find(sans_accents(sep))
         if i > 10:
             t = t[:i]
@@ -689,7 +705,15 @@ def signature(fiche, groupe):
     """Empreinte d'une offre, pour reperer la meme annonce arrivee deux fois."""
     t = sans_accents(fiche["titre"])
     t = re.sub(r"\b(h/?f|f/?h|alternance|alternant|apprenti|apprentissage)\b", " ", t)
+    # la reference entre parentheses et la commune ajoutees par certains
+    # sites ne doivent pas distinguer deux copies de la meme annonce
+    t = re.sub(r"\([^)]*\d[^)]*\)", " ", t)
     t = re.sub(r"[^a-z0-9]+", " ", t).strip()
+    for commune in COMMUNES_OK:
+        c = re.sub(r"[^a-z0-9]+", " ", commune).strip()
+        if t.endswith(" " + c):
+            t = t[:-len(c)].strip()
+            break
     return (groupe + "|" + t[:40]).strip()
 
 # --------------------------------------------------------------------------
