@@ -465,6 +465,10 @@
    "le": "2026-10-27",
    "motif": "commune hors Nantes (Pays de la Loire)"
   },
+  "JOBIJOBA_GRDF|54/2e9fb470f40f4cc672ee04970258a425": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
   "JOBIJOBA_GRDF|54/3e88d0d238f50082a9d95043dd99f481": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -689,6 +693,10 @@
    "le": "2026-09-29",
    "motif": "fonction support (commercial)"
   },
+  "JOBIJOBA_SUEZ|54/7e3894df2a89cfc117743074de40b84a": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Stage)"
+  },
   "JOBIJOBA_SUEZ|54/85d4e3961203568a28075e8e04788e79": {
    "le": "2026-09-29",
    "motif": "date introuvable"
@@ -712,6 +720,10 @@
   "JOBIJOBA_SUEZ|54/d73bd4b419ea9b9c7a0d55b965e378d6": {
    "le": "2026-10-21",
    "motif": "employeur hors perimetre (Golden Bees)"
+  },
+  "JOBIJOBA_VEOLIA|54/2df59d4212935232330900878f931474": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Stage)"
   },
   "JOBIJOBA_VEOLIA|54/35770595f6a1340e1922e583c7556c6a": {
    "le": "2026-10-01",
@@ -792,6 +804,10 @@
   "JOBIJOBA_VINCI|54/73b649ac8d27ce6437cf897b53a4c724": {
    "le": "2026-10-13",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA_VINCI|54/83f44f10347c131a6a151913533818db": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Stage)"
   },
   "JOBIJOBA_VINCI|54/85f6c79e00a3b0e2535d7c134d2f10f8": {
    "le": "2026-09-29",
