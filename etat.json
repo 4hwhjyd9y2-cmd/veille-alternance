@@ -13,6 +13,22 @@
    "le": "2026-10-29",
    "motif": "metier d'execution (negociateur)"
   },
+  "HELLOWORK|66612207": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|68145897": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|68187851": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|71392812": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|72053774": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -32,6 +48,10 @@
   "HELLOWORK|74884592": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75153022": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
   },
   "HELLOWORK|75367199": {
    "le": "2026-10-29",
@@ -97,6 +117,10 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|76725908": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|76941502": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
@@ -109,6 +133,10 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|77038693": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|77058458": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -120,6 +148,10 @@
   "HELLOWORK|77059319": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77097156": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|77198576": {
    "le": "2026-10-29",
@@ -137,6 +169,10 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|77354337": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|77441237": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -149,9 +185,45 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|77536540": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77654596": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77836993": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|77857720": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77871168": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77926750": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77964018": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77980062": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77980123": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77980246": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|78063701": {
    "le": "2026-10-29",
@@ -173,13 +245,29 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|78893878": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|78966380": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|78980856": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|79007661": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|79173232": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79193008": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|79245964": {
    "le": "2026-10-29",
@@ -213,6 +301,14 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|79970694": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|80204271": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|80277665": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
@@ -245,6 +341,14 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|81065845": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|81507259": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|81525656": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -257,9 +361,21 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|82141018": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|82213778": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|82363709": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|82672908": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|82688025": {
    "le": "2026-10-29",
@@ -277,6 +393,10 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|82939368": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|82999246": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -289,13 +409,33 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|83284955": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|83319207": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|83411856": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|83477685": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|83487744": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|83487757": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|83487876": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|83548927": {
    "le": "2026-10-29",
@@ -304,6 +444,18 @@
   "HELLOWORK|83554823": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83599757": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|83599768": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|83605031": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|83691418": {
    "le": "2026-10-29",
@@ -345,13 +497,29 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84229197": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84249013": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|84256561": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84260674": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|84261765": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84262573": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84330473": {
    "le": "2026-10-29",
@@ -365,9 +533,21 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84394428": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|84402923": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84405073": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84405074": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84406152": {
    "le": "2026-10-29",
@@ -396,6 +576,30 @@
   "HELLOWORK|84455791": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84516459": {
+   "le": "2026-10-29",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84518611": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84521033": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84521044": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84521052": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84563075": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84575237": {
    "le": "2026-10-29",
@@ -433,9 +637,21 @@
    "le": "2026-10-29",
    "motif": "retenue"
   },
+  "HELLOWORK|84656400": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|84671927": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84711871": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84726968": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84729654": {
    "le": "2026-10-29",
@@ -464,6 +680,18 @@
   "HELLOWORK|84731476": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84732440": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84732445": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84732451": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84738218": {
    "le": "2026-10-29",
@@ -517,9 +745,17 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84811003": {
+   "le": "2026-10-29",
+   "motif": "fonction support (finance)"
+  },
   "HELLOWORK|84822187": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84823366": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84888214": {
    "le": "2026-10-29",
@@ -544,6 +780,10 @@
   "HELLOWORK|84902577": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84904247": {
+   "le": "2026-10-29",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84905905": {
    "le": "2026-10-29",
@@ -658,6 +898,10 @@
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|84931577": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84935595": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
@@ -1676,6 +1920,466 @@
   "JOBIJOBA|54/ee3e8183fdbb0f82a6900a473a8d16f1": {
    "le": "2026-10-29",
    "motif": "domaine hors cible"
+  },
+  "LBA|6907e2e1d95667b5d025ef8b": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Manpower RH)"
+  },
+  "LBA|69b5ec1036fb19b2b1999ca0": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (SPIE BATIGNOLLES PAYSAGE)"
+  },
+  "LBA|69f284d37cd76a906e288abe": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (SPIE BATIGNOLLES PAYSAGE)"
+  },
+  "LBA|6a03a83c687b65f1999d2dc4": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (SPIE BATIGNOLLES PAYSAGE)"
+  },
+  "LBA|6a0e30327e01cd36a09009e5": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (KONE)"
+  },
+  "LBA|6a0e30327e01cd36a09009e7": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (KONE)"
+  },
+  "LBA|6a6060b9e5fa1b20ee172c99": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (MAGNITH FRANCE)"
+  },
+  "LBA|6a6d2325ab2acc197076d485": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (La Poste)"
+  },
+  "LBA|6a7f926b4bf3c06efe335a3d": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (CELAD)"
+  },
+  "LBA|6a8cc14098c379c25177dfa7": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ELIOR PARTICIPATIONS)"
+  },
+  "LBA|6a97515fdb6c731160e48f16": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ADECCO)"
+  },
+  "LBA|6a99f33085d4232b2a91a4ca": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Hyper U)"
+  },
+  "LBA|6a9e2c7306fad1942d13b5e4": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (LES COLETTES SOURCING)"
+  },
+  "LBA|6aac67ac0dece6ea6e419404": {
+   "le": "2026-10-29",
+   "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
+  },
+  "LBA|6aac67ac0dece6ea6e419410": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (KDR INVEST)"
+  },
+  "LBA|6ab5a2427caaafd3f59782ff": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Intermarché Nantes Pitre Chevalier)"
+  },
+  "LBA|6abc350bd46e986892b8dc7a": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GROUPE AXTOM)"
+  },
+  "LBA|6abc350bd46e986892b8dc84": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (JP ENERGIE ENVIRONNEMENT)"
+  },
+  "LBA|6abc367ed46e986892b9303d": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Free Go Ouest)"
+  },
+  "LBA|6abc3699d46e986892b93622": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (LEYTON FRANCE)"
+  },
+  "LBA|6abc3973170bf3aae5851f35": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLO INSERTI QUALIFICATIO L A GPT)"
+  },
+  "LBA|6abc3973170bf3aae5851f36": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLO INSERTI QUALIFICATIO L A GPT)"
+  },
+  "LBA|6abc3973170bf3aae5851f37": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLO INSERTI QUALIFICATIO L A GPT)"
+  },
+  "LBA|6abc3973170bf3aae5851f38": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLO INSERTI QUALIFICATIO L A GPT)"
+  },
+  "LBA|6abed7f0d46e986892beb0e8": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (AUCHAN HYPERMARCHE)"
+  },
+  "LBA|6abed82e2df2835ebd3582a7": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (CAPIVISION)"
+  },
+  "LBA|6abedd20d46e986892bf5534": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (Auchan Hypermarché SAS)"
+  },
+  "LBA|6ac1800e0d871689a664f2fa": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ADECCO)"
+  },
+  "LBA|6ac2cc6c0d871689a664fa36": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ASSURANCES CARREFOUR - SERVICES FIN / CARREFOUR)"
+  },
+  "LBA|6ac41f641778092e497f460f": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ADECCO / ADECCO FRANCE)"
+  },
+  "LBA|6ac64c2ef994c6815744ba62": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GAMA)"
+  },
+  "LBA|6acab6e9dab1251c1ae35fe2": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (TERRENA)"
+  },
+  "LBA|6acab9e0dab1251c1ae3824d": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GROUPE TERRENA)"
+  },
+  "LBA|6acd5c980226c9bf0008d157": {
+   "le": "2026-10-29",
+   "motif": "metier d'execution (tuyauteur)"
+  },
+  "LBA|6acd5d66bd527d1b3c359470": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ADECCO)"
+  },
+  "LBA|6aceae2f0226c9bf0009340d": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (NANTEUROP FL)"
+  },
+  "LBA|6acf5aa3d37fcd71a1ead0d5": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (SARL RUBAN BLEU)"
+  },
+  "LBA|6acfa793eb1fb948b46aba2d": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ELECTRICITE DE FRANCE)"
+  },
+  "LBA|6acfa795eb1fb948b46aba30": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ELECTRICITE DE FRANCE)"
+  },
+  "LBA|6acfa79922ce23a2ad444383": {
+   "le": "2026-10-29",
+   "motif": "metier d'execution (bobinier)"
+  },
+  "LBA|6acfa7bc22ce23a2ad4443a6": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ELECTRICITE DE FRANCE)"
+  },
+  "LBA|6acfa7c722ce23a2ad4443b1": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (EMEIS)"
+  },
+  "LBA|6acfad2222ce23a2ad4448ee": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfad2deb1fb948b46abf90": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfad4122ce23a2ad444900": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfad4e22ce23a2ad44490d": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfadb3eb1fb948b46abfe1": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfadb522ce23a2ad44494c": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfadc5eb1fb948b46abff2": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfadc722ce23a2ad444961": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb287eb1fb948b46ac4a3": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb28eeb1fb948b46ac4a9": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb49beb1fb948b46ac665": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb4c722ce23a2ad44500a": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb769eb1fb948b46ac8f5": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb76b22ce23a2ad445281": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb76d22ce23a2ad445284": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfb76feb1fb948b46ac8fb": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6acfc00af88e9012726f3c59": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6acffccf0bdf06aea2986ee1": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (KPMG SA / KPMG)"
+  },
+  "LBA|6acffcd00bdf06aea2986f14": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (BUFFALO GRILL)"
+  },
+  "LBA|6acfff91fcd49a2239d83583": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (CLS)"
+  },
+  "LBA|6acfff91fcd49a2239d83584": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (JANO / JEAN-CHARLES CAUQUIL)"
+  },
+  "LBA|6acfff91fcd49a2239d83585": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (LE FOURNIL DU PARNASSE / M.J.M. BOUCHEREAU)"
+  },
+  "LBA|6ad21dcb07575485f00578d6": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (MINISO FRANCE)"
+  },
+  "LBA|6ad2a2960ae368bc8d5b71df": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (MEDANDJOBS)"
+  },
+  "LBA|6ad2a2960ae368bc8d5b71e4": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (MELON)"
+  },
+  "LBA|6ad54676cc1761c8ae03b99b": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ADECCO)"
+  },
+  "LBA|6ad5c7a42c77d038809ded10": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6ad5e78b1f0749091ffad9e3": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad632c71f0749091ffb2cf5": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (EXPERIS FRANCE)"
+  },
+  "LBA|6ad69309e0503c9d67332b20": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (WAKE UP CAFE)"
+  },
+  "LBA|6ad7763c76f66547ccc0ece3": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad7e8b3697d75a5c9fd2316": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (PROMOTION IMMOBILIÈRE)"
+  },
+  "LBA|6ad7e8b3697d75a5c9fd2317": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLOYEURS INSERTION QUALIFICATION PAYS DE LA LOIRE)"
+  },
+  "LBA|6ad86aa876f66547ccc148c4": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6ad86aaa04d39aae9b876c3f": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6ad86aad76f66547ccc148cc": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6ad87dbd76f66547ccc15b88": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad87ea976f66547ccc15cb3": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8805304d39aae9b878205": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad881ef04d39aae9b878439": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8839e04d39aae9b87863c": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8843a04d39aae9b8786e3": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8848404d39aae9b878752": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8850304d39aae9b878805": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8856f04d39aae9b87889a": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8863276f66547ccc16619": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad887aa04d39aae9b878b6f": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad887bf04d39aae9b878b8b": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad8881d76f66547ccc16832": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad88b5904d39aae9b878ed3": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ad9371e2b0b33f74bce197c": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (SECURITAS FRANCE SARL)"
+  },
+  "LBA|6ad93a15715e4cba3924e3db": {
+   "le": "2026-10-29",
+   "motif": "metier d'execution (coffreur)"
+  },
+  "LBA|6ada8ba983cbc16d5224325e": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ACTUAL TALENT)"
+  },
+  "LBA|6ada8ba983cbc16d5224325f": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ACTUAL TALENT)"
+  },
+  "LBA|6ada8ba983cbc16d52243261": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (ACTUAL TALENT)"
+  },
+  "LBA|6addbe4abbefc38a6cec1b4c": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6ae06152bbefc38a6ced3b38": {
+   "le": "2026-10-29",
+   "motif": "niveau bac+2"
+  },
+  "LBA|6ae079e1bbefc38a6ced5615": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (EXPERIS FRANCE)"
+  },
+  "LBA|6ae0a2cf149b034bd0555fc1": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6ae20be7bbefc38a6cee7660": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (EXPERIS FRANCE)"
+  },
+  "LBA|6ae20c01bbefc38a6cee7682": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (EXPERIS FRANCE)"
+  },
+  "LBA|6ae20d47bbefc38a6cee7806": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (EXPERIS FRANCE)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07c4": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (CARGILL FRANCE)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07c6": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLOYEURS INSERTION QUALIFICATION PAYS DE LA LOIRE)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07c7": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLOYEURS INSERTION QUALIFICATION PAYS DE LA LOIRE)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07c8": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (SYNERGIE)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07c9": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLOYEURS INSERTION QUALIFICATION PAYS DE LA LOIRE)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07ca": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GPT EMPLOYEURS INSERTION QUALIFICATION PAYS DE LA LOIRE)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07d1": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GEIQ PROPRETE 44 ET 35)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07d2": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GEIQ PROPRETE 44 ET 35)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07d4": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GEIQ PROPRETE 44 ET 35)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07d6": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GEIQ PROPRETE 44 ET 35)"
+  },
+  "LBA|6ae282a1bfbdb64c1a6a07d7": {
+   "le": "2026-10-29",
+   "motif": "employeur hors perimetre (GEIQ PROPRETE 44 ET 35)"
   }
  }
 }
