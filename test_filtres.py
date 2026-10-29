@@ -278,3 +278,11 @@ for (ref_att, attendu, famille), (ref, f) in zip(CAS_API, lus):
     print("%-4s %-16s %-48s -> %s" % ("OK" if juste else "RATE", ref, f["titre"][:48],
           ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
 print("%-4s %d offres lues sur 3 attendues" % ("OK" if len(lus) == 3 else "RATE", len(lus)))
+
+print("\nSecrets colles avec des espaces :")
+import os
+for brut, attendu in [("abc123\n", "abc123"), ("  abc123 \r\n", "abc123"), ("Bearer abc123", "abc123"), ("", "")]:
+    os.environ["SECRET_ESSAI"] = brut
+    r = veille.secret("SECRET_ESSAI")
+    print("%-4s %-22r -> %r" % ("OK" if r == attendu else "RATE", brut, r))
+del os.environ["SECRET_ESSAI"]

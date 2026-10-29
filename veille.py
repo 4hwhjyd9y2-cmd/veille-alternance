@@ -445,15 +445,24 @@ def offres_france_travail(client_id, secret):
             debut += FT_PAR_PAGE
     return offres
 
+def secret(nom):
+    """Un secret colle dans GitHub garde souvent un retour a la ligne final,
+    que requests refuse dans un en-tete (InvalidHeader). On le retire, ainsi
+    qu'un « Bearer » colle avec la cle."""
+    valeur = os.environ.get(nom, "").strip()
+    if valeur.lower().startswith("bearer "):
+        valeur = valeur[7:].strip()
+    return valeur
+
 def sources_api():
     """Renvoie [(groupe du bilan, site, offres)] pour chaque API configuree ;
     offres vaut None si l'API n'a pas repondu."""
     appels = []
-    if os.environ.get("LBA_CLE"):
-        appels.append(("La bonne alternance", "LBA", offres_lba, (os.environ["LBA_CLE"],)))
-    if os.environ.get("FT_CLIENT_ID") and os.environ.get("FT_CLIENT_SECRET"):
+    if secret("LBA_CLE"):
+        appels.append(("La bonne alternance", "LBA", offres_lba, (secret("LBA_CLE"),)))
+    if secret("FT_CLIENT_ID") and secret("FT_CLIENT_SECRET"):
         appels.append(("France Travail", "FT", offres_france_travail,
-                       (os.environ["FT_CLIENT_ID"], os.environ["FT_CLIENT_SECRET"])))
+                       (secret("FT_CLIENT_ID"), secret("FT_CLIENT_SECRET"))))
     sortie = []
     for groupe, site, fonction, args in appels:
         try:
