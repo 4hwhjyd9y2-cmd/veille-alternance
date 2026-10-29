@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 """Controle des filtres sur des cas reels rencontres depuis septembre."""
 import json
+from datetime import datetime, timedelta
 import veille
 
-def fiche(titre, employeur, commune, description="", date="2026-09-25", contrat="Alternance"):
+IL_Y_A_3_JOURS = (datetime.now() - timedelta(days=3)).strftime("%Y-%m-%d")
+
+def fiche(titre, employeur, commune, description="", date=None, contrat="Alternance"):
+    date = date or IL_Y_A_3_JOURS
     jp = {"@context": "https://schema.org", "@type": "JobPosting", "title": titre,
           "hiringOrganization": {"@type": "Organization", "name": employeur},
           "jobLocation": {"@type": "Place", "address": {"@type": "PostalAddress",
@@ -111,4 +115,56 @@ for nom, attendu, f in CAS_DATE:
     g, r = veille.verifier(f)
     juste = (g is not None) == attendu
     print("%-4s %-24s date lue %-12s -> %s" % ("OK" if juste else "RATE", nom, f["date"] or "aucune",
+          ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
+
+
+# --- pages de liste : reconnaitre une page generique de Jobijoba ------------
+print("\nDetection des pages generiques :")
+PAGES = [
+    ("Actemium inconnu", True,  "<h1>Alternance en Loire-Atlantique</h1>", "Actemium"),
+    ("Enedis connu",     False, "<h1>Alternance Enedis en Loire-Atlantique</h1>", "Enedis"),
+    ("Airbus Group",     False, "<h1 class='x'>Alternance Airbus Group en Loire-Atlantique</h1>", "Airbus+Group"),
+    ("SNCF Reseau",      False, "<h1>Alternance SNCF R&eacute;seau en Loire-Atlantique</h1>", "SNCF+Reseau"),
+    ("GTM Ouest inconnu",True,  "<h1>Alternance en Loire-Atlantique</h1>", "GTM+Ouest"),
+    ("page sans H1",     False, "<title>x</title>", "Omexom"),
+]
+for nom, attendu, html, slug in PAGES:
+    r = veille.page_generique(html, slug)
+    print("%-4s %-18s -> %s" % ("OK" if r == attendu else "RATE", nom, "generique, ignoree" if r else "lue"))
+
+
+# --- horaire : un seul passage par jour, a 8h de Paris, ete comme hiver -----
+print("\nHoraire du passage quotidien :")
+from datetime import timezone as _tz
+def utc(j, h, m=0):
+    return datetime(2026, j[1], j[0], h, m, tzinfo=_tz.utc)
+CAS_HEURE = [
+    # (nom, instant UTC du declenchement GitHub, dernier passage, doit passer ?)
+    ("ete, 06:00 UTC = 8h",           utc((15, 7), 6),      "",           True),
+    ("ete, 07:00 UTC, deja passe",    utc((15, 7), 7),      "2026-07-15", False),
+    ("ete, 06:00 UTC en retard 07:40",utc((15, 7), 7, 40),  "",           True),
+    ("hiver, 06:00 UTC = 7h",         utc((15, 12), 6),     "",           False),
+    ("hiver, 07:00 UTC = 8h",         utc((15, 12), 7),     "",           True),
+    ("hiver, 07:00 UTC en retard",    utc((15, 12), 7, 55), "",           True),
+    ("lendemain d'un passage",        utc((16, 12), 7),     "2026-12-15", True),
+]
+for nom, instant, dernier, attendu in CAS_HEURE:
+    ok, motif = veille.heure_de_passer({"dernier_passage": dernier}, instant)
+    print("%-4s %-32s -> %s" % ("OK" if ok == attendu else "RATE", nom, "passe" if ok else "attend : " + motif))
+
+
+# --- HelloWork : l'offre Veolia trouvee le 29 octobre, absente de Jobijoba ---
+print("\nOffres HelloWork :")
+CAS_HW = [
+    (True, "technique", fiche("Alternant Ingenieur Methode & Support Maintenance - Outils de Pesage H/F",
+          "Veolia Recyclage et Valorisation des Dechets", "Nantes", "Formation ingenieur.")),
+    (False, None, fiche("Alternance Chef de Projet CRM & Acquisition Digitale - Bac+5 H/F",
+          "Cesacom Nantes", "Nantes", "Ecole de commerce.")),
+    (False, None, fiche("Alternant Technicien Projet Chiffrage CVC H/F", "Equans France", "Orleans",
+          "BTS fluides energies.")),
+]
+for attendu, famille, f in CAS_HW:
+    g, r = veille.verifier(f)
+    juste = (g is not None) == attendu and (not attendu or r == famille)
+    print("%-4s %-52s -> %s" % ("OK" if juste else "RATE", f["titre"][:52],
           ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))

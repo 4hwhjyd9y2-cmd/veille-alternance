@@ -29,6 +29,11 @@ import time
 import unicodedata
 import urllib.robotparser
 from datetime import datetime, timedelta, timezone
+try:
+    from zoneinfo import ZoneInfo
+    PARIS = ZoneInfo("Europe/Paris")
+except Exception:          # Python trop ancien : on retombe sur l'UTC
+    PARIS = timezone.utc
 from email.message import EmailMessage
 from urllib.parse import urlparse
 
@@ -40,9 +45,10 @@ import requests
 
 DELAI_ENTRE_REQUETES = 1.0        # secondes, par politesse pour les sites
 TIMEOUT = 30
-MAX_FICHES_PAR_PASSAGE = 120      # plafond de securite
+MAX_FICHES_PAR_PASSAGE = 200      # plafond de securite
 BUDGET_SECONDES = 20 * 60         # le vrai garde-fou : on s'arrete au temps
 AGE_MAX_JOURS = 30                # une annonce plus vieille est ignoree
+HEURE_PASSAGE = 8                 # heure de Paris du passage quotidien
 
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
 FICHIER_ETAT = os.path.join(DOSSIER, "etat.json")
@@ -68,14 +74,15 @@ EMPLOYEURS = {
                     "spie nucleaire", "spie ouest centre"],
     "VINCI":       ["vinci", "vinci energies", "vinci construction", "omexom",
                     "citeos", "sogea", "sdel", "cegelec", "eurovia", "axians",
-                    "actemium", "botte fondations", "gtie"],
+                    "actemium", "botte fondations", "gtie", "gtm ouest",
+                    "europeenne de travaux ferroviaires"],
     "EDF":         ["edf", "enedis", "dalkia", "edf renouvelables", "framatome",
                     "jeumont electric", "citelum"],
     "Engie":       ["engie", "engie solutions", "engie green", "endel", "storengy",
-                    "ineo", "axima", "cofely"],
+                    "cofely"],
     "Eiffage":     ["eiffage", "clemessy", "eiffage energie systemes", "eiffage route"],
     "Bouygues":    ["bouygues", "equans", "colas", "aximum", "bouygues construction",
-                    "bouygues batiment"],
+                    "bouygues batiment", "axima", "ineo"],
     "Airbus":      ["airbus", "airbus atlantic", "testia", "stelia"],
     "SNCF":        ["sncf", "keolis", "geodis", "sncf reseau", "sncf voyageurs"],
     "GRDF":        ["grdf"],
@@ -141,7 +148,8 @@ DOMAINES = {
     "technique": [
         "energie", "electrotechnique", "electricite", "electrique", "reseaux",
         "thermique", "cvc", "genie climatique", "automatisme", "automaticien",
-        "instrumentation", "bureau d'etudes", "methodes", "essais", "embarque",
+        "instrumentation", "bureau d'etudes", "methodes", "methode", "essais", "embarque",
+        "maintenance", "fiabilite",
         "maintenance industrielle", "industrialisation", "mecanique", "hydraulique",
         "courant faible", "courants forts", "htb", "hta", "poste source",
         "controle commande", "supervision", "robotique", "conception",
@@ -206,26 +214,113 @@ METIERS_KO = [
 # departement. La reference capturee par le motif sert d'identifiant.
 # --------------------------------------------------------------------------
 
+# Pages Jobijoba a interroger, groupe par groupe. La page d'un groupe ne
+# remonte PAS toujours les annonces de ses filiales : en octobre 2026, la page
+# EDF ne montrait aucune des cinq annonces Enedis. Chaque filiale qui publie
+# sous son propre nom a donc sa propre page. Le slug est le nom tel que
+# Jobijoba l'attend dans l'URL, espaces remplaces par des +.
+# Ajouter une filiale ici est sans risque : si Jobijoba ne connait pas le nom,
+# la page est detectee comme generique et ignoree (voir page_generique).
+SLUGS = {
+    "SPIE":        ["SPIE", "SPIE+Thepault", "SPIE+Industrie", "SPIE+Facilities",
+                    "SPIE+Citynetworks", "SPIE+Building+Solutions"],
+    "VINCI":       ["VINCI", "VINCI+Energies", "VINCI+Construction", "Omexom", "Citeos",
+                    "Cegelec", "Actemium", "Axians", "Sogea", "SDEL", "Eurovia",
+                    "Botte+Fondations", "GTM+Ouest"],
+    "EDF":         ["EDF", "Enedis", "Dalkia", "EDF+Renouvelables", "Framatome"],
+    "Engie":       ["ENGIE", "Engie+Solutions", "Engie+Green", "Endel", "Storengy"],
+    "Eiffage":     ["Eiffage", "Eiffage+Energie+Systemes", "Clemessy"],
+    # Equans n'a pas de page propre sur Jobijoba (nom inconnu), mais la page
+    # Axima remonte toutes ses annonces : 15 en octobre 2026, contre 4 sur la
+    # page Bouygues. C'est de loin la page filiale la plus utile.
+    "Bouygues":    ["Bouygues", "Bouygues+Construction", "Axima", "Equans", "Ineo",
+                    "Colas", "Aximum"],
+    "Airbus":      ["Airbus+Group", "Airbus", "Airbus+Atlantic"],
+    "SNCF":        ["SNCF", "SNCF+Reseau", "SNCF+Voyageurs", "Keolis"],
+    "GRDF":        ["GRDF"],
+    "NaTran":      ["Grtgaz", "NaTran"],
+    "RTE":         ["RTE"],
+    "Naval Group": ["Naval+Group"],
+    "Veolia":      ["Veolia"],
+    "Suez":        ["Suez"],
+}
+
 def sources_jobijoba():
-    entreprises = [
-        ("SPIE", "SPIE"), ("VINCI", "VINCI"), ("EDF", "EDF"), ("Engie", "ENGIE"),
-        ("Eiffage", "Eiffage"), ("Bouygues", "Bouygues"), ("Airbus", "Airbus+Group"),
-        ("SNCF", "SNCF"), ("GRDF", "GRDF"), ("NaTran", "Grtgaz"), ("RTE", "RTE"),
-        ("Naval Group", "Naval+Group"), ("Veolia", "Veolia"), ("Suez", "Suez"),
-    ]
     sources = []
-    for groupe, slug in entreprises:
-        for zone in ("Loire-atlantique", "Nantes"):
-            sources.append({
-                "nom": "JOBIJOBA_" + groupe.upper().replace(" ", ""),
-                "groupe": groupe,
-                "url": "https://www.jobijoba.com/fr/alternance/%s/%s" % (slug, zone),
-                "motif": r'/fr/annonce/(\d+/[0-9a-f]{32})',
-                "base_fiche": "https://www.jobijoba.com/fr/annonce/",
-            })
+    for groupe, slugs in SLUGS.items():
+        for n, slug in enumerate(slugs):
+            # le departement pour tout le monde, la ville en plus pour la page
+            # principale du groupe, qui ne renvoie pas exactement le meme lot
+            zones = ("Loire-atlantique", "Nantes") if n == 0 else ("Loire-atlantique",)
+            for zone in zones:
+                sources.append({
+                    "nom": "JOBIJOBA_" + groupe.upper().replace(" ", ""),
+                    "site": "jobijoba",
+                    "groupe": groupe,
+                    "slug": slug,
+                    "url": "https://www.jobijoba.com/fr/alternance/%s/%s" % (slug, zone),
+                    "motif": r'/fr/annonce/(\d+/[0-9a-f]{32})',
+                    "fiche": "https://www.jobijoba.com/fr/annonce/%s",
+                })
     return sources
 
-SOURCES = sources_jobijoba()
+
+def page_generique(html, slug):
+    """Quand Jobijoba ne connait pas un nom d'entreprise, il ne renvoie pas une
+    page vide : il renvoie TOUTES les alternances du departement (1376 en
+    octobre 2026), sous le titre 'Alternance en Loire-Atlantique'. Les lire
+    viderait le budget de temps sur des offres de vendeur et de commercial.
+    On reconnait le cas au titre H1, qui ne contient alors pas le nom cherche."""
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S | re.I)
+    if not m:
+        return False
+    titre = sans_accents(re.sub(r"<[^>]+>", " ", m.group(1)))
+    nom = sans_accents(slug.replace("+", " "))
+    mots = [w for w in re.split(r"[^a-z0-9]+", nom) if len(w) >= 3]
+    return bool(mots) and not any(w in titre for w in mots)
+
+# Second site : HelloWork. Il couvre des employeurs que Jobijoba ne connait pas
+# ou relaie mal. En octobre 2026, sa page Equans a Nantes comptait 47 offres
+# contre 15 sur Jobijoba, et sa page « alternance master Nantes » remontait une
+# offre Veolia d'ingenieur methodes absente de Jobijoba.
+# Son robots.txt interdit toute URL avec un « ? », donc pas de pagination :
+# on ne lit que la premiere page de chaque liste, triee de la plus recente a
+# la plus ancienne. Avec un passage par jour, c'est ce qu'il faut.
+# Une adresse qui n'existe pas renvoie une erreur 404, simplement journalisee.
+HELLOWORK = [
+    # (groupe pour le bilan, chemin apres /fr-fr/)
+    # listes thematiques, tous employeurs : le filtre employeur trie ensuite
+    ("HelloWork", "alternance/mot-cle_master-ville_nantes-44000.html"),
+    ("HelloWork", "alternance/ville_nantes-44000.html"),
+    ("HelloWork", "alternance/ville_saint-herblain-44800.html"),
+    ("HelloWork", "alternance/ville_carquefou-44470.html"),
+    ("HelloWork", "alternance/ville_reze-44400.html"),
+    ("HelloWork", "alternance/ville_bouguenais-44340.html"),
+    ("HelloWork", "alternance/ville_orvault-44700.html"),
+    # pages entreprise a Nantes, tous contrats confondus : le filtre contrat trie
+    ("Bouygues", "entreprises/equans-1338/ville_nantes-44000.html"),
+    ("Engie",    "entreprises/engie-cofely-8032/ville_nantes-44000.html"),
+    ("VINCI",    "entreprises/actemium-loire-ocean-117258.html"),
+    ("Veolia",   "entreprises/veolia-103310/ville_nantes-44000.html"),
+    ("EDF",      "entreprises/edf-5489/ville_nantes-44000.html"),
+    ("SPIE",     "entreprises/spie-industrie-et-tertiaire-division-industrie-75834/ville_nantes-44000.html"),
+    ("RTE",      "entreprises/rte-7029/ville_nantes-44000.html"),
+    ("NaTran",   "entreprises/natran-33461/ville_nantes-44000.html"),
+]
+
+def sources_hellowork():
+    return [{
+        "nom": "HELLOWORK",
+        "site": "hellowork",
+        "groupe": groupe,
+        "slug": None,
+        "url": "https://www.hellowork.com/fr-fr/" + chemin,
+        "motif": r'/fr-fr/emplois/(\d{6,9})\.html',
+        "fiche": "https://www.hellowork.com/fr-fr/emplois/%s.html",
+    } for groupe, chemin in HELLOWORK]
+
+# Jobijoba d'abord : ses fiches passent en premier si le temps vient a manquer.
+SOURCES = sources_jobijoba() + sources_hellowork()
 
 # --------------------------------------------------------------------------
 # Petits outils
@@ -556,6 +651,9 @@ def charger_etat():
     return {"vues": {}, "dernier_mail": ""}
 
 def ecrire_etat(etat):
+    etat["dernier_passage"] = datetime.now(PARIS).strftime("%Y-%m-%d")
+    limite = (datetime.now(timezone.utc) - timedelta(days=60)).strftime("%Y-%m-%d")
+    etat["signatures"] = {k: v for k, v in etat.get("signatures", {}).items() if v >= limite}
     # on garde les 1500 references les plus recentes
     vues = etat["vues"]
     if len(vues) > 1500:
@@ -719,11 +817,12 @@ def passage(test=False, force_mail=False):
     aujourdhui = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     stats = {"vues": 0, "ouvertes": 0, "reportees": 0, "pages": 0, "par_groupe": {}}
-    for g in EMPLOYEURS:
+    for g in list(EMPLOYEURS) + ["HelloWork"]:
         stats["par_groupe"][g] = {"vues": 0, "ouvertes": 0, "retenues": 0}
 
     a_examiner = []   # (groupe, source, ref, url)
     connus = set()
+    vues_groupe = {g: set() for g in list(EMPLOYEURS) + ["HelloWork"]}
 
     log("Lecture des pages de liste")
     for src in SOURCES:
@@ -733,17 +832,32 @@ def passage(test=False, force_mail=False):
         html = telecharger(src["url"])
         if html is None:
             continue
+        if src["slug"] and page_generique(html, src["slug"]):
+            log("  %-12s %-26s page inconnue de Jobijoba, ignoree" % (src["groupe"], src["slug"]))
+            continue
         stats["pages"] += 1
         refs = extraire_refs(html, src["motif"])
-        stats["vues"] += len(refs)
-        stats["par_groupe"][src["groupe"]]["vues"] += len(refs)
-        log("  %-28s %3d annonces  (%s)" % (src["groupe"], len(refs), src["url"].split("/")[-1]))
+        nouvelles_ici = [r for r in refs if r not in vues_groupe[src["groupe"]]]
+        vues_groupe[src["groupe"]].update(refs)
+        log("  %-12s %-26s %3d annonces dont %d nouvelles pour le groupe  (%s)"
+            % (src["groupe"], src["slug"] or src["site"], len(refs), len(nouvelles_ici),
+               src["url"].split("/")[-1]))
         for ref in refs:
-            cle = src["nom"] + "|" + ref
-            if cle in deja or cle in connus:
+            # cle par site et par reference : la meme annonce vue sur la page
+            # du groupe et sur celle de la filiale n'est ouverte qu'une fois.
+            # L'ancienne cle, par groupe, est encore reconnue pour ne pas
+            # rouvrir ce qui a deja ete traite avant ce changement.
+            site = src["site"].upper()
+            cle = site + "|" + ref
+            ancienne = src["nom"] + "|" + ref
+            if cle in deja or ancienne in deja or cle in connus:
                 continue
             connus.add(cle)
-            a_examiner.append((src["groupe"], src["nom"], ref, src["base_fiche"] + ref))
+            a_examiner.append((src["groupe"], site, ref, src["fiche"] % ref))
+
+    for g, refs in vues_groupe.items():
+        stats["par_groupe"][g]["vues"] = len(refs)
+    stats["vues"] = len(set().union(*vues_groupe.values())) if vues_groupe else 0
 
     log("%d annonces jamais vues" % len(a_examiner))
 
@@ -765,13 +879,16 @@ def passage(test=False, force_mail=False):
             deja[cle] = {"le": aujourdhui, "motif": famille_ou_motif}
             log("  ecartee : %-55s %s" % (fiche["titre"][:55], famille_ou_motif))
             continue
+        # la meme offre publiee sur les deux sites : on ne la signale qu'une
+        # fois, ni dans ce passage, ni dans les soixante jours qui suivent
         sig = signature(fiche, g)
-        if sig in signatures:
-            deja[cle] = {"le": aujourdhui, "motif": "doublon"}
+        if sig in signatures or sig in etat.setdefault("signatures", {}):
+            deja[cle] = {"le": aujourdhui, "motif": "doublon d'une offre deja signalee"}
             continue
         signatures.add(sig)
+        etat["signatures"][sig] = aujourdhui
         offre = {
-            "id": ("jobijoba-" + ref.split("/")[-1]).lower(),
+            "id": (source.lower() + "-" + ref.split("/")[-1]).lower(),
             "titre": fiche["titre"],
             "employeur": fiche["employeur_declare"] or g,
             "groupe": g,
@@ -844,6 +961,22 @@ def passage(test=False, force_mail=False):
         % (len(retenues), stats["ouvertes"], stats["reportees"], chrono.reste()))
     return retenues
 
+def heure_de_passer(etat, maintenant=None):
+    """GitHub ne connait que l'heure UTC, alors que 8h a Paris tombe a 06:00
+    UTC l'ete et a 07:00 UTC l'hiver. Le workflow se declenche donc aux deux
+    heures, et c'est ici que l'on choisit : on passe si l'heure de Paris a
+    atteint HEURE_PASSAGE et qu'aucun passage n'a encore eu lieu aujourd'hui.
+    L'ete, 06:00 UTC donne 8h, il passe, et 07:00 UTC voit qu'il est deja passe.
+    L'hiver, 06:00 UTC donne 7h, trop tot, et 07:00 UTC donne 8h, il passe.
+    Un retard de GitHub ne fait pas sauter de jour."""
+    maintenant = (maintenant or datetime.now(timezone.utc)).astimezone(PARIS)
+    if maintenant.hour < HEURE_PASSAGE:
+        return False, "il n'est que %dh a Paris" % maintenant.hour
+    if etat.get("dernier_passage") == maintenant.strftime("%Y-%m-%d"):
+        return False, "passage deja fait aujourd'hui"
+    return True, ""
+
+
 def main():
     if "--reset" in sys.argv:
         for f in (FICHIER_ETAT,):
@@ -851,6 +984,11 @@ def main():
                 os.remove(f)
         log("Etat efface.")
         return
+    if os.environ.get("GITHUB_EVENT_NAME", "") == "schedule":
+        ok, motif = heure_de_passer(charger_etat())
+        if not ok:
+            log("Pas de passage maintenant : %s." % motif)
+            return
     force = ("--force-mail" in sys.argv
              or os.environ.get("GITHUB_EVENT_NAME", "") == "workflow_dispatch")
     passage(test="--test" in sys.argv, force_mail=force)

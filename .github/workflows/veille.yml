@@ -2,9 +2,13 @@ name: Veille alternance
 
 on:
   schedule:
-    # 06:00 UTC = 8h en France l'ete, 7h l'hiver. Un jour sur deux.
-    # GitHub peut decaler le declenchement de quelques minutes a une heure.
-    - cron: "0 6 */2 * *"
+    # Tous les jours a 8h, heure de Paris, ete comme hiver.
+    # GitHub ne raisonne qu'en UTC : 8h a Paris = 06:00 UTC l'ete, 07:00 UTC
+    # l'hiver. On declenche donc aux deux heures, et veille.py ne fait le
+    # passage qu'une fois, a la premiere heure ou il est au moins 8h a Paris.
+    # Aucun changement a faire aux changements d'heure.
+    - cron: "0 6 * * *"
+    - cron: "0 7 * * *"
   workflow_dispatch:        # bouton "Run workflow" pour un scan a la demande
 
 permissions:

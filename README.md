@@ -2,15 +2,15 @@
 
 Deux outils qui marchent ensemble, heberges sur ce depot :
 
-1. **une veille** : un script Python que GitHub Actions lance un jour sur deux
-   a 06:00 UTC, qui parcourt les offres d'alternance de quatorze grands
+1. **une veille** : un script Python que GitHub Actions lance tous les jours
+   a 8h, heure de Paris, qui parcourt les offres d'alternance de quatorze grands
    groupes a Nantes, filtre, et envoie un mail ;
 2. **un suivi de candidatures** : une page web publiee par GitHub Pages, ou
    les offres retenues arrivent toutes seules et ou l'on gere leurs statuts.
 
-Aucun serveur, aucun abonnement, aucune IA a l'execution. Le tout tourne dans
-les 2000 minutes gratuites de GitHub Actions, dont la veille consomme environ
-150 par mois.
+Aucun serveur, aucun abonnement, aucune IA a l'execution. GitHub Actions est
+gratuit et sans limite de minutes pour un depot public ; un passage dure
+quelques minutes.
 
 ---
 
@@ -44,7 +44,7 @@ seraient en retrait.
 Bouygues, Eiffage, Engie, Naval Group, RTE, Veolia, Suez, SNCF. Les filiales
 sont declarees nommement dans le code, parce que les annonces sortent presque
 toujours au nom de la filiale : Omexom, Citeos, Cegelec et Actemium pour VINCI,
-Dalkia, Enedis et EDF Renouvelables pour EDF, Equans et Colas pour Bouygues,
+Dalkia, Enedis et EDF Renouvelables pour EDF, Equans, Axima, Ineo et Colas pour Bouygues,
 Engie Solutions et Engie Green pour Engie, Clemessy pour Eiffage, et ainsi de
 suite.
 
@@ -53,12 +53,13 @@ suite.
 ## 2. Architecture
 
 ```
-GitHub Actions (cron, 1 jour sur 2, 06:00 UTC)
+GitHub Actions (cron quotidien a 06:00 et 07:00 UTC, un seul passage a 8h de Paris)
         |
         v
     veille.py
         |-- lit  etat.json       (annonces deja vues, pour ne rien signaler deux fois)
-        |-- lit  28 pages de liste Jobijoba (14 groupes x 2 zones)
+        |-- lit  67 pages de liste Jobijoba (14 groupes et leurs filiales)
+        |-- lit  15 pages de liste HelloWork (listes Nantes et pages entreprise)
         |-- lit  chaque fiche jamais vue, et son bloc JSON-LD JobPosting
         |-- filtre : employeur, contrat, lieu, date, metier, niveau, domaine
         |-- ecrit etat.json et offres.json
@@ -83,10 +84,43 @@ peut donc refaire tout son design sans rien casser.
 
 **La source** est Jobijoba, parce qu'il propose une page deja filtree
 « alternance chez tel employeur dans tel departement », ce qui evite de
-parcourir des milliers d'annonces. Deux zones sont interrogees par groupe,
-`Loire-atlantique` et `Nantes`, parce qu'elles ne renvoient pas exactement le
-meme ensemble. Compter un jour de decalage possible avec le site de
-l'employeur.
+parcourir des milliers d'annonces. Compter un jour de decalage possible avec
+le site de l'employeur.
+
+**Une page par filiale, pas seulement par groupe.** La page d'un groupe ne
+remonte pas toujours les annonces de ses filiales : en octobre 2026, la page
+EDF ne montrait aucune des cinq annonces publiees par Enedis, alors qu'elle
+montrait bien celles de Dalkia et de Framatome. Le dictionnaire `SLUGS`
+liste donc, pour chaque groupe, toutes les filiales qui publient sous leur
+propre nom. La page principale du groupe est lue pour le departement et pour
+la ville de Nantes, les filiales pour le departement seulement. Exemple le
+plus parlant : Jobijoba ne connait pas le nom Equans, mais sa page Axima
+remonte toutes les annonces Equans, quinze en octobre 2026 contre quatre sur
+la page Bouygues. Axima et Ineo sont ranges sous Bouygues, puisqu'ils
+appartiennent a Equans depuis 2022.
+
+**Un second site : HelloWork.** Jobijoba relaie mal certains employeurs.
+HelloWork comble une partie du trou : en octobre 2026, sa page Equans a
+Nantes comptait 47 offres contre 15 sur Jobijoba, et sa liste « alternance
+master Nantes » remontait une offre Veolia d'ingenieur methodes et
+maintenance absente de Jobijoba. Le script lit deux sortes de pages HelloWork,
+listees dans `HELLOWORK` : des listes d'alternance par commune (Nantes,
+Saint-Herblain, Carquefou, Reze, Bouguenais, Orvault) et la liste « master
+Nantes », tous employeurs confondus, puis des pages entreprise a Nantes,
+tous contrats confondus. Les filtres employeur et contrat font le tri ensuite.
+Le `robots.txt` de HelloWork interdit toute adresse contenant un « ? », donc
+toute pagination : seule la premiere page de chaque liste est lue, soit les
+vingt offres les plus recentes. Avec un passage quotidien, c'est suffisant.
+Une meme offre publiee sur les deux sites n'est signalee qu'une fois : son
+empreinte est gardee soixante jours dans `etat.json`, cle `signatures`.
+
+**Le piege des noms inconnus.** Quand Jobijoba ne connait pas un nom
+d'entreprise, il ne renvoie pas une page vide : il renvoie toutes les
+alternances du departement, plus de 1300 offres de vendeur, de commercial ou
+de magasinier, sous le titre « Alternance en Loire-Atlantique ». C'etait le cas
+d'Actemium et d'Equans en octobre 2026. La fonction `page_generique` reconnait
+ce cas au titre de la page, qui ne contient alors pas le nom cherche, et
+ignore la page. Ajouter une filiale a `SLUGS` est donc sans risque.
 
 **La separation des roles entre les deux fichiers de donnees** :
 `etat.json` est la memoire du script, `offres.json` est le pont vers la page.
@@ -106,7 +140,7 @@ uniquement dans le navigateur.
 | `offres.json` | les offres retenues, ecrit par le script, lu par la page |
 | `etat.json` | les references deja traitees, avec la date et le motif de rejet |
 | `veille.log` | le journal cumulatif de tous les passages |
-| `test_filtres.py` | vingt-trois cas de test sur les filtres, a lancer en local |
+| `test_filtres.py` | une trentaine de cas de test sur les filtres, a lancer en local |
 | `config.exemple.ini` | modele de configuration, utile seulement hors GitHub |
 | `MISE-A-JOUR.md` | la procedure d'installation depuis une tablette |
 
@@ -142,7 +176,10 @@ uniquement dans le navigateur.
 
 ### Fonctions principales
 
-- `sources_jobijoba()` construit les 28 pages de liste a interroger.
+- `sources_jobijoba()` construit les 67 pages de liste a interroger a partir de `SLUGS`.
+- `sources_hellowork()` construit les 15 pages HelloWork a partir de `HELLOWORK`.
+- `page_generique(html, slug)` detecte une page que Jobijoba a remplacee par la liste
+  generique du departement, et la fait ignorer.
 - `telecharger(url)` respecte `robots.txt` avant chaque requete, via
   `urllib.robotparser`, et attend une seconde apres chaque appel.
 - `extraire_refs(html, motif)` sort les references d'annonces d'une page de
@@ -180,6 +217,17 @@ L'ordre n'est pas anodin, chaque etape a ete placee apres un vrai faux positif.
 7. **Domaine**, quatre familles, essayees d'abord sur le titre puis sur la
    description.
 
+### Horaire
+
+GitHub ne connait que l'heure UTC, alors que 8h a Paris tombe a 06:00 UTC
+l'ete et a 07:00 UTC l'hiver. Le workflow se declenche donc tous les jours
+aux deux heures, et `heure_de_passer()` choisit : le passage a lieu si l'heure
+de Paris a atteint `HEURE_PASSAGE` et qu'aucun passage n'a encore eu lieu ce
+jour-la, d'apres la cle `dernier_passage` de `etat.json`. L'ete, 06:00 UTC passe
+et 07:00 UTC voit que c'est fait ; l'hiver, 06:00 UTC attend et 07:00 UTC passe.
+Rien a modifier aux changements d'heure, et un retard de GitHub ne fait pas
+sauter de jour. Un lancement manuel ignore cette regle.
+
 ### Envoi du mail
 
 Trois cas :
@@ -202,7 +250,7 @@ python veille.py                passage normal
 python veille.py --test         aucun mail envoye, le mail est affiche
 python veille.py --force-mail   envoie meme s'il n'y a rien de neuf
 python veille.py --reset        oublie toutes les annonces deja vues
-python test_filtres.py          rejoue les vingt-trois cas de test
+python test_filtres.py          rejoue la trentaine de cas de test
 ```
 
 ---
@@ -251,6 +299,10 @@ erreurs.
 | Assistant gestionnaire d'actifs SNCF retenu | la liste ne contenait que « assistant de gestion » | « assistant » seul, plus gestionnaire d'actifs |
 | Titre illisible avec l'habillage du site | fiche sans donnees structurees, titre pris dans la balise `title` | `nettoyer_titre` coupe au premier separateur et decode les entites |
 | « Ingenieur d'affaires HTB » classe en technique | le mot HTB est dans la famille technique | `ORDRE_FAMILLES` place `projet` avant `technique` |
+| Les annonces Enedis n'apparaissaient jamais | la page Jobijoba EDF ne regroupe pas toutes les filiales | une page par filiale dans `SLUGS` |
+| Une page filiale renvoyait 1376 offres de vendeur | Jobijoba remplace un nom inconnu par la liste generique du departement | `page_generique` ignore ces pages |
+| Equans, Veolia et les marques VINCI Energies largement absents | une seule source, Jobijoba, qui relaie mal ces employeurs | HelloWork en second site |
+| La meme offre signalee deux fois, une fois par site | identifiant different sur chaque site | empreinte gardee soixante jours |
 | Lancement manuel sans reponse | la regle des sept jours s'appliquait aussi aux lancements manuels | un lancement manuel force l'envoi |
 | Un mail au HTML casse suivi d'un correctif | le HTML etait place dans le corps texte | deux versions distinctes, `set_content` en texte et `add_alternative` en HTML |
 
@@ -265,16 +317,19 @@ fichier dans le depot, icone crayon, modifier, **Commit changes**.
 |---|---|
 | Elargir a Bac+3 | retirer `bac+3`, `licence pro`, `bachelor` de `NIVEAU_KO` |
 | Accepter Saint-Nazaire | deplacer les communes de `COMMUNES_KO` vers `COMMUNES_OK` |
-| Ajouter un employeur | une entree dans `EMPLOYEURS` et une ligne dans `sources_jobijoba()` |
+| Ajouter un employeur | une entree dans `EMPLOYEURS` (noms acceptes) et une dans `SLUGS` (pages a lire) |
+| Ajouter une filiale | son nom dans la liste du groupe, dans `EMPLOYEURS` et dans `SLUGS` |
+| Ajouter une page HelloWork | une ligne dans `HELLOWORK`, avec le chemin tel qu'il apparait apres `/fr-fr/` dans l'adresse de la page ; une page entreprise a la forme `entreprises/<nom>-<numero>/ville_nantes-44000.html` |
 | Accepter les stages | ajouter `stage` dans `MOTS_ALTERNANCE` et vider `CONTRAT_KO` |
 | Rouvrir les fonctions support | vider `DOMAINE_KO` |
 | Remonter des annonces plus anciennes | augmenter `AGE_MAX_JOURS` |
 | Accepter les offres sans date | dans `verifier`, retirer le rejet `date introuvable` |
-| Changer l'heure ou la frequence | la ligne `cron` de `veille.yml`, en UTC |
+| Changer l'heure du passage | `HEURE_PASSAGE` dans `veille.py`, en heure de Paris, et les deux lignes `cron` de `veille.yml` qui doivent l'encadrer en UTC (heure moins 2 et heure moins 1) |
+| Revenir a un jour sur deux | remplacer `* * *` par `*/2 * *` dans les deux lignes `cron` |
 | Changer l'adresse du mail | les secrets du depot, pas le code |
 
 **Apres toute modification des filtres, lancer `python test_filtres.py`.** Les
-vingt-trois cas rejouent les faux positifs du tableau precedent. Ajouter un cas quand
+cas de test rejouent les faux positifs du tableau precedent. Ajouter un cas quand
 un nouveau probleme apparait : c'est ce qui evite les regressions.
 
 ---
@@ -317,7 +372,8 @@ chaque annonce retenue, et chaque annonce ecartee avec son motif en clair.
 | `Configuration mail incomplete` | un secret manque ou est mal nomme |
 | `Envoi impossible` avec erreur d'authentification | le secret contient le mot de passe Gmail au lieu du mot de passe d'application |
 | Mail « sources injoignables » | aucune page n'a repondu, souvent passager ; si cela dure, les URLs du site ont change |
-| Un groupe remonte toujours zero | sa page de liste a change de nom, corriger `sources_jobijoba()` |
+| Un groupe remonte toujours zero | sa page de liste a change de nom, corriger son slug dans `SLUGS` |
+| « page inconnue de Jobijoba, ignoree » dans le journal | normal pour les filiales que Jobijoba ne repertorie pas ; si c'est la page principale d'un groupe, son slug est faux |
 | Trop de faux positifs | le journal donne le motif de chaque rejet, c'est la que se regle le filtre en cause |
 | La page de suivi reste vide | verifier qu'elle est ouverte en `https`, pas depuis un fichier local |
 
@@ -325,8 +381,19 @@ chaque annonce retenue, et chaque annonce ecartee avec son motif en clair.
 
 ## 10. Limites assumees
 
-- **Une seule source.** Si Jobijoba tombe ou change ses URLs, la veille
-  s'arrete. Le mail « sources injoignables » sert d'alarme.
+- **Deux sources seulement.** Si Jobijoba et HelloWork tombent ou changent
+  leurs adresses, la veille s'arrete. Le mail « sources injoignables » sert
+  d'alarme.
+- **HelloWork, premiere page seulement.** Le `robots.txt` interdit la
+  pagination. Un jour ou plus de vingt offres sortent sur une meme liste, les
+  plus anciennes de la journee peuvent echapper au passage.
+- **Les marques de VINCI Energies sont mal relayees.** Omexom, Cegelec et
+  Actemium publient surtout sur le site carrieres de VINCI, dont le
+  `robots.txt` interdit l'exploration automatique. Leurs pages Jobijoba sont
+  souvent vides ou inconnues, et HelloWork les eclate en dizaines d'entites
+  locales ; seule Actemium Loire Ocean est suivie. Une annonce Omexom qui ne passe pas par
+  Jobijoba echappe donc a la veille : pour ces marques, l'alerte mail du site
+  VINCI reste le complement le plus sur.
 - **Un jour de decalage possible** avec les sites employeurs.
 - **Les offres sans date sont perdues.** Choix delibere apres l'incident de
   l'annonce de 2024.
