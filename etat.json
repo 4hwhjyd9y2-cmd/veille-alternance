@@ -1,6 +1,6 @@
 {
- "dernier_mail": "2026-10-29",
- "dernier_passage": "2026-10-29",
+ "dernier_mail": "2026-10-30",
+ "dernier_passage": "2026-10-30",
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -29,6 +29,10 @@
    "le": "2026-10-29",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|71915555": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|72053774": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -39,6 +43,10 @@
   },
   "HELLOWORK|73742258": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|73745351": {
+   "le": "2026-10-30",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|74884588": {
@@ -101,8 +109,16 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|76204547": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|76204612": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76220393": {
+   "le": "2026-10-30",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|76377142": {
@@ -237,6 +253,30 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|78446754": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78446779": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78457951": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78458125": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78508074": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78520748": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|78560872": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -297,6 +337,22 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|79516250": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79552656": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79559068": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79581114": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|79960927": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -341,6 +397,18 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|80735774": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80737366": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80740831": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|81065845": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -357,9 +425,17 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|81838751": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|81889501": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|81900847": {
+   "le": "2026-10-30",
+   "motif": "contrat non alternance"
   },
   "HELLOWORK|82141018": {
    "le": "2026-10-29",
@@ -372,6 +448,14 @@
   "HELLOWORK|82363709": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|82415560": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82552085": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|82672908": {
    "le": "2026-10-29",
@@ -481,8 +565,16 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|83880450": {
+   "le": "2026-10-30",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|83888077": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83914919": {
+   "le": "2026-10-30",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|83939346": {
@@ -911,6 +1003,10 @@
   },
   "HELLOWORK|84937026": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84970353": {
+   "le": "2026-10-30",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
@@ -1837,6 +1933,10 @@
    "le": "2026-10-29",
    "motif": "commune trop loin (ancenis)"
   },
+  "JOBIJOBA|54/5c14249fac01e096db194386898ddd17": {
+   "le": "2026-10-30",
+   "motif": "metier d'execution (tuyauteur)"
+  },
   "JOBIJOBA|54/61e438b147228ca9fd697d744d8781d7": {
    "le": "2026-10-29",
    "motif": "commune trop loin (machecoul)"
@@ -2061,9 +2161,21 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (SARL RUBAN BLEU)"
   },
+  "LBA|6acfa793eb1fb948b46aba2d": {
+   "le": "2026-10-30",
+   "motif": "metier d'execution (monteur)"
+  },
+  "LBA|6acfa795eb1fb948b46aba30": {
+   "le": "2026-10-30",
+   "motif": "metier d'execution (bobinier)"
+  },
   "LBA|6acfa79922ce23a2ad444383": {
    "le": "2026-10-29",
    "motif": "metier d'execution (bobinier)"
+  },
+  "LBA|6acfa7bc22ce23a2ad4443a6": {
+   "le": "2026-10-30",
+   "motif": "metier d'execution (ajusteur)"
   },
   "LBA|6acfa7c722ce23a2ad4443b1": {
    "le": "2026-10-29",
@@ -2360,6 +2472,14 @@
   "LBA|6ae282a1bfbdb64c1a6a07d7": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (GEIQ PROPRETE 44 ET 35)"
+  },
+  "LBA|6ae3d0411b7811ea8d9355b6": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (TIPIAK)"
+  },
+  "LBA|6ae3d419bfbdb64c1a6a75a2": {
+   "le": "2026-10-30",
+   "motif": "employeur hors perimetre (OXYCARE)"
   }
  }
 }
