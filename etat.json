@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-10-30",
- "dernier_passage": "2026-10-30",
+ "dernier_passage": "2026-10-31",
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -121,6 +121,14 @@
    "le": "2026-10-30",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|76220898": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76234150": {
+   "le": "2026-10-31",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|76377142": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -192,6 +200,10 @@
   "HELLOWORK|77441237": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77460841": {
+   "le": "2026-10-31",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|77461041": {
    "le": "2026-10-29",
@@ -277,8 +289,20 @@
    "le": "2026-10-30",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|78560766": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78560827": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|78560872": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78560901": {
+   "le": "2026-10-31",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|78813930": {
@@ -437,6 +461,18 @@
    "le": "2026-10-30",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|81907706": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|81921417": {
+   "le": "2026-10-31",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|81931529": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|82141018": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -472,6 +508,14 @@
   "HELLOWORK|82740735": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|82846674": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82854299": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|82913520": {
    "le": "2026-10-29",
@@ -576,6 +620,14 @@
   "HELLOWORK|83914919": {
    "le": "2026-10-30",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83928182": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83938053": {
+   "le": "2026-10-31",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|83939346": {
    "le": "2026-10-29",
@@ -1007,6 +1059,62 @@
   },
   "HELLOWORK|84970353": {
    "le": "2026-10-30",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84974226": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84974247": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84975893": {
+   "le": "2026-10-31",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84976030": {
+   "le": "2026-10-31",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84976114": {
+   "le": "2026-10-31",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84977278": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84977344": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84977453": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84977692": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84984369": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84987303": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84987784": {
+   "le": "2026-10-31",
+   "motif": "doublon d'une offre deja signalee"
+  },
+  "HELLOWORK|84987905": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85015642": {
+   "le": "2026-10-31",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
@@ -2480,6 +2588,26 @@
   "LBA|6ae3d419bfbdb64c1a6a75a2": {
    "le": "2026-10-30",
    "motif": "employeur hors perimetre (OXYCARE)"
+  },
+  "LBA|6ae455bdbbefc38a6cefa3ca": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6ae494efbbefc38a6cefd2ee": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (XIMBA HOLDING)"
+  },
+  "LBA|6ae52295ec4f5594ab40d105": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (FORVIS MAZARS / FORVIS MAZARS SA)"
+  },
+  "LBA|6ae52576bfbdb64c1a6ae2e8": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (PSBL CAPITAL)"
+  },
+  "LBA|6ae52576bfbdb64c1a6ae2e9": {
+   "le": "2026-10-31",
+   "motif": "employeur hors perimetre (\"L'ESPACE BIOHEME\")"
   }
  }
 }
