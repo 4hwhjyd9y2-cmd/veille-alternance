@@ -1,6 +1,6 @@
 {
- "dernier_mail": "2026-10-30",
- "dernier_passage": "2026-11-01",
+ "dernier_mail": "2026-11-02",
+ "dernier_passage": "2026-11-02",
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -581,6 +581,22 @@
    "le": "2026-10-31",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|82893340": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82899187": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82908826": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82911241": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|82913520": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -713,9 +729,33 @@
    "le": "2026-11-01",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|84003310": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84003350": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84003356": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84003390": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84003454": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|84023682": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84044535": {
+   "le": "2026-11-02",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|84061485": {
    "le": "2026-10-29",
@@ -2073,6 +2113,10 @@
    "le": "2026-10-29",
    "motif": "contrat non alternance"
   },
+  "JOBIJOBA|54/085e7a8b8d38caa3f4d0bdd521df58f5": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (Sup de Vinci Nantes)"
+  },
   "JOBIJOBA|54/0d14db8acaaeab96c5f739228993c9f2": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (Pays de la Loire)"
@@ -2092,6 +2136,10 @@
   "JOBIJOBA|54/1275b973675b1840134fecbcfe4cc84e": {
    "le": "2026-10-29",
    "motif": "fonction support (gestion des contrats)"
+  },
+  "JOBIJOBA|54/1d3e3ca9a0bf00888425f3cecb060f5b": {
+   "le": "2026-11-02",
+   "motif": "fonction support (controleur de gestion)"
   },
   "JOBIJOBA|54/29e467e7e0de97decce8fa16b9257bda": {
    "le": "2026-10-29",
@@ -2177,6 +2225,10 @@
    "le": "2026-10-29",
    "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
   },
+  "JOBIJOBA|54/cb353f39f5ad49f559d0fafcad8f9d18": {
+   "le": "2026-11-02",
+   "motif": "fonction support (controleur de gestion)"
+  },
   "JOBIJOBA|54/cc6e841bcab1d3a6daf6c42a66ef9342": {
    "le": "2026-10-29",
    "motif": "date introuvable"
@@ -2193,9 +2245,21 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (Stage)"
   },
+  "JOBIJOBA|54/d60ea7db6d8717a580b2b6da3eeccd84": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (Sup de Vinci Nantes)"
+  },
+  "JOBIJOBA|54/d9aa3cdc5c8da6c9b4cd34bd9210eaef": {
+   "le": "2026-11-02",
+   "motif": "fonction support (controleur de gestion)"
+  },
   "JOBIJOBA|54/e22861e806f940197081e5e19fd91a1f": {
    "le": "2026-10-29",
    "motif": "commune trop loin (machecoul)"
+  },
+  "JOBIJOBA|54/ed220c9bd21f19a27b9bc76e3a346b5b": {
+   "le": "2026-11-02",
+   "motif": "fonction support (controleur de gestion)"
   },
   "JOBIJOBA|54/edce39cf1d7ea3da9469a1fb161fe28f": {
    "le": "2026-10-29",
@@ -2204,6 +2268,10 @@
   "JOBIJOBA|54/ee3e8183fdbb0f82a6900a473a8d16f1": {
    "le": "2026-10-29",
    "motif": "domaine hors cible"
+  },
+  "JOBIJOBA|54/f243c2066c477630db8fd48601f4c502": {
+   "le": "2026-11-02",
+   "motif": "niveau bac + 3"
   },
   "LBA|6907e2e1d95667b5d025ef8b": {
    "le": "2026-10-29",
@@ -2696,6 +2764,10 @@
   "LBA|6ae6f915bbefc38a6cf08893": {
    "le": "2026-11-01",
    "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6ae7c5f7ec4f5594ab46a165": {
+   "le": "2026-11-02",
+   "motif": "employeur hors perimetre (MICROEJ)"
   }
  }
 }
