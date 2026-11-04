@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-02",
- "dernier_passage": "2026-11-03",
+ "dernier_passage": "2026-11-04",
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -161,6 +161,26 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|76395877": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76447925": {
+   "le": "2026-11-04",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|76459353": {
+   "le": "2026-11-04",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|76459393": {
+   "le": "2026-11-04",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|76459399": {
+   "le": "2026-11-04",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|76525984": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -272,6 +292,18 @@
   "HELLOWORK|77536540": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77595044": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77622033": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77622035": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|77654596": {
    "le": "2026-10-29",
@@ -451,6 +483,22 @@
   },
   "HELLOWORK|79685977": {
    "le": "2026-11-03",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79742850": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79776572": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79776573": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|79800867": {
+   "le": "2026-11-04",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|79960927": {
@@ -645,8 +693,40 @@
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
   },
+  "HELLOWORK|82999244": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|82999246": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82999339": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82999519": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83025820": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83025823": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83025885": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83026002": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83041885": {
+   "le": "2026-11-04",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|83043642": {
@@ -1335,6 +1415,10 @@
   },
   "HELLOWORK|85099239": {
    "le": "2026-11-03",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85118919": {
+   "le": "2026-11-04",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
@@ -2241,6 +2325,10 @@
    "le": "2026-11-02",
    "motif": "fonction support (controleur de gestion)"
   },
+  "JOBIJOBA|54/253c672033e0f5475113c37856ec20de": {
+   "le": "2026-11-04",
+   "motif": "commune trop loin (pornic)"
+  },
   "JOBIJOBA|54/29e467e7e0de97decce8fa16b9257bda": {
    "le": "2026-10-29",
    "motif": "date introuvable"
@@ -2260,6 +2348,10 @@
   "JOBIJOBA|54/45b7cd366397ad37646ce95a6454eea8": {
    "le": "2026-10-29",
    "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
+  },
+  "JOBIJOBA|54/51bb4662b8b54d33408d1d148a088b6c": {
+   "le": "2026-11-04",
+   "motif": "commune trop loin (pornic)"
   },
   "JOBIJOBA|54/559a1f96835539b49ff2e6371e568513": {
    "le": "2026-10-29",
@@ -2281,6 +2373,10 @@
    "le": "2026-10-29",
    "motif": "fonction support (gestion des contrats)"
   },
+  "JOBIJOBA|54/75fe5846776350ebf639b8e9d61b2162": {
+   "le": "2026-11-04",
+   "motif": "commune trop loin (clisson)"
+  },
   "JOBIJOBA|54/8914f3b97089560acc5c69c194cd8b62": {
    "le": "2026-10-29",
    "motif": "commune trop loin (ancenis)"
@@ -2292,6 +2388,10 @@
   "JOBIJOBA|54/910651e7273dd8c5367dfee644af8087": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "JOBIJOBA|54/9749b5c3194c82ffc04086d34f3b217d": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (CRIT MONTOIR AERO)"
   },
   "JOBIJOBA|54/9dbc13448c17078c0ed2fb4f20f8b958": {
    "le": "2026-10-29",
@@ -2309,6 +2409,10 @@
    "le": "2026-11-01",
    "motif": "commune trop loin (chateaubriant)"
   },
+  "JOBIJOBA|54/acc13e4cd26f3fcd08ae29312d741500": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (Adecco)"
+  },
   "JOBIJOBA|54/b9f992333bb49fe083b88dbeafb4a62e": {
    "le": "2026-11-03",
    "motif": "employeur hors perimetre (Adecco)"
@@ -2321,6 +2425,10 @@
    "le": "2026-10-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA|54/c047761440b17f4965b29eac4e8381e6": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (Adecco)"
+  },
   "JOBIJOBA|54/c2a9c4aea8a6a84efda83785a62f5d10": {
    "le": "2026-10-29",
    "motif": "commune trop loin (chateaubriant)"
@@ -2328,6 +2436,14 @@
   "JOBIJOBA|54/c397ce96c6a4440aadb9388d5c19003d": {
    "le": "2026-10-29",
    "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
+  },
+  "JOBIJOBA|54/c3bab1f4bee820eacf8418610e42d0ee": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (Adecco)"
+  },
+  "JOBIJOBA|54/c96e32c05d41bb1975784b8dce33af32": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (STADE FORMATION)"
   },
   "JOBIJOBA|54/cb353f39f5ad49f559d0fafcad8f9d18": {
    "le": "2026-11-02",
@@ -2900,6 +3016,22 @@
   "LBA|6ae91ac6cc766074572b4b48": {
    "le": "2026-11-03",
    "motif": "employeur hors perimetre (ADECCO)"
+  },
+  "LBA|6aea6b9fcc766074572b5590": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (PSBL CAPITAL)"
+  },
+  "LBA|6aea6b9fcc766074572b5591": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (\"L'ESPACE BIOHEME\")"
+  },
+  "LBA|6aeaedf9d3116cb3df9d72fc": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6aeaedfdd3116cb3df9d72fd": {
+   "le": "2026-11-04",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
   }
  }
 }
