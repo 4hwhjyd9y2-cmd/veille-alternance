@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-02",
- "dernier_passage": "2026-11-05",
+ "dernier_passage": "2026-11-06",
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -405,6 +405,10 @@
    "le": "2026-11-01",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|78751077": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|78813930": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -632,6 +636,10 @@
   "HELLOWORK|81931529": {
    "le": "2026-10-31",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|82078018": {
+   "le": "2026-11-06",
+   "motif": "commune hors Nantes (non precisee)"
   },
   "HELLOWORK|82141018": {
    "le": "2026-10-29",
@@ -924,6 +932,18 @@
   "HELLOWORK|84111649": {
    "le": "2026-11-05",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84126206": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84141451": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84158975": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|84229197": {
    "le": "2026-10-29",
@@ -1475,6 +1495,26 @@
   },
   "HELLOWORK|85174299": {
    "le": "2026-11-05",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85187257": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85215553": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85229018": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85229027": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85246212": {
+   "le": "2026-11-06",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
@@ -2397,6 +2437,10 @@
    "le": "2026-10-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA|54/3659b346d82c077bb565670854ce35c1": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (Adecco)"
+  },
   "JOBIJOBA|54/43e9ff053b4f5287670cc97fa1a031ea": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
@@ -2404,6 +2448,10 @@
   "JOBIJOBA|54/45b7cd366397ad37646ce95a6454eea8": {
    "le": "2026-10-29",
    "motif": "commune trop loin (saint-philbert-de-grand-lieu)"
+  },
+  "JOBIJOBA|54/47f833dd1ce61778afe2396bb5da9c5e": {
+   "le": "2026-11-06",
+   "motif": "commune trop loin (pornic)"
   },
   "JOBIJOBA|54/51bb4662b8b54d33408d1d148a088b6c": {
    "le": "2026-11-04",
@@ -2424,6 +2472,10 @@
   "JOBIJOBA|54/61e438b147228ca9fd697d744d8781d7": {
    "le": "2026-10-29",
    "motif": "commune trop loin (machecoul)"
+  },
+  "JOBIJOBA|54/742297f2e630b2bdc03a989663a02455": {
+   "le": "2026-11-06",
+   "motif": "commune trop loin (pornic)"
   },
   "JOBIJOBA|54/75cd6dab3a09acb49b3ca0ee3d5478be": {
    "le": "2026-10-29",
@@ -2497,6 +2549,10 @@
    "le": "2026-11-04",
    "motif": "employeur hors perimetre (Adecco)"
   },
+  "JOBIJOBA|54/c43c71d152e23b53ac46a0516f56f4b4": {
+   "le": "2026-11-06",
+   "motif": "commune trop loin (clisson)"
+  },
   "JOBIJOBA|54/c96e32c05d41bb1975784b8dce33af32": {
    "le": "2026-11-04",
    "motif": "employeur hors perimetre (STADE FORMATION)"
@@ -2532,6 +2588,14 @@
   "JOBIJOBA|54/e22861e806f940197081e5e19fd91a1f": {
    "le": "2026-10-29",
    "motif": "commune trop loin (machecoul)"
+  },
+  "JOBIJOBA|54/e597bf487dea5b613f5327f9aced3a6c": {
+   "le": "2026-11-06",
+   "motif": "commune trop loin (donges)"
+  },
+  "JOBIJOBA|54/ebe47f980b496afb00e67aacb067f4e4": {
+   "le": "2026-11-06",
+   "motif": "domaine hors cible"
   },
   "JOBIJOBA|54/ed220c9bd21f19a27b9bc76e3a346b5b": {
    "le": "2026-11-02",
@@ -3092,6 +3156,10 @@
   "LBA|6aebbd1dcc766074572b5d79": {
    "le": "2026-11-05",
    "motif": "employeur hors perimetre (Manpower France)"
+  },
+  "LBA|6aed0e8ccc766074572b6607": {
+   "le": "2026-11-06",
+   "motif": "employeur hors perimetre (PLEBICOM)"
   }
  }
 }
