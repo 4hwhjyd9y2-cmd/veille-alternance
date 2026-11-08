@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-02",
- "dernier_passage": "2026-11-07",
+ "dernier_passage": "2026-11-08",
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -191,6 +191,14 @@
   },
   "HELLOWORK|76525984": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76526021": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76526173": {
+   "le": "2026-11-08",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|76605165": {
@@ -417,6 +425,22 @@
    "le": "2026-11-06",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|78790803": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78790819": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78796877": {
+   "le": "2026-11-08",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|78796879": {
+   "le": "2026-11-08",
+   "motif": "commune hors Nantes (non precisee)"
+  },
   "HELLOWORK|78813930": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -429,8 +453,28 @@
    "le": "2026-11-07",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|78826331": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|78826338": {
    "le": "2026-11-07",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78826349": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78827363": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78827571": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|78827796": {
+   "le": "2026-11-08",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|78893878": {
@@ -621,6 +665,10 @@
    "le": "2026-11-07",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|81055933": {
+   "le": "2026-11-08",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|81065845": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -779,6 +827,10 @@
   },
   "HELLOWORK|83043642": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83098091": {
+   "le": "2026-11-08",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|83166666": {
@@ -979,6 +1031,10 @@
   },
   "HELLOWORK|84185802": {
    "le": "2026-11-07",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84216821": {
+   "le": "2026-11-08",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|84229197": {
@@ -2473,6 +2529,10 @@
    "le": "2026-10-29",
    "motif": "fonction support (gestion des contrats)"
   },
+  "JOBIJOBA|54/15760c22a9931701e9bd17d6f24e8e48": {
+   "le": "2026-11-08",
+   "motif": "commune trop loin (donges)"
+  },
   "JOBIJOBA|54/1d3e3ca9a0bf00888425f3cecb060f5b": {
    "le": "2026-11-02",
    "motif": "fonction support (controleur de gestion)"
@@ -2549,6 +2609,10 @@
    "le": "2026-11-04",
    "motif": "commune trop loin (clisson)"
   },
+  "JOBIJOBA|54/78bdf9fa0f83c6dd1bc945f549abc003": {
+   "le": "2026-11-08",
+   "motif": "niveau cap "
+  },
   "JOBIJOBA|54/8914f3b97089560acc5c69c194cd8b62": {
    "le": "2026-10-29",
    "motif": "commune trop loin (ancenis)"
@@ -2596,6 +2660,10 @@
   "JOBIJOBA|54/becb3c01e7911641950696156ff2addd": {
    "le": "2026-10-29",
    "motif": "date introuvable"
+  },
+  "JOBIJOBA|54/bf98405d8f5c156abba5b15c8d14d39c": {
+   "le": "2026-11-08",
+   "motif": "niveau cap "
   },
   "JOBIJOBA|54/c047761440b17f4965b29eac4e8381e6": {
    "le": "2026-11-04",
