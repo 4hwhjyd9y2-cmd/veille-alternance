@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-09",
- "dernier_passage": "2026-11-11",
+ "dernier_passage": "2026-11-12",
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -237,6 +237,10 @@
    "le": "2026-11-10",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|76659166": {
+   "le": "2026-11-12",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|76725908": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -364,6 +368,14 @@
   "HELLOWORK|77836993": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77837106": {
+   "le": "2026-11-12",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77857447": {
+   "le": "2026-11-12",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|77857720": {
    "le": "2026-10-29",
@@ -641,6 +653,10 @@
    "le": "2026-11-10",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|80027148": {
+   "le": "2026-11-12",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|80204271": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
@@ -913,6 +929,14 @@
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
   },
+  "HELLOWORK|83310719": {
+   "le": "2026-11-12",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|83310865": {
+   "le": "2026-11-12",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|83319207": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -1163,6 +1187,10 @@
   },
   "HELLOWORK|84350468": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84360523": {
+   "le": "2026-11-12",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|84381008": {
@@ -1784,6 +1812,14 @@
   "HELLOWORK|85400093": {
    "le": "2026-11-11",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85424478": {
+   "le": "2026-11-12",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85428785": {
+   "le": "2026-11-12",
+   "motif": "contrat non alternance"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -2721,6 +2757,10 @@
    "le": "2026-10-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA|54/33b197ec3a017e2aaa6d2d021d9abfe7": {
+   "le": "2026-11-12",
+   "motif": "employeur hors perimetre (Stage)"
+  },
   "JOBIJOBA|54/3659b346d82c077bb565670854ce35c1": {
    "le": "2026-11-06",
    "motif": "employeur hors perimetre (Adecco)"
@@ -2756,6 +2796,10 @@
   "JOBIJOBA|54/5c14249fac01e096db194386898ddd17": {
    "le": "2026-10-30",
    "motif": "metier d'execution (tuyauteur)"
+  },
+  "JOBIJOBA|54/5f51abd32845f6d5d52a580e5219cece": {
+   "le": "2026-11-12",
+   "motif": "niveau bts"
   },
   "JOBIJOBA|54/618d2dcc23531d860dcf1c0e97a885df": {
    "le": "2026-11-07",
@@ -2816,6 +2860,10 @@
   "JOBIJOBA|54/acc13e4cd26f3fcd08ae29312d741500": {
    "le": "2026-11-04",
    "motif": "employeur hors perimetre (Adecco)"
+  },
+  "JOBIJOBA|54/b579358df58866838aadb8d97eadf886": {
+   "le": "2026-11-12",
+   "motif": "commune trop loin (la baule)"
   },
   "JOBIJOBA|54/b9f992333bb49fe083b88dbeafb4a62e": {
    "le": "2026-11-03",
@@ -3488,6 +3536,10 @@
   "LBA|6af3a623cc766074572b7f8d": {
    "le": "2026-11-11",
    "motif": "employeur hors perimetre (STEF TRANSPORT NANTES CARQUEFOU)"
+  },
+  "LBA|6af58b33c3367d6aa4c149b4": {
+   "le": "2026-11-12",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
   }
  }
 }
