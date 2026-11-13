@@ -19,7 +19,10 @@ Usage
 """
 
 import configparser
+import email
+import hashlib
 import html as _html
+import imaplib
 import json
 import os
 import re
@@ -34,7 +37,9 @@ try:
     PARIS = ZoneInfo("Europe/Paris")
 except Exception:          # Python trop ancien : on retombe sur l'UTC
     PARIS = timezone.utc
+from email.header import decode_header, make_header
 from email.message import EmailMessage
+from email.utils import parsedate_to_datetime
 from urllib.parse import urlparse
 
 import requests
@@ -360,7 +365,8 @@ FT_RECHERCHE = "https://api.francetravail.io/partenaire/offresdemploi/v2/offres/
 FT_COMMUNE_NANTES = "44109"       # code INSEE
 FT_PAR_PAGE = 150                 # maximum autorise par requete
 
-GROUPES_BILAN = list(EMPLOYEURS) + ["HelloWork", "La bonne alternance", "France Travail"]
+GROUPES_BILAN = list(EMPLOYEURS) + ["HelloWork", "La bonne alternance", "France Travail",
+                                    "Alertes mail"]
 
 def fiche_api(url, titre, employeurs, commune, date, contrat, description):
     """Meme forme que le resultat d'analyser_fiche, a partir de champs d'API."""
@@ -457,15 +463,19 @@ def secret(nom):
         valeur = valeur[7:].strip()
     return valeur
 
-def sources_api():
-    """Renvoie [(groupe du bilan, site, offres)] pour chaque API configuree ;
-    offres vaut None si l'API n'a pas repondu."""
+def sources_api(deja=None):
+    """Renvoie [(groupe du bilan, site, offres)] pour chaque API configuree et
+    pour la boite des alertes ; offres vaut None si la source n'a pas repondu."""
+    deja = deja if deja is not None else {}
     appels = []
     if secret("LBA_CLE"):
         appels.append(("La bonne alternance", "LBA", offres_lba, (secret("LBA_CLE"),)))
     if secret("FT_CLIENT_ID") and secret("FT_CLIENT_SECRET"):
         appels.append(("France Travail", "FT", offres_france_travail,
                        (secret("FT_CLIENT_ID"), secret("FT_CLIENT_SECRET"))))
+    if secret("ALERTES_ADRESSE") and secret("ALERTES_MOT_DE_PASSE"):
+        appels.append(("Alertes mail", "MAIL", offres_alertes,
+                       (secret("ALERTES_ADRESSE"), secret("ALERTES_MOT_DE_PASSE"), deja)))
     sortie = []
     for groupe, site, fonction, args in appels:
         try:
@@ -476,6 +486,166 @@ def sources_api():
             offres = None
         sortie.append((groupe, site, offres))
     return sortie
+
+# --------------------------------------------------------------------------
+# Quatrieme source : la boite des alertes. Les sites carrieres et LinkedIn
+# envoient leurs alertes a une adresse dediee ; on la lit en IMAP, en lecture
+# seule : rien n'est marque lu, deplace ni supprime. Secrets ALERTES_ADRESSE
+# et ALERTES_MOT_DE_PASSE (mot de passe d'application Gmail). Chaque lien
+# d'offre devient une fiche : la page de l'offre si elle publie ses donnees
+# structurees et que robots.txt permet de la lire, sinon ce que dit le mail.
+# --------------------------------------------------------------------------
+
+IMAP_SERVEUR = "imap.gmail.com"
+ALERTES_JOURS = 10                # fenetre relue a chaque passage
+ALERTES_MAX_PAGES = 60            # pages d'offres ouvertes au plus par passage
+CONTEXTE_LIEN = 400               # caracteres de texte gardes apres chaque lien
+
+# un texte de lien qui n'est pas un intitule d'offre
+LIENS_TEXTE_KO = ["desabonn", "unsubscribe", "desinscri", "preference", "parametre",
+                  "settings", "gerer", "manage", "modifier", "confidentialite", "privacy",
+                  "politique", "cookie", "mentions legales", "aide", "help", "contact",
+                  "voir l'offre", "voir l offre", "voir toutes", "toutes les offres", "voir plus",
+                  "see all", "view all", "postuler", "apply", "en savoir plus", "decouvrir",
+                  "consulter", "telecharger", "application", "facebook", "twitter",
+                  "instagram", "youtube", "linkedin", "se connecter", "connexion", "sign in",
+                  "mon compte", "mon espace", "cliquez ici", "click here", "ici"]
+# une adresse de lien qui n'est jamais une offre
+LIENS_URL_KO = ["unsubscribe", "desabonn", "desinscri", "mailto:", "/settings",
+                "/preferences", "apps.apple.com", "play.google.com", "facebook.com",
+                "twitter.com", "instagram.com", "youtube.com", "linkedin.com/company"]
+MOIS_IMAP = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+def _entete(valeur):
+    try:
+        return str(make_header(decode_header(valeur or "")))
+    except Exception:
+        return str(valeur or "")
+
+def _parties(msg):
+    """Le HTML et le texte brut d'un mail, decodes."""
+    html = texte = ""
+    for part in msg.walk():
+        if part.get_content_maintype() == "multipart":
+            continue
+        type_ = part.get_content_type()
+        if type_ not in ("text/html", "text/plain"):
+            continue
+        try:
+            contenu = part.get_payload(decode=True).decode(
+                part.get_content_charset() or "utf-8", "replace")
+        except Exception:
+            continue
+        if type_ == "text/html" and not html:
+            html = contenu
+        elif type_ == "text/plain" and not texte:
+            texte = contenu
+    return html, texte
+
+def _lien_offre(url, titre):
+    url_basse = url.lower()
+    if not url_basse.startswith(("http://", "https://")):
+        return False
+    if any(m in url_basse for m in LIENS_URL_KO):
+        return False
+    t = sans_accents(titre)
+    if len(t) < 8 or len(t) > 160 or len(t.split()) < 2:
+        return False
+    return not any(m in t for m in LIENS_TEXTE_KO)
+
+def liens_du_mail(msg):
+    """[(url, intitule, texte autour du lien)] pour chaque lien d'offre du mail."""
+    html, texte = _parties(msg)
+    liens, vus = [], set()
+    if html:
+        corps = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", html, flags=re.S | re.I)
+        for m in re.finditer(r"<a\b[^>]*?href\s*=\s*[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+                             corps, re.S | re.I):
+            url = _html.unescape(m.group(1)).strip()
+            titre = re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", m.group(2)))).strip()
+            if url in vus or not _lien_offre(url, titre):
+                continue
+            vus.add(url)
+            suite = corps[m.end():m.end() + 6000]
+            contexte = re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", suite))).strip()
+            liens.append((url, titre, contexte[:CONTEXTE_LIEN]))
+    else:
+        # texte brut : l'intitule est la ligne non vide qui precede l'adresse
+        lignes = [l.strip() for l in texte.splitlines()]
+        for i, ligne in enumerate(lignes):
+            for url in re.findall(r"https?://\S+", ligne):
+                url = url.rstrip(").,>]")
+                avant = [l for l in lignes[max(0, i - 3):i] if l and "http" not in l]
+                titre = avant[-1] if avant else ""
+                if url in vus or not _lien_offre(url, titre):
+                    continue
+                vus.add(url)
+                contexte = " ".join(l for l in lignes[i + 1:i + 6] if l)
+                liens.append((url, titre, contexte[:CONTEXTE_LIEN]))
+    return liens
+
+def _date_mail(msg):
+    try:
+        return parsedate_to_datetime(msg.get("Date")).strftime("%Y-%m-%d")
+    except Exception:
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+def fiche_alerte(url, titre, contexte, expediteur, date, texte_mail):
+    """Fiche construite avec ce que dit le mail. L'employeur n'est pas declare :
+    trouver_groupe le cherche dans l'expediteur et le texte autour du lien.
+    Le contrat est accepte si le mail parle d'alternance (le nom de l'alerte
+    suffit), la ville est celle de l'alerte si le mail n'en cite aucune."""
+    contrat = "alternance" if contient_mot(texte_mail + " " + titre, MOTS_ALTERNANCE) else ""
+    lieu = contexte if (contient_mot(contexte, COMMUNES_OK) or
+                        contient_mot(contexte, COMMUNES_KO)) else "Nantes (zone de l'alerte)"
+    return fiche_api(url, titre, [], lieu, date, contrat, expediteur + " " + contexte)
+
+def offres_alertes(adresse, mot_de_passe, deja):
+    """Renvoie [(reference, fiche)] depuis la boite des alertes."""
+    boite = imaplib.IMAP4_SSL(IMAP_SERVEUR, timeout=TIMEOUT)
+    try:
+        # Gmail affiche le mot de passe d'application par groupes de 4 lettres
+        boite.login(adresse, mot_de_passe.replace(" ", ""))
+        boite.select("INBOX", readonly=True)
+        jour = datetime.now(timezone.utc) - timedelta(days=ALERTES_JOURS)
+        depuis = "%02d-%s-%d" % (jour.day, MOIS_IMAP[jour.month - 1], jour.year)
+        _, donnees = boite.search(None, "SINCE", depuis)
+        mails = []
+        for num in (donnees[0] or b"").split():
+            # BODY.PEEK : lire sans marquer le mail comme lu
+            _, contenu = boite.fetch(num, "(BODY.PEEK[])")
+            if contenu and isinstance(contenu[0], tuple):
+                mails.append(email.message_from_bytes(contenu[0][1]))
+    finally:
+        try:
+            boite.logout()
+        except Exception:
+            pass
+    offres, ouvertes = [], 0
+    for msg in mails:
+        expediteur = _entete(msg.get("From"))
+        sujet = _entete(msg.get("Subject"))
+        date = _date_mail(msg)
+        html, texte = _parties(msg)
+        texte_mail = sujet + " " + (_texte_html(html) if html else texte)
+        for url, titre, contexte in liens_du_mail(msg):
+            ref = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
+            if "MAIL|" + ref in deja:
+                continue
+            fiche = fiche_alerte(url, titre, contexte, expediteur, date, texte_mail)
+            if ouvertes < ALERTES_MAX_PAGES:
+                ouvertes += 1
+                page = telecharger(url)
+                if page and "JobPosting" in page:
+                    complete = analyser_fiche(page, url)
+                    if complete["titre"]:
+                        complete["commune"] = complete["commune"] or fiche["commune"]
+                        complete["contrat"] = (complete["contrat"] + " " + fiche["contrat"]).strip()
+                        complete["date"] = complete["date"] or date
+                        fiche = complete
+            offres.append((ref, fiche))
+    return offres
 
 # --------------------------------------------------------------------------
 # Petits outils
@@ -904,13 +1074,21 @@ def lien_suivi(url_suivi, offre):
     """Adresse de la page de suivi, ouverte directement sur la carte de l'offre."""
     return "%s#offre-%s" % (url_suivi, offre["id"]) if url_suivi else ""
 
-def rediger(retenues, stats, url_suivi):
+def rediger(retenues, stats, url_suivi, pannes=None):
     par_famille = {}
     for o in retenues:
         par_famille.setdefault(o["famille"], []).append(o)
 
     lignes = []
     html = []
+    if pannes:
+        lignes.append("SOURCES EN PANNE")
+        html.append("<h3>Sources en panne</h3><ul>")
+        for nom in sorted(pannes):
+            lignes.append("* %s : %s" % (nom, pannes[nom]))
+            html.append("<li><b>%s</b> : %s</li>" % (_html.escape(nom), _html.escape(pannes[nom])))
+        lignes.append("Les autres sources ont ete lues normalement.")
+        html.append("</ul><p>Les autres sources ont ete lues normalement.</p>")
     for cle in ("technique", "energie", "projet", "qse"):
         if cle not in par_famille:
             continue
@@ -960,9 +1138,13 @@ def rediger(retenues, stats, url_suivi):
     html.append("<p>Total : %d annonces vues, %d fiches ouvertes, %d retenues, %d reportees.</p>" %
                 (stats["vues"], stats["ouvertes"], len(retenues), stats["reportees"]))
 
-    objet = ("Veille alternance inge Nantes : %d offre%s" %
-             (len(retenues), "s" if len(retenues) > 1 else "")) if retenues else \
-            "Veille alternance inge Nantes : rien de neuf"
+    if retenues:
+        objet = "Veille alternance inge Nantes : %d offre%s" % (
+            len(retenues), "s" if len(retenues) > 1 else "")
+    elif pannes:
+        objet = "Veille alternance inge Nantes : source en panne"
+    else:
+        objet = "Veille alternance inge Nantes : rien de neuf"
     return objet, "\n".join(lignes).strip(), "".join(html)
 
 def envoyer(cfg, objet, texte, html, test):
@@ -1020,9 +1202,15 @@ def passage(test=False, force_mail=False):
 
     # Les API d'abord : leurs offres ne coutent aucune requete, elles passent
     # donc toujours, meme quand le plafond de fiches est atteint ensuite.
-    for groupe, site, offres in sources_api():
+    # source en panne -> {nom : explication}, signalee en tete du mail
+    pannes = {}
+    for groupe, site, offres in sources_api(deja):
         if offres is None:
+            pannes[groupe] = "pas de reponse ou acces refuse, le detail est dans veille.log"
             continue
+        if not offres and site != "MAIL":
+            # une boite d'alertes vide est un jour sans alerte, pas une panne
+            pannes[groupe] = "aucune annonce recue"
         stats["pages"] += 1
         refs = [ref for ref, _ in offres]
         vues_groupe[groupe].update(refs)
@@ -1035,10 +1223,12 @@ def passage(test=False, force_mail=False):
             a_examiner.append((groupe, site, ref, fiche["url"], fiche))
 
     log("Lecture des pages de liste")
+    annonces_site = {}               # site -> annonces vues sur toutes ses pages
     for src in SOURCES:
         if chrono.depasse():
             log("Budget atteint pendant la collecte.")
             break
+        annonces_site.setdefault(src["site"], 0)
         html = telecharger(src["url"])
         if html is None:
             continue
@@ -1047,6 +1237,7 @@ def passage(test=False, force_mail=False):
             continue
         stats["pages"] += 1
         refs = extraire_refs(html, src["motif"])
+        annonces_site[src["site"]] += len(refs)
         nouvelles_ici = [r for r in refs if r not in vues_groupe[src["groupe"]]]
         vues_groupe[src["groupe"]].update(refs)
         log("  %-12s %-26s %3d annonces dont %d nouvelles pour le groupe  (%s)"
@@ -1064,6 +1255,16 @@ def passage(test=False, force_mail=False):
                 continue
             connus.add(cle)
             a_examiner.append((src["groupe"], site, ref, src["fiche"] % ref, None))
+
+    # un site dont aucune page ne donne la moindre annonce a change ses
+    # adresses ou bloque la lecture : le blocage HelloWork d'octobre 2026
+    # etait passe inapercu faute de ce controle
+    for site, n in annonces_site.items():
+        if n == 0:
+            pannes[site.capitalize()] = "aucune annonce sur ses %d pages de liste" % \
+                sum(1 for s_ in SOURCES if s_["site"] == site)
+    for nom, raison in pannes.items():
+        log("SOURCE EN PANNE : %s, %s" % (nom, raison))
 
     for g, refs in vues_groupe.items():
         stats["par_groupe"][g]["vues"] = len(refs)
@@ -1137,6 +1338,13 @@ def passage(test=False, force_mail=False):
     if force_mail and not envoyer_mail:
         envoyer_mail, motif_silence = True, ""
         log("Lancement a la main : le mail part meme s'il n'y a rien de neuf.")
+    # une panne nouvelle, ou pas signalee depuis sept jours, fait partir le mail
+    signalees = etat.setdefault("pannes", {})
+    a_signaler = [n for n in pannes if _age_jours(signalees.get(n, "")) is None
+                  or _age_jours(signalees.get(n, "")) >= 7]
+    if a_signaler and not envoyer_mail:
+        envoyer_mail, motif_silence = True, ""
+        log("Mail envoye pour signaler : %s." % ", ".join(a_signaler))
 
     if stats["pages"] == 0:
         # aucune page de liste lue : ce n'est pas "rien de neuf", c'est une panne
@@ -1152,14 +1360,20 @@ def passage(test=False, force_mail=False):
         log("Toutes les sources sont injoignables.")
         return []
 
-    objet, texte, html_mail = rediger(retenues, stats, cfg["suivi"])
+    objet, texte, html_mail = rediger(retenues, stats, cfg["suivi"], pannes)
     if envoyer_mail:
         if envoyer(cfg, objet, texte, html_mail, test):
             etat["dernier_mail"] = aujourdhui
+            for nom in pannes:
+                signalees[nom] = aujourdhui
     else:
         log("MAIL NON ENVOYE : %s." % (motif_silence or "rien a signaler"))
         log("Pour recevoir quand meme un mail, relance le workflow a la main : "
             "un lancement manuel force l'envoi.")
+    # une source reparee sort de la liste : sa prochaine panne sera signalee
+    for nom in list(signalees):
+        if nom not in pannes:
+            del signalees[nom]
 
     if not test:
         ecrire_etat(etat)

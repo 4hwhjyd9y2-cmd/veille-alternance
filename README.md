@@ -61,6 +61,7 @@ GitHub Actions (cron quotidien a 06:00 et 07:00 UTC, un seul passage a 8h de Par
         |-- lit  67 pages de liste Jobijoba (14 groupes et leurs filiales)
         |-- lit  18 pages de liste HelloWork (listes Nantes et pages entreprise)
         |-- interroge les API La bonne alternance et France Travail, si leurs secrets existent
+        |-- lit la boite des alertes mail, en lecture seule, si ses secrets existent
         |-- lit  chaque fiche jamais vue, et son bloc JSON-LD JobPosting
         |-- filtre : employeur, contrat, lieu, date, metier, niveau, domaine
         |-- ecrit etat.json et offres.json
@@ -125,6 +126,27 @@ qu'`analyser_fiche`, sans aucune page a ouvrir, et les memes filtres trient.
 Elles passent avant les fiches des sites, donc le plafond de fiches ne les
 touche pas. Sans secret, l'API est simplement sautee ; en cas d'erreur, le
 journal le dit et le passage continue avec les autres sources.
+
+**La boite des alertes.** Les alertes mail des sites carrieres des groupes,
+et celles de LinkedIn par transfert, arrivent a une adresse Gmail dediee.
+Le script la lit en IMAP, en lecture seule (`BODY.PEEK`, boite ouverte en
+`readonly` : rien n'est marque lu, deplace ni supprime), sur les dix derniers
+jours. `liens_du_mail` garde les liens dont le texte ressemble a un intitule
+d'offre et ecarte desabonnement, reglages, reseaux sociaux et boutons
+generiques (`LIENS_TEXTE_KO`, `LIENS_URL_KO`). Chaque lien devient une fiche :
+la page de l'offre si elle publie ses donnees `JobPosting` et que robots.txt
+permet de la lire (60 pages au plus par passage), sinon `fiche_alerte`, qui
+prend l'intitule du lien, le texte qui le suit et l'expediteur. Le contrat
+est accepte si le mail parle d'alternance ; sans ville citee, la ville est
+celle de l'alerte, Nantes. Les memes filtres et le meme anti-doublon
+s'appliquent ensuite. Secrets `ALERTES_ADRESSE` et `ALERTES_MOT_DE_PASSE`.
+
+**Sources en panne.** Une source qui ne donne plus rien est signalee en tete
+du mail : Jobijoba ou HelloWork sans aucune annonce sur toutes leurs pages,
+une API sans reponse ou a zero annonce, une boite d'alertes injoignable (une
+boite sans alerte du jour n'est pas une panne). Une panne nouvelle fait
+partir le mail meme sans offre ; elle est rappelee au plus tous les sept
+jours (cle `pannes` d'`etat.json`) et sort de la liste une fois reparee.
 
 **Le piege des noms inconnus.** Quand Jobijoba ne connait pas un nom
 d'entreprise, il ne renvoie pas une page vide : il renvoie toutes les
@@ -379,6 +401,8 @@ un nouveau probleme apparait : c'est ce qui evite les regressions.
 | `LBA_CLE` | facultatif : la cle API de production La bonne alternance |
 | `FT_CLIENT_ID` | facultatif : l'identifiant de l'application France Travail |
 | `FT_CLIENT_SECRET` | facultatif : la cle secrete de cette application |
+| `ALERTES_ADRESSE` | facultatif : l'adresse Gmail qui recoit les alertes des sites carrieres |
+| `ALERTES_MOT_DE_PASSE` | facultatif : le mot de passe d'application de cette adresse (validation en deux etapes requise) |
 
 **Permissions** : Settings, Actions, General, Workflow permissions doit etre
 sur **Read and write**, sans quoi le commit de fin de passage echoue.

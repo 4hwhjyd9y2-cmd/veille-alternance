@@ -304,3 +304,94 @@ _, texte, html_mail = veille.rediger([o], {"par_groupe": {}, "vues": 1, "ouverte
                                      "https://exemple.github.io/veille/")
 print("%-4s HTML echappe" % ("OK" if "R&amp;D &lt;ingenieur&gt;" in html_mail and "<ingenieur>" not in html_mail else "RATE"))
 print("%-4s lien vers la carte du suivi" % ("OK" if "https://exemple.github.io/veille/#offre-lba-6ac" in texte else "RATE"))
+
+# --- boite des alertes : mails simules, sans reseau ------------------------
+print("\nAlertes mail (mails simules) :")
+import re
+from email.message import EmailMessage as _Mail
+
+def mail_alerte(expediteur, sujet, html):
+    m = _Mail()
+    m["From"], m["Subject"] = expediteur, sujet
+    m["Date"] = datetime.now().strftime("%a, %d %b %Y 08:00:00 +0100")
+    m.set_content("version texte")
+    m.add_alternative(html, subtype="html")
+    return m
+
+ALERTE_EDF = mail_alerte("EDF Recrute <alertes@edf.fr>", "Votre alerte : alternance Nantes", """
+<html><body><p>Bonjour, 2 nouvelles offres correspondent a votre alerte alternance.</p>
+<a href="https://www.edf.fr/edf-recrute/offre/123">Alternant ingenieur poste source HTB H/F</a>
+<p>Enedis - Nantes (44) - Ecole d'ingenieur, etudes de raccordement HTA</p>
+<a href="https://www.edf.fr/edf-recrute/offre/124">Alternant assistant RH H/F</a>
+<p>EDF - Saint-Herblain (44)</p>
+<a href="https://www.edf.fr/edf-recrute/offre/123">Voir l'offre</a>
+<a href="https://www.edf.fr/edf-recrute/alertes">Gerer mes alertes</a>
+<a href="https://www.edf.fr/unsubscribe?u=1">Se desabonner</a>
+<a href="https://www.facebook.com/edf">Facebook EDF</a>
+</body></html>""")
+
+liens = veille.liens_du_mail(ALERTE_EDF)
+print("%-4s %d liens d'offres gardes sur 6 (attendu 2)" % ("OK" if len(liens) == 2 else "RATE", len(liens)))
+
+texte_mail = "Votre alerte : alternance Nantes " + veille._texte_html(veille._parties(ALERTE_EDF)[0])
+date_mail = veille._date_mail(ALERTE_EDF)
+CAS_ALERTE = [(True, "technique"), (False, None)]
+for (attendu, famille), (url, titre, contexte) in zip(CAS_ALERTE, liens):
+    f = veille.fiche_alerte(url, titre, contexte, "EDF Recrute <alertes@edf.fr>", date_mail, texte_mail)
+    g, r = veille.verifier(f)
+    juste = (g is not None) == attendu and (not attendu or r == famille)
+    print("%-4s %-44s -> %s" % ("OK" if juste else "RATE", titre[:44],
+          ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
+
+# ville absente du mail : celle de l'alerte ; ville citee : elle fait foi
+f = veille.fiche_alerte("https://x.test/1", "Alternance ingenieur QSE", "SNCF Reseau, Saint-Nazaire",
+                        "SNCF", date_mail, "alternance")
+print("%-4s ville citee dans le mail -> %s" % ("OK" if "trop loin" in str(veille.verifier(f)[1]) else "RATE",
+                                                veille.verifier(f)[1]))
+f = veille.fiche_alerte("https://x.test/2", "Alternance ingenieur QSE", "SNCF Reseau", "SNCF", date_mail, "alternance")
+print("%-4s pas de ville -> %s" % ("OK" if f["commune"] == "Nantes (zone de l'alerte)" else "RATE", f["commune"]))
+
+# texte brut seul : l'intitule est la ligne au-dessus du lien
+brut = _Mail()
+brut["From"], brut["Subject"], brut["Date"] = "Veolia <jobs@veolia.com>", "Alerte alternance", "Thu, 12 Nov 2026 08:00:00 +0100"
+brut.set_content("Nouvelles offres :\n\nAlternant ingenieur methodes maintenance\nhttps://jobs.veolia.com/offre/9\nNantes\n\nSe desabonner\nhttps://jobs.veolia.com/unsubscribe\n")
+lb = veille.liens_du_mail(brut)
+print("%-4s mail en texte brut -> %s" % ("OK" if len(lb) == 1 and lb[0][1].startswith("Alternant ingenieur") else "RATE",
+                                          lb[0][1] if lb else "aucun lien"))
+
+# lecture IMAP simulee : lecture seule, et rien n'est marque lu
+class FausseBoite:
+    ordres = []
+    def __init__(self, *a, **k): pass
+    def login(self, u, p): FausseBoite.ordres.append(("login", p))
+    def select(self, boite, readonly=False): FausseBoite.ordres.append(("select", readonly))
+    def search(self, *a): FausseBoite.ordres.append(("search",) + a); return "OK", [b"1"]
+    def fetch(self, num, quoi): FausseBoite.ordres.append(("fetch", quoi)); return "OK", [(b"1", ALERTE_EDF.as_bytes())]
+    def logout(self): pass
+
+vrai_imap, vrai_tel = veille.imaplib.IMAP4_SSL, veille.telecharger
+veille.imaplib.IMAP4_SSL, veille.telecharger = FausseBoite, lambda url: None
+try:
+    lues = veille.offres_alertes("alertes@exemple.test", "abcd efgh ijkl mnop", {})
+    deja_vues = {"MAIL|" + lues[0][0]: {}}
+    relues = veille.offres_alertes("alertes@exemple.test", "abcd efgh ijkl mnop", deja_vues)
+finally:
+    veille.imaplib.IMAP4_SSL, veille.telecharger = vrai_imap, vrai_tel
+o = FausseBoite.ordres
+print("%-4s mot de passe sans espaces, boite en lecture seule, BODY.PEEK" % (
+      "OK" if ("login", "abcdefghijklmnop") in o and ("select", True) in o
+      and all(x[1] == "(BODY.PEEK[])" for x in o if x[0] == "fetch") else "RATE"))
+print("%-4s SINCE en anglais quelle que soit la langue du systeme -> %s" % (
+      "OK" if re.match(r"\d\d-[A-Z][a-z]{2}-\d{4}$", [x for x in o if x[0] == "search"][0][3]) else "RATE",
+      [x for x in o if x[0] == "search"][0][3]))
+print("%-4s %d offres lues, puis %d apres memorisation (attendu 2 puis 1)" % (
+      "OK" if len(lues) == 2 and len(relues) == 1 else "RATE", len(lues), len(relues)))
+
+# --- sources en panne ------------------------------------------------------
+print("\nSources en panne :")
+_, texte_p, html_p = veille.rediger([], {"par_groupe": {}, "vues": 0, "ouvertes": 0, "reportees": 0},
+                                    "", {"Hellowork": "aucune annonce sur ses 18 pages de liste"})
+objet_p = veille.rediger([], {"par_groupe": {}, "vues": 0, "ouvertes": 0, "reportees": 0}, "",
+                         {"Hellowork": "x"})[0]
+print("%-4s section en tete du mail" % ("OK" if texte_p.startswith("SOURCES EN PANNE") and "Hellowork" in html_p else "RATE"))
+print("%-4s objet -> %s" % ("OK" if objet_p.endswith("source en panne") else "RATE", objet_p))

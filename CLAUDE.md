@@ -19,6 +19,15 @@ Deux API facultatives completent les sites : La bonne alternance (secret
 secret, elles sont sautees ; leurs offres passent par `fiche_api` puis les
 memes filtres. Ne jamais journaliser ni committer ces identifiants.
 
+La boite des alertes des sites carrieres (`ALERTES_ADRESSE`,
+`ALERTES_MOT_DE_PASSE`) est lue en IMAP en lecture seule par
+`offres_alertes` ; ne jamais y ajouter d'ecriture (marquer lu, supprimer).
+Les sources muettes sont signalees en tete du mail (`pannes`).
+
+Marin veut un outil sans gestion manuelle : il lit le mail et postule, rien
+d'autre. Ne jamais proposer de modifier le code sans son feu vert explicite :
+expliquer d'abord le fonctionnement prevu, puis attendre un oui.
+
 Une seule dependance : `requests`. `README.md` est la description complete et
 fait reference ; sa section 6 liste les faux positifs deja corriges, a ne pas
 reintroduire.
