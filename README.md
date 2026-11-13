@@ -359,6 +359,12 @@ erreurs.
 | La meme offre Enedis retenue deux fois | un titre portait la reference « (2026-184204) », l'autre non, donc deux empreintes | `signature` ignore la reference entre parentheses et la commune en fin de titre |
 | « Alternance Ingenieur Travaux Telecom » HelloWork ecartee en « fonction support » | le titre de repli HelloWork finit par « - Recrutement par … », et « recrutement » est dans `DOMAINE_KO` | `nettoyer_titre` coupe aussi a « - Recrutement par » |
 | « Apprenti ambulancier » Keolis retenu | metier absent de `METIERS_KO`, et Saint-Philbert-de-Grand-Lieu absent de `COMMUNES_KO` | ambulancier, chauffeur, conducteur de bus ajoutes ; Saint-Philbert ecarte |
+| « Trouver mon futur emploi », « Autre site » pris pour des offres | liens de navigation des mails de bienvenue | fragments ajoutes a `LIENS_TEXTE_KO` |
+| Intitules « Planning Engineer Job Details » | texte des liens des mails jobs2web (Engie) | suffixe retire dans `liens_du_mail` |
+| Alertes GRDF classees Engie | elles partent de jobs.engie@..., et Engie etait cherche avant GRDF | GRDF et NaTran avant Engie dans `EMPLOYEURS`, sujet du mail lu |
+| Offre Veolia ecartee comme « employeur hors perimetre (Stage) » | Jobijoba declare parfois « Stage » comme employeur, et la description n'etait lue que sans employeur declare | `EMPLOYEURS_GENERIQUES` : un tel nom est oublie, l'employeur est cherche dans la description |
+| Dates « Publiee le 13 novembre » ignorees | `date_dans_texte` exigeait une annee | date de publication sans annee lue, l'an dernier si elle tombe dans le futur ; une date de debut de contrat n'est pas prise |
+| Impossible de savoir d'ou venait une offre ecartee | le journal ne nommait pas la source | `[SOURCE]` sur chaque ligne, et pour une alerte l'expediteur, le sujet et le lien sans parametres |
 
 ---
 

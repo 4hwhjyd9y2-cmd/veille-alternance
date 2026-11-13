@@ -395,3 +395,72 @@ objet_p = veille.rediger([], {"par_groupe": {}, "vues": 0, "ouvertes": 0, "repor
                          {"Hellowork": "x"})[0]
 print("%-4s section en tete du mail" % ("OK" if texte_p.startswith("SOURCES EN PANNE") and "Hellowork" in html_p else "RATE"))
 print("%-4s objet -> %s" % ("OK" if objet_p.endswith("source en panne") else "RATE", objet_p))
+
+# --- correctifs alertes ----------------------------------------------------
+print("\nCorrectifs alertes :")
+NAV = _Mail()
+NAV["From"], NAV["Subject"], NAV["Date"] = "RH <rh@exemple.test>", "Bienvenue", "Thu, 12 Nov 2026 08:00:00 +0100"
+NAV.set_content("x")
+NAV.add_alternative("""<html><body>
+<a href="https://carrieres.exemple.test/a">Trouver mon futur emploi</a>
+<a href="https://carrieres.exemple.test/b">Acceder a l'espace emploi &amp; carriere Veolia</a>
+<a href="https://carrieres.exemple.test/c">Site NAVAL GROUP Recrutement externe</a>
+<a href="https://carrieres.exemple.test/d">Autre site</a>
+<a href="https://carrieres.exemple.test/e">Alternant ingenieur poste source HTB H/F</a>
+<a href="https://jobs.engie.com/f">Planning Engineer Job Details</a>
+</body></html>""", subtype="html")
+titres_nav = [t for _, t, _ in veille.liens_du_mail(NAV)]
+print("%-4s liens de navigation ecartes, vrai intitule garde -> %s" % (
+      "OK" if titres_nav[:1] == ["Alternant ingenieur poste source HTB H/F"] and len(titres_nav) == 2 else "RATE",
+      titres_nav))
+print("%-4s suffixe Job Details retire -> %s" % (
+      "OK" if titres_nav[-1:] == ["Planning Engineer"] else "RATE", titres_nav[-1:]))
+
+SUJET_GRDF = "Nouvelles offres d'emploi publiees par jobs.engie.com/grdf"
+f = veille.fiche_alerte("https://jobs.engie.com/g", "ALTERNANCE - Ingenieur reseau gaz (H/F)", "",
+                        "jobs.engie@noreply55.jobs2web.com", date_mail, "alternance " + SUJET_GRDF, SUJET_GRDF)
+print("%-4s alerte GRDF classee GRDF -> %s" % ("OK" if veille.trouver_groupe(f) == "GRDF" else "RATE",
+                                                veille.trouver_groupe(f)))
+f = veille.fiche_alerte("https://jobs.engie.com/h", "ALTERNANCE - Ingenieur projets (H/F)", "Engie Solutions, Nantes",
+                        "jobs.engie@noreply55.jobs2web.com", date_mail, "alternance",
+                        "Nouvelles offres d'emploi publiees par jobs.engie.com")
+print("%-4s alerte Engie Solutions classee Engie -> %s" % ("OK" if veille.trouver_groupe(f) == "Engie" else "RATE",
+                                                            veille.trouver_groupe(f)))
+
+f = veille.fiche_alerte("https://x.test/3", "Alternance ingenieur QSE", "Nantes", "EDF <alertes@exemple.test>",
+                        date_mail, "alternance", "Alerte alternance Nantes")
+tag, suite = veille.trace_source("MAIL", f)
+ligne = "  ecartee %s : %s%s" % (tag, f["titre"], suite)
+print("%-4s ligne de journal MAIL avec origine, sans l'adresse -> %s" % (
+      "OK" if "[MAIL]" in ligne and "exemple.test" in ligne and "Alerte alternance" in ligne
+      and "alertes@exemple.test" not in ligne else "RATE", ligne))
+
+# --- audit des faux negatifs du 13 novembre ---------------------------------
+print("\nAudit des faux negatifs :")
+auj = datetime.now()
+passe = (auj - timedelta(days=3))
+futur = (auj + timedelta(days=40))
+MOIS_FR = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout",
+           "septembre", "octobre", "novembre", "decembre"]
+def mois_fr(d): return "%d %s" % (d.day, MOIS_FR[d.month - 1])
+CAS_DATE2 = [
+    ("Publiee le " + mois_fr(passe), passe.strftime("%Y-%m-%d")),
+    ("Publiée le " + mois_fr(futur), futur.replace(year=futur.year - 1).strftime("%Y-%m-%d")),
+    ("Debut du contrat le " + mois_fr(passe), ""),
+]
+for texte, attendu in CAS_DATE2:
+    r = veille.date_dans_texte(texte)
+    print("%-4s %-40s -> %s" % ("OK" if r == attendu else "RATE", texte.encode("ascii", "replace").decode(), r or "aucune"))
+
+# Jobijoba declare « Stage » comme employeur d'une offre Veolia
+jp = {"@context": "https://schema.org", "@type": "JobPosting",
+      "title": "Alternance : Chef de Projet - Support Outils Direction Technique",
+      "hiringOrganization": {"@type": "Organization", "name": "Stage"},
+      "jobLocation": {"@type": "Place", "address": {"@type": "PostalAddress", "addressLocality": "Nantes",
+                      "postalCode": "44000"}},
+      "datePosted": IL_Y_A_3_JOURS, "employmentType": "Alternance",
+      "description": "<p>Veolia Recyclage et Valorisation recrute en alternance, cycle ingenieur, chef de projet.</p>"}
+f = veille.analyser_fiche("<html><script type=\"application/ld+json\">%s</script></html>" % json.dumps(jp), "https://x.test/stage")
+g, r = veille.verifier(f)
+print("%-4s employeur declare Stage -> %s" % ("OK" if g == "Veolia" and f["employeur_declare"] == "" else "RATE",
+      ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))

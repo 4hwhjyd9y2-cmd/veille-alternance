@@ -85,6 +85,10 @@ EMPLOYEURS = {
     # « ELECTRICITE DE FRANCE », jamais « EDF »
     "EDF":         ["edf", "electricite de france", "enedis", "dalkia", "edf renouvelables", "framatome",
                     "jeumont electric", "citelum"],
+    # GRDF et NaTran avant Engie : leurs alertes arrivent de jobs.engie@...
+    # et trouver_groupe prend le premier groupe dont un nom apparait
+    "GRDF":        ["grdf", "gaz reseau distribution france"],
+    "NaTran":      ["natran", "grtgaz", "grt gaz"],
     "Engie":       ["engie", "engie solutions", "engie green", "endel", "storengy",
                     "cofely"],
     "Eiffage":     ["eiffage", "clemessy", "eiffage energie systemes", "eiffage route"],
@@ -92,8 +96,6 @@ EMPLOYEURS = {
                     "bouygues batiment", "axima", "ineo"],
     "Airbus":      ["airbus", "airbus atlantic", "testia", "stelia"],
     "SNCF":        ["sncf", "keolis", "geodis", "sncf reseau", "sncf voyageurs"],
-    "GRDF":        ["grdf", "gaz reseau distribution france"],
-    "NaTran":      ["natran", "grtgaz", "grt gaz"],
     "RTE":         ["rte", "reseau de transport d'electricite",
                     "reseau de transport d electricite"],
     "Naval Group": ["naval group", "dcns"],
@@ -108,6 +110,13 @@ EMPLOYEURS_KO = [
     "portzamparc", "bnp paribas", "actual", "start people", "supplay", "crit",
     "iscod", "studi", "walt", "openclassrooms", "cesi", "cci formation",
 ]
+
+# Noms d'employeur qui n'en sont pas : Jobijoba declare parfois « Stage »
+# comme employeur d'une offre Veolia. Le nom est alors oublie, et l'employeur
+# cherche dans la description, comme pour une fiche sans employeur declare.
+EMPLOYEURS_GENERIQUES = ["stage", "alternance", "apprentissage", "alternant", "emploi",
+                         "confidentiel", "entreprise confidentielle", "non communique",
+                         "non precise", "recrutement", "entreprise"]
 
 # --------------------------------------------------------------------------
 # Lieu : Nantes et sa proche peripherie uniquement
@@ -509,7 +518,9 @@ LIENS_TEXTE_KO = ["desabonn", "unsubscribe", "desinscri", "preference", "paramet
                   "see all", "view all", "postuler", "apply", "en savoir plus", "decouvrir",
                   "consulter", "telecharger", "application", "facebook", "twitter",
                   "instagram", "youtube", "linkedin", "se connecter", "connexion", "sign in",
-                  "mon compte", "mon espace", "cliquez ici", "click here", "ici"]
+                  "mon compte", "mon espace", "cliquez ici", "click here", "ici",
+                  "futur emploi", "espace emploi", "espace carriere", "recrutement externe",
+                  "autre site", "site carriere", "nos offres"]
 # une adresse de lien qui n'est jamais une offre
 LIENS_URL_KO = ["unsubscribe", "desabonn", "desinscri", "mailto:", "/settings",
                 "/preferences", "apps.apple.com", "play.google.com", "facebook.com",
@@ -564,6 +575,7 @@ def liens_du_mail(msg):
                              corps, re.S | re.I):
             url = _html.unescape(m.group(1)).strip()
             titre = re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", m.group(2)))).strip()
+            titre = re.sub(r"\s*\bjob details\s*$", "", titre, flags=re.I).strip()
             if url in vus or not _lien_offre(url, titre):
                 continue
             vus.add(url)
@@ -591,15 +603,21 @@ def _date_mail(msg):
     except Exception:
         return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-def fiche_alerte(url, titre, contexte, expediteur, date, texte_mail):
+def fiche_alerte(url, titre, contexte, expediteur, date, texte_mail, sujet=""):
     """Fiche construite avec ce que dit le mail. L'employeur n'est pas declare :
     trouver_groupe le cherche dans l'expediteur et le texte autour du lien.
     Le contrat est accepte si le mail parle d'alternance (le nom de l'alerte
-    suffit), la ville est celle de l'alerte si le mail n'en cite aucune."""
+    suffit), la ville est celle de l'alerte si le mail n'en cite aucune.
+    Le sujet du mail compte pour l'employeur (« jobs.engie.com/grdf »), et
+    fiche["origine"] garde le domaine de l'expediteur et le debut du sujet
+    pour le journal, jamais l'adresse de la boite."""
     contrat = "alternance" if contient_mot(texte_mail + " " + titre, MOTS_ALTERNANCE) else ""
     lieu = contexte if (contient_mot(contexte, COMMUNES_OK) or
                         contient_mot(contexte, COMMUNES_KO)) else "Nantes (zone de l'alerte)"
-    return fiche_api(url, titre, [], lieu, date, contrat, expediteur + " " + contexte)
+    fiche = fiche_api(url, titre, [], lieu, date, contrat, expediteur + " " + sujet + " " + contexte)
+    domaine = expediteur.rsplit("@", 1)[-1].strip(" <>\"") if "@" in expediteur else "inconnu"
+    fiche["origine"] = "de %s, sujet \"%s\"" % (domaine, sujet[:40])
+    return fiche
 
 def offres_alertes(adresse, mot_de_passe, deja):
     """Renvoie [(reference, fiche)] depuis la boite des alertes."""
@@ -633,7 +651,7 @@ def offres_alertes(adresse, mot_de_passe, deja):
             ref = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
             if "MAIL|" + ref in deja:
                 continue
-            fiche = fiche_alerte(url, titre, contexte, expediteur, date, texte_mail)
+            fiche = fiche_alerte(url, titre, contexte, expediteur, date, texte_mail, sujet)
             if ouvertes < ALERTES_MAX_PAGES:
                 ouvertes += 1
                 page = telecharger(url)
@@ -643,6 +661,7 @@ def offres_alertes(adresse, mot_de_passe, deja):
                         complete["commune"] = complete["commune"] or fiche["commune"]
                         complete["contrat"] = (complete["contrat"] + " " + fiche["contrat"]).strip()
                         complete["date"] = complete["date"] or date
+                        complete["origine"] = fiche["origine"]
                         fiche = complete
             offres.append((ref, fiche))
     return offres
@@ -657,6 +676,14 @@ def log(message):
     ligne = "%s  %s" % (datetime.now().strftime("%d/%m %H:%M:%S"), message)
     print(ligne, flush=True)
     _journal.append(ligne)
+
+def trace_source(source, fiche):
+    """Debut de ligne de journal : la source, et pour un mail son origine.
+    Le journal est public : le lien perd ses parametres, qui peuvent porter
+    un identifiant de suivi propre a la boite des alertes."""
+    if not fiche.get("origine"):
+        return "[%s]" % source, ""
+    return "[%s]" % source, " | %s | %s" % (fiche["origine"], fiche["url"].split("?")[0])
 
 def sans_accents(texte):
     texte = unicodedata.normalize("NFD", texte or "")
@@ -794,6 +821,19 @@ def date_dans_texte(texte):
     m = re.search(r"(\d{1,2})\s+(" + "|".join(MOIS) + r")\s+(20\d{2})", t)
     if m:
         return "%s-%02d-%02d" % (m.group(3), MOIS[m.group(2)], int(m.group(1)))
+    # Jobijoba affiche « Publiee le 13 novembre », sans annee. Seule une date
+    # annoncee comme celle de publication compte : « debut le 1 septembre »
+    # n'en est pas une. Une date encore a venir est celle de l'an dernier.
+    m = re.search(r"(?:publiee?|mise? en ligne) le (\d{1,2})(?:er)?\s+(" + "|".join(MOIS) + r")\b", t)
+    if m:
+        auj = datetime.now(timezone.utc)
+        try:
+            d = datetime(auj.year, MOIS[m.group(2)], int(m.group(1)), tzinfo=timezone.utc)
+            if d > auj + timedelta(days=2):
+                d = d.replace(year=auj.year - 1)
+        except ValueError:
+            return ""
+        return d.strftime("%Y-%m-%d")
     return ""
 
 
@@ -862,6 +902,8 @@ def analyser_fiche(html, url):
         # la date affichee en clair sur la page, en dernier recours
         fiche["date"] = date_dans_texte(fiche["description"] + " " + fiche["texte"])
 
+    if sans_accents(fiche["employeur_declare"]).strip(" .") in EMPLOYEURS_GENERIQUES:
+        fiche["employeur_declare"] = ""
     fiche["employeur"] = fiche["employeur_declare"] or ""
     return fiche
 
@@ -1291,7 +1333,8 @@ def passage(test=False, force_mail=False):
         g, famille_ou_motif = verifier(fiche)
         if not g:
             deja[cle] = {"le": aujourdhui, "motif": famille_ou_motif}
-            log("  ecartee : %-55s %s" % (fiche["titre"][:55], famille_ou_motif))
+            tag, suite = trace_source(source, fiche)
+            log("  ecartee %s : %-55s %s%s" % (tag, fiche["titre"][:55], famille_ou_motif, suite))
             continue
         # la meme offre publiee sur les deux sites : on ne la signale qu'une
         # fois, ni dans ce passage, ni dans les soixante jours qui suivent
@@ -1318,7 +1361,8 @@ def passage(test=False, force_mail=False):
         retenues.append(offre)
         deja[cle] = {"le": aujourdhui, "motif": "retenue"}
         stats["par_groupe"][g]["retenues"] += 1
-        log("  RETENUE : %s (%s, %s)" % (offre["titre"], offre["employeur"], offre["commune"]))
+        tag, suite = trace_source(source, fiche)
+        log("  RETENUE %s : %s (%s, %s)%s" % (tag, offre["titre"], offre["employeur"], offre["commune"], suite))
 
     # Mail
     envoyer_mail, motif_silence = bool(retenues), ""
