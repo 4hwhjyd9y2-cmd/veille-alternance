@@ -1,6 +1,7 @@
 {
- "dernier_mail": "2026-11-09",
- "dernier_passage": "2026-11-12",
+ "dernier_mail": "2026-11-13",
+ "dernier_passage": "2026-11-13",
+ "pannes": {},
  "signatures": {
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
@@ -103,6 +104,10 @@
   },
   "HELLOWORK|75538839": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75550060": {
+   "le": "2026-11-13",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|75711706": {
@@ -241,6 +246,14 @@
    "le": "2026-11-12",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|76681428": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76685914": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|76725908": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -373,8 +386,20 @@
    "le": "2026-11-12",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|77838073": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|77857447": {
    "le": "2026-11-12",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77857536": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77857633": {
+   "le": "2026-11-13",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|77857720": {
@@ -657,6 +682,18 @@
    "le": "2026-11-12",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|80066577": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80066594": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80066607": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|80204271": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
@@ -937,6 +974,10 @@
    "le": "2026-11-12",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|83310954": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|83319207": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -1193,6 +1234,10 @@
    "le": "2026-11-12",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84380909": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|84381008": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -1200,6 +1245,10 @@
   "HELLOWORK|84394428": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|84395281": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|84402923": {
    "le": "2026-10-29",
@@ -1820,6 +1869,22 @@
   "HELLOWORK|85428785": {
    "le": "2026-11-12",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|85442597": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|85442603": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|85443064": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85445085": {
+   "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -2937,6 +3002,10 @@
    "le": "2026-10-29",
    "motif": "commune trop loin (machecoul)"
   },
+  "JOBIJOBA|54/e2dd790b7fcba7ab5b21da40680f2d84": {
+   "le": "2026-11-13",
+   "motif": "commune trop loin (ancenis)"
+  },
   "JOBIJOBA|54/e597bf487dea5b613f5327f9aced3a6c": {
    "le": "2026-11-06",
    "motif": "commune trop loin (donges)"
@@ -3540,6 +3609,90 @@
   "LBA|6af58b33c3367d6aa4c149b4": {
    "le": "2026-11-12",
    "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "MAIL|014cc6a77c04d036": {
+   "le": "2026-11-13",
+   "motif": "domaine hors cible"
+  },
+  "MAIL|0c8f3af8cda3a76d": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|18ef756548c558d6": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|1d0149cbe5538cb6": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|2116674d1964515e": {
+   "le": "2026-11-13",
+   "motif": "domaine hors cible"
+  },
+  "MAIL|434da2ab04674db3": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|4964bfe7005fbaf5": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|5190f90af63d6534": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|55c28a9c8d42abfd": {
+   "le": "2026-11-13",
+   "motif": "fonction support (recrutement)"
+  },
+  "MAIL|826c26e5c29f9cd4": {
+   "le": "2026-11-13",
+   "motif": "domaine hors cible"
+  },
+  "MAIL|85cea123d047567b": {
+   "le": "2026-11-13",
+   "motif": "fonction support (commercial)"
+  },
+  "MAIL|946fd0b3baea8809": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|a9d71f8ddf9226cf": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|aa3b8d08b664c7a9": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|c0dcc6d2cbd8c69d": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|c483c044b4f092cc": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|c95904e0983f597b": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|de671cb0b53f04f3": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|e0c5377939ebde52": {
+   "le": "2026-11-13",
+   "motif": "domaine hors cible"
+  },
+  "MAIL|f1fe45cd89e35ade": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|ffb07c4dfefcac29": {
+   "le": "2026-11-13",
+   "motif": "contrat non alternance"
   }
  }
 }
