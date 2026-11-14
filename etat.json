@@ -1,8 +1,9 @@
 {
- "dernier_mail": "2026-11-13",
- "dernier_passage": "2026-11-13",
+ "dernier_mail": "2026-11-14",
+ "dernier_passage": "2026-11-14",
  "pannes": {},
  "signatures": {
+  "Bouygues|stagiaire ingenieur d etudes cvc": "2026-11-14",
   "Veolia|offre d chef de projet support outils di": "2026-10-29"
  },
  "vues": {
@@ -1278,6 +1279,14 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84440227": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84440239": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|84445212": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -1884,6 +1893,58 @@
   },
   "HELLOWORK|85445085": {
    "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85469439": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85469681": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85493566": {
+   "le": "2026-11-14",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|85494043": {
+   "le": "2026-11-14",
+   "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|85494736": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85502480": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85505798": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85505812": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85505856": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85514134": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85514229": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85517644": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85517649": {
+   "le": "2026-11-14",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
@@ -2934,6 +2995,10 @@
    "le": "2026-11-03",
    "motif": "employeur hors perimetre (Adecco)"
   },
+  "JOBIJOBA|54/ba8a038623e00fa1ae78e035b12b7c4e": {
+   "le": "2026-11-14",
+   "motif": "annonce de plus de 30 jours (2026-06-21)"
+  },
   "JOBIJOBA|54/bdf57a27594cddb618a8117197d9c0e4": {
    "le": "2026-10-29",
    "motif": "date introuvable"
@@ -3590,6 +3655,10 @@
    "le": "2026-11-07",
    "motif": "employeur hors perimetre (FEDERATION AMICALES LAIQUES)"
   },
+  "LBA|6af103e9cc766074572b75d2": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (UIMM)"
+  },
   "LBA|6af251a6cc766074572b763d": {
    "le": "2026-11-10",
    "motif": "employeur hors perimetre (SECURITAS FRANCE SARL)"
@@ -3606,9 +3675,41 @@
    "le": "2026-11-11",
    "motif": "employeur hors perimetre (STEF TRANSPORT NANTES CARQUEFOU)"
   },
+  "LBA|6af4f51bcc766074572b8268": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (A2TI)"
+  },
   "LBA|6af58b33c3367d6aa4c149b4": {
    "le": "2026-11-12",
    "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6af6cc8f6f8eb996b74c5697": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6af6cdd1c3367d6aa4c1cfad": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
+  "LBA|6af718a86f8eb996b74c8665": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6af719516f8eb996b74c86b5": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6af71993c3367d6aa4c1fe4c": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6af79a6c6c7c8924df537366": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (\"L'ESPACE BIOHEME\")"
+  },
+  "LBA|6af81f20249fefeb2c8b733e": {
+   "le": "2026-11-14",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
   },
   "MAIL|014cc6a77c04d036": {
    "le": "2026-11-13",
@@ -3629,6 +3730,10 @@
   "MAIL|2116674d1964515e": {
    "le": "2026-11-13",
    "motif": "domaine hors cible"
+  },
+  "MAIL|2f3d8c27b56c50b2": {
+   "le": "2026-11-14",
+   "motif": "fonction support (assistant)"
   },
   "MAIL|434da2ab04674db3": {
    "le": "2026-11-13",
@@ -3658,6 +3763,10 @@
    "le": "2026-11-13",
    "motif": "contrat non alternance"
   },
+  "MAIL|97e302cba64e81da": {
+   "le": "2026-11-14",
+   "motif": "retenue"
+  },
   "MAIL|a9d71f8ddf9226cf": {
    "le": "2026-11-13",
    "motif": "contrat non alternance"
@@ -3673,6 +3782,14 @@
   "MAIL|c483c044b4f092cc": {
    "le": "2026-11-13",
    "motif": "contrat non alternance"
+  },
+  "MAIL|c53380d8cc319e99": {
+   "le": "2026-11-14",
+   "motif": "annonce de plus de 30 jours (2026-09-21)"
+  },
+  "MAIL|c8aa5d05cd6dcf90": {
+   "le": "2026-11-14",
+   "motif": "fonction support (assistant)"
   },
   "MAIL|c95904e0983f597b": {
    "le": "2026-11-13",
