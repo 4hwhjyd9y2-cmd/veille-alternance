@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-14",
- "dernier_passage": "2026-11-14",
+ "dernier_passage": "2026-11-15",
  "pannes": {},
  "signatures": {
   "Bouygues|stagiaire ingenieur d etudes cvc": "2026-11-14",
@@ -109,6 +109,26 @@
   },
   "HELLOWORK|75550060": {
    "le": "2026-11-13",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75602638": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75604959": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75662872": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75662873": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75686663": {
+   "le": "2026-11-15",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|75711706": {
@@ -258,6 +278,10 @@
   "HELLOWORK|76725908": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|76748227": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|76941502": {
    "le": "2026-10-29",
@@ -411,6 +435,10 @@
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
   },
+  "HELLOWORK|77918658": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|77926750": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -418,6 +446,10 @@
   "HELLOWORK|77964018": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|77977519": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|77980062": {
    "le": "2026-10-29",
@@ -699,6 +731,10 @@
    "le": "2026-10-29",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|80213285": {
+   "le": "2026-11-15",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|80277665": {
    "le": "2026-10-29",
    "motif": "contrat non alternance"
@@ -838,6 +874,10 @@
   "HELLOWORK|82213778": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|82321062": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|82363709": {
    "le": "2026-10-29",
@@ -982,6 +1022,10 @@
   "HELLOWORK|83319207": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|83339976": {
+   "le": "2026-11-15",
+   "motif": "contrat non alternance"
   },
   "HELLOWORK|83411856": {
    "le": "2026-10-29",
@@ -1297,6 +1341,14 @@
   },
   "HELLOWORK|84455791": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84466397": {
+   "le": "2026-11-15",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|84471331": {
+   "le": "2026-11-15",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|84516459": {
@@ -3711,9 +3763,21 @@
    "le": "2026-11-14",
    "motif": "employeur hors perimetre (VITALLIANCE)"
   },
+  "LBA|6af8e905ed6b081e2761700e": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (LEYTON FRANCE)"
+  },
+  "LBA|6af96e5b249fefeb2c8bbc44": {
+   "le": "2026-11-15",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
   "MAIL|014cc6a77c04d036": {
    "le": "2026-11-13",
    "motif": "domaine hors cible"
+  },
+  "MAIL|08fde9e7402b32db": {
+   "le": "2026-11-15",
+   "motif": "fonction support (assistant)"
   },
   "MAIL|0c8f3af8cda3a76d": {
    "le": "2026-11-13",
@@ -3735,6 +3799,10 @@
    "le": "2026-11-14",
    "motif": "fonction support (assistant)"
   },
+  "MAIL|3f08235d8510a4d6": {
+   "le": "2026-11-15",
+   "motif": "fonction support (assistant)"
+  },
   "MAIL|434da2ab04674db3": {
    "le": "2026-11-13",
    "motif": "contrat non alternance"
@@ -3743,6 +3811,10 @@
    "le": "2026-11-13",
    "motif": "contrat non alternance"
   },
+  "MAIL|50a29335b72b8550": {
+   "le": "2026-11-15",
+   "motif": "doublon d'une offre deja signalee"
+  },
   "MAIL|5190f90af63d6534": {
    "le": "2026-11-13",
    "motif": "contrat non alternance"
@@ -3750,6 +3822,14 @@
   "MAIL|55c28a9c8d42abfd": {
    "le": "2026-11-13",
    "motif": "fonction support (recrutement)"
+  },
+  "MAIL|5f667910b5be50ed": {
+   "le": "2026-11-15",
+   "motif": "annonce de plus de 30 jours (2026-09-21)"
+  },
+  "MAIL|609e214274e1a102": {
+   "le": "2026-11-15",
+   "motif": "doublon d'une offre deja signalee"
   },
   "MAIL|826c26e5c29f9cd4": {
    "le": "2026-11-13",
@@ -3775,6 +3855,10 @@
    "le": "2026-11-13",
    "motif": "contrat non alternance"
   },
+  "MAIL|b1e19538b86eca8f": {
+   "le": "2026-11-15",
+   "motif": "annonce de plus de 30 jours (2026-09-21)"
+  },
   "MAIL|c0dcc6d2cbd8c69d": {
    "le": "2026-11-13",
    "motif": "contrat non alternance"
@@ -3786,6 +3870,10 @@
   "MAIL|c53380d8cc319e99": {
    "le": "2026-11-14",
    "motif": "annonce de plus de 30 jours (2026-09-21)"
+  },
+  "MAIL|c5ffb3a53949f08b": {
+   "le": "2026-11-15",
+   "motif": "fonction support (assistant)"
   },
   "MAIL|c8aa5d05cd6dcf90": {
    "le": "2026-11-14",
@@ -3802,6 +3890,10 @@
   "MAIL|e0c5377939ebde52": {
    "le": "2026-11-13",
    "motif": "domaine hors cible"
+  },
+  "MAIL|eaa3dd25d860d65d": {
+   "le": "2026-11-15",
+   "motif": "fonction support (assistant)"
   },
   "MAIL|f1fe45cd89e35ade": {
    "le": "2026-11-13",
