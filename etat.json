@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-14",
- "dernier_passage": "2026-11-15",
+ "dernier_passage": "2026-11-16",
  "pannes": {},
  "signatures": {
   "Bouygues|stagiaire ingenieur d etudes cvc": "2026-11-14",
@@ -30,6 +30,14 @@
   "HELLOWORK|68187851": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
+  },
+  "HELLOWORK|70264853": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|70476714": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
   },
   "HELLOWORK|71249138": {
    "le": "2026-11-11",
@@ -129,6 +137,18 @@
   },
   "HELLOWORK|75686663": {
    "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75697613": {
+   "le": "2026-11-16",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75711564": {
+   "le": "2026-11-16",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75711658": {
+   "le": "2026-11-16",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|75711706": {
@@ -447,6 +467,10 @@
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
   },
+  "HELLOWORK|77977320": {
+   "le": "2026-11-16",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|77977519": {
    "le": "2026-11-15",
    "motif": "employeur hors perimetre (inconnu)"
@@ -466,6 +490,10 @@
   "HELLOWORK|78063701": {
    "le": "2026-10-29",
    "motif": "metier d'execution (bobinier)"
+  },
+  "HELLOWORK|78065932": {
+   "le": "2026-11-16",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|78221843": {
    "le": "2026-10-29",
@@ -733,6 +761,14 @@
   },
   "HELLOWORK|80213285": {
    "le": "2026-11-15",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|80213345": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|80213860": {
+   "le": "2026-11-16",
    "motif": "contrat non alternance"
   },
   "HELLOWORK|80277665": {
@@ -1371,6 +1407,10 @@
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
   },
+  "HELLOWORK|84528816": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
+  },
   "HELLOWORK|84563075": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -1998,6 +2038,10 @@
   "HELLOWORK|85517649": {
    "le": "2026-11-14",
    "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85529644": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -3771,6 +3815,10 @@
    "le": "2026-11-15",
    "motif": "employeur hors perimetre (VITALLIANCE)"
   },
+  "LBA|6afab8102cac74547bc16d69": {
+   "le": "2026-11-16",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
   "MAIL|014cc6a77c04d036": {
    "le": "2026-11-13",
    "motif": "domaine hors cible"
@@ -3785,6 +3833,10 @@
   },
   "MAIL|18ef756548c558d6": {
    "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|19df23670e72801c": {
+   "le": "2026-11-16",
    "motif": "contrat non alternance"
   },
   "MAIL|1d0149cbe5538cb6": {
@@ -3855,6 +3907,14 @@
    "le": "2026-11-13",
    "motif": "contrat non alternance"
   },
+  "MAIL|aeda3800685f3bbb": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|b12f4b47953dbf44": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
+  },
   "MAIL|b1e19538b86eca8f": {
    "le": "2026-11-15",
    "motif": "annonce de plus de 30 jours (2026-09-21)"
@@ -3890,6 +3950,10 @@
   "MAIL|e0c5377939ebde52": {
    "le": "2026-11-13",
    "motif": "domaine hors cible"
+  },
+  "MAIL|e96dfff74ea4666e": {
+   "le": "2026-11-16",
+   "motif": "contrat non alternance"
   },
   "MAIL|eaa3dd25d860d65d": {
    "le": "2026-11-15",
