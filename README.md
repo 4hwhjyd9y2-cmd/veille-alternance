@@ -139,7 +139,11 @@ permet de la lire (60 pages au plus par passage), sinon `fiche_alerte`, qui
 prend l'intitule du lien, le texte qui le suit et l'expediteur. Le contrat
 est accepte si le mail parle d'alternance ; sans ville citee, la ville est
 celle de l'alerte, Nantes. Les memes filtres et le meme anti-doublon
-s'appliquent ensuite. Secrets `ALERTES_ADRESSE` et `ALERTES_MOT_DE_PASSE`.
+s'appliquent ensuite. Un lien de suivi (SendGrid, `click.`, etc.) est resolu
+avant tout : on suit la redirection, on garde l'adresse finale sans parametres
+de suivi, et la page est lue a cette adresse, robots.txt compris. Le journal et
+`offres.json` sont publics : ni l'adresse de la boite, ni son nom, ni un lien
+de suivi n'y figurent. Secrets `ALERTES_ADRESSE` et `ALERTES_MOT_DE_PASSE`.
 
 **Sources en panne.** Une source qui ne donne plus rien est signalee en tete
 du mail : Jobijoba ou HelloWork sans aucune annonce sur toutes leurs pages,
@@ -364,6 +368,10 @@ erreurs.
 | Alertes GRDF classees Engie | elles partent de jobs.engie@..., et Engie etait cherche avant GRDF | GRDF et NaTran avant Engie dans `EMPLOYEURS`, sujet du mail lu |
 | Offre Veolia ecartee comme « employeur hors perimetre (Stage) » | Jobijoba declare parfois « Stage » comme employeur, et la description n'etait lue que sans employeur declare | `EMPLOYEURS_GENERIQUES` : un tel nom est oublie, l'employeur est cherche dans la description |
 | Dates « Publiee le 13 novembre » ignorees | `date_dans_texte` exigeait une annee | date de publication sans annee lue, l'an dernier si elle tombe dans le futur ; une date de debut de contrat n'est pas prise |
+| Stage « Stagiaire Ingenieur d'Etudes CVC » retenu (mail Bouygues du 14 novembre) | le sujet des mails Bouygues commence par le nom de la boite, qui contient « alternance » : le contrat etait toujours juge bon, et « stage » seul n'etait pas refuse | `sans_identite` retire adresse et nom de la boite avant de chercher le contrat ; un titre avec « stage » ou « stagiaire » et sans « alternance » est ecarte |
+| Balises HTML en toutes lettres dans le resume du mail | description publiee avec son HTML echappe (`&lt;p&gt;`) | `texte_brut` defait l'echappement, jusqu'a trois fois, avant de retirer les balises |
+| Lien de suivi SendGrid publie dans `offres.json` | le lien du mail est une redirection propre a la boite | `resoudre_lien` suit la redirection ; si elle echoue, offre ecartee (« lien de suivi non resolu ») ; `nettoyer_params` retire utm_*, email, token et autres parametres de suivi |
+| Nom de la boite d'alertes lisible dans le journal public | le sujet des mails, trace dans le journal, le contenait | le sujet est nettoye avant d'etre garde |
 | Impossible de savoir d'ou venait une offre ecartee | le journal ne nommait pas la source | `[SOURCE]` sur chaque ligne, et pour une alerte l'expediteur, le sujet et le lien sans parametres |
 
 ---

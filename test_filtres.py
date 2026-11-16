@@ -464,3 +464,99 @@ f = veille.analyser_fiche("<html><script type=\"application/ld+json\">%s</script
 g, r = veille.verifier(f)
 print("%-4s employeur declare Stage -> %s" % ("OK" if g == "Veolia" and f["employeur_declare"] == "" else "RATE",
       ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
+
+# --- mail du 14 novembre : stage retenu, HTML brut, lien de suivi ----------
+print("\nCorrectifs du 14 novembre :")
+
+# 1. l'identite de la boite ne compte pas pour le contrat
+ADR = "ma.boite.alternance@exemple.test"
+print("%-4s identite retiree du sujet -> %r" % (
+    "OK" if "alternance" not in veille.sans_identite("Ma.Boite.Alternance : votre nouvelle alerte", ADR).lower() else "RATE",
+    veille.sans_identite("Ma.Boite.Alternance : votre nouvelle alerte", ADR).strip()))
+print("%-4s mot alternance du texte conserve" % (
+    "OK" if "alternance" in veille.sans_identite("Offres alternance Nantes, ma.boite.alternance", ADR) else "RATE"))
+
+# 2. stage refuse dans l'intitule, « stage ou alternance » conserve
+for titre, attendu in [("Stagiaire Ingenieur d'Etudes CVC (F/H)", True), ("Stage TFE Ingenieur travaux", True),
+                       ("Stage ou alternance ingenieur methodes maintenance", False),
+                       ("Alternant ingenieur methodes maintenance", False)]:
+    f = fiche(titre, "SPIE Industrie", "Nantes", "Cycle ingenieur, methodes et maintenance industrielle.")
+    g, r = veille.verifier(f)
+    ecarte_stage = g is None and "stage" in str(r).lower() or g is None and "stagiaire" in str(r).lower()
+    print("%-4s %-52s -> %s" % ("OK" if ecarte_stage == attendu else "RATE", titre[:52],
+          ("retenue %s/%s" % (g, r)) if g else "ecartee : " + str(r)))
+
+# le mail Bouygues : sujet avec le nom de la boite, aucun mot alternance dans le corps
+m = mail_alerte("Bouygues Talent <noreply@talent.bouygues.com>", "Ma.Boite.Alternance : votre nouvelle alerte emploi",
+                """<html><body><p>Bonjour, voici vos nouvelles offres.</p>
+<a href="https://emploi.bouygues.test/offre/1">Stagiaire Ingenieur d'Etudes CVC (F/H)</a><p>Bouygues, Nantes (44)</p>
+<a href="https://emploi.bouygues.test/offre/2">Ingenieur d'etudes CVC en contrat d'apprentissage (F/H)</a><p>Bouygues, Nantes (44)</p>
+</body></html>""")
+sujet_b = veille.sans_identite(veille._entete(m["Subject"]), ADR)
+texte_b = veille.sans_identite(sujet_b + " " + veille._texte_html(veille._parties(m)[0]), ADR)
+resultats = []
+for url, titre, contexte in veille.liens_du_mail(m):
+    fb = veille.fiche_alerte(url, titre, contexte, "Bouygues Talent <noreply@talent.bouygues.com>",
+                             veille._date_mail(m), texte_b, sujet_b)
+    resultats.append(veille.verifier(fb))
+print("%-4s mail Bouygues : le stage est ecarte -> %s" % ("OK" if resultats[0][0] is None else "RATE", resultats[0][1]))
+print("%-4s mail Bouygues : l'apprentissage est retenu -> %s" % (
+    "OK" if resultats[1][0] == "Bouygues" else "RATE", resultats[1]))
+
+# 3. HTML echappe dans une description
+joli = veille.texte_brut("&lt;p style=&quot;margin: 0px;&quot;&gt;&lt;span&gt;Ingenieur &amp;amp; chef de projet&lt;/span&gt;&lt;/p&gt;")
+print("%-4s HTML echappe nettoye -> %r" % ("OK" if "<" not in joli and "&lt;" not in joli and "chef de projet" in joli else "RATE", joli))
+print("%-4s resume sans balises" % ("OK" if "<" not in veille.resume("&lt;p&gt;" + "mot " * 100 + "&lt;/p&gt;") else "RATE"))
+jp2 = {"@context": "https://schema.org", "@type": "JobPosting", "title": "Alternance ingenieur QSE",
+       "hiringOrganization": {"@type": "Organization", "name": "Veolia"}, "datePosted": IL_Y_A_3_JOURS,
+       "description": "&lt;p style=&quot;margin: 0px;&quot;&gt;Missions QSE&lt;/p&gt;"}
+fj = veille.analyser_fiche("<html><script type=\"application/ld+json\">%s</script></html>" % json.dumps(jp2), "https://x.test/q")
+print("%-4s description JobPosting echappee nettoyee -> %r" % (
+    "OK" if "<" not in fj["description"] and "&lt;" not in fj["description"] else "RATE", fj["description"]))
+
+# 4. liens de suivi
+LIEN = "https://u50163696.ct.sendgrid.net/ls/click?upn=u001.ABCDEF-2Fxyz"
+print("%-4s lien SendGrid reconnu comme lien de suivi" % ("OK" if veille.est_lien_suivi(LIEN) else "RATE"))
+print("%-4s lien d'offre direct non suivi" % ("OK" if not veille.est_lien_suivi("https://www.edf.fr/edf-recrute/offre/123") else "RATE"))
+p = veille.nettoyer_params("https://talent.bouygues.test/job/5?jobId=77&utm_source=mail&email=a%40b.fr&token=zz#x")
+print("%-4s parametres de suivi retires, jobId garde -> %s" % ("OK" if p == "https://talent.bouygues.test/job/5?jobId=77" else "RATE", p))
+
+class Redir:
+    def __init__(self, final): self.url = final
+    def close(self): pass
+vrai_get, vrai_delai = veille.requests.get, veille.DELAI_ENTRE_REQUETES
+veille.DELAI_ENTRE_REQUETES = 0
+try:
+    veille.requests.get = lambda u, **k: Redir("https://talent.bouygues.test/job/5?jobId=77&utm_medium=email")
+    ok_ = veille.resoudre_lien(LIEN)
+    veille.requests.get = lambda u, **k: Redir(LIEN)
+    reste = veille.resoudre_lien(LIEN)
+    def boum(u, **k): raise OSError("hors ligne")
+    veille.requests.get = boum
+    panne = veille.resoudre_lien(LIEN)
+finally:
+    veille.requests.get, veille.DELAI_ENTRE_REQUETES = vrai_get, vrai_delai
+print("%-4s redirection resolue, adresse propre -> %s" % ("OK" if ok_ == "https://talent.bouygues.test/job/5?jobId=77" else "RATE", ok_))
+print("%-4s redirection sans fin -> lien vide" % ("OK" if reste == "" else "RATE"))
+print("%-4s requete en echec -> lien vide" % ("OK" if panne == "" else "RATE"))
+
+# boite simulee avec un lien de suivi : resolu, ou offre ecartee sans publier le lien
+MAIL_SUIVI = mail_alerte("Bouygues Talent <noreply@talent.bouygues.com>", "Votre alerte emploi",
+                         "<html><body><p>Offres en alternance.</p><a href=\"%s\">Alternant ingenieur poste source HTB H/F</a>"
+                         "<p>Enedis, Nantes (44)</p></body></html>" % LIEN)
+class BoiteSuivi(FausseBoite):
+    def fetch(self, num, quoi): return "OK", [(b"1", MAIL_SUIVI.as_bytes())]
+vrai_imap, vrai_tel, vrai_get, vrai_delai = veille.imaplib.IMAP4_SSL, veille.telecharger, veille.requests.get, veille.DELAI_ENTRE_REQUETES
+veille.imaplib.IMAP4_SSL, veille.telecharger, veille.DELAI_ENTRE_REQUETES = BoiteSuivi, (lambda u: None), 0
+try:
+    veille.requests.get = lambda u, **k: Redir("https://talent.bouygues.test/job/9?utm_source=x")
+    resolue = veille.offres_alertes("alertes@exemple.test", "abcd efgh ijkl mnop", {})
+    veille.requests.get = boum
+    echouee = veille.offres_alertes("alertes@exemple.test", "abcd efgh ijkl mnop", {})
+finally:
+    veille.imaplib.IMAP4_SSL, veille.telecharger, veille.requests.get, veille.DELAI_ENTRE_REQUETES = vrai_imap, vrai_tel, vrai_get, vrai_delai
+print("%-4s lien de suivi resolu : adresse finale dans la fiche -> %s" % (
+    "OK" if resolue[0][1]["url"] == "https://talent.bouygues.test/job/9" else "RATE", resolue[0][1]["url"]))
+g, r = veille.verifier(echouee[0][1])
+print("%-4s redirection en echec : offre ecartee, aucun lien publie -> %s | url=%r" % (
+    "OK" if g is None and r == "lien de suivi non resolu" and echouee[0][1]["url"] == "" else "RATE", r, echouee[0][1]["url"]))

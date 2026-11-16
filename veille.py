@@ -40,7 +40,7 @@ except Exception:          # Python trop ancien : on retombe sur l'UTC
 from email.header import decode_header, make_header
 from email.message import EmailMessage
 from email.utils import parsedate_to_datetime
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 import requests
 
@@ -377,6 +377,18 @@ FT_PAR_PAGE = 150                 # maximum autorise par requete
 GROUPES_BILAN = list(EMPLOYEURS) + ["HelloWork", "La bonne alternance", "France Travail",
                                     "Alertes mail"]
 
+def texte_brut(valeur):
+    """Texte sans balises, meme quand le HTML arrive echappe (&lt;p&gt;) une ou
+    deux fois : certaines fiches d'employeur le publient ainsi, et le resume du
+    mail montrait alors les balises en toutes lettres."""
+    t = valeur or ""
+    for _ in range(3):
+        suivant = re.sub(r"<[^>]+>", " ", _html.unescape(t))
+        if suivant == t:
+            break
+        t = suivant
+    return re.sub(r"\s+", " ", t).strip()
+
 def fiche_api(url, titre, employeurs, commune, date, contrat, description):
     """Meme forme que le resultat d'analyser_fiche, a partir de champs d'API."""
     noms = []
@@ -384,7 +396,7 @@ def fiche_api(url, titre, employeurs, commune, date, contrat, description):
         n = (n or "").strip()
         if n and n.lower() not in [x.lower() for x in noms]:
             noms.append(n)
-    texte = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", description or ""))
+    texte = texte_brut(description)
     employeur = " / ".join(noms)
     return {"url": url, "titre": nettoyer_titre(titre or ""), "titre_brut": "",
             "employeur": employeur, "employeur_declare": employeur,
@@ -528,6 +540,56 @@ LIENS_URL_KO = ["unsubscribe", "desabonn", "desinscri", "mailto:", "/settings",
 MOIS_IMAP = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+# Parametres qui portent un identifiant propre a la boite ou a la campagne :
+# jamais dans offres.json ni dans le journal, qui sont publics.
+PARAMS_SUIVI = {"mkt_tok", "trk", "trkid", "trkemail", "fbclid", "gclid", "msclkid",
+                "email", "e", "mail", "token", "tok", "uid", "userid", "user", "recipient",
+                "mid", "cid", "eid", "sid", "upn", "ref_id", "sg_uid", "_hsenc", "_hsmi"}
+# lien de suivi : l'adresse de l'offre est cachee derriere une redirection
+HOTES_SUIVI = ("click.", "links.", "link.", "trk.", "track.", "tracking.", "url.", "email.",
+               "go.", "r.", "ct.", "e.", "t.", "mailer.")
+
+def nettoyer_params(url):
+    """L'adresse sans les parametres de suivi (utm_*, identifiants de boite)."""
+    try:
+        p = urlparse(url)
+        garde = [(k, v) for k, v in parse_qsl(p.query, keep_blank_values=True)
+                 if not k.lower().startswith(("utm_", "sg_", "mc_", "pk_")) and k.lower() not in PARAMS_SUIVI]
+        return urlunparse(p._replace(query=urlencode(garde), fragment=""))
+    except Exception:
+        return url
+
+def est_lien_suivi(url):
+    p = urlparse(url)
+    hote = (p.hostname or "").lower()
+    return (hote.endswith(("sendgrid.net", "list-manage.com", "mailchi.mp"))
+            or hote.startswith(HOTES_SUIVI) or "/ls/click" in p.path or p.path.startswith("/click"))
+
+def resoudre_lien(url):
+    """Adresse finale d'un lien de suivi, comme si on cliquait dessus (la
+    requete enregistre un clic sur la boite des alertes). Renvoie "" si la
+    redirection n'aboutit pas : on ne publie jamais un lien de suivi."""
+    try:
+        r = requests.get(url, headers=ENTETES, timeout=TIMEOUT, allow_redirects=True, stream=True)
+        final = r.url
+        r.close()
+    except Exception:
+        return ""
+    time.sleep(DELAI_ENTRE_REQUETES)
+    if not final or est_lien_suivi(final) or not final.lower().startswith(("http://", "https://")):
+        return ""
+    return nettoyer_params(final)
+
+def sans_identite(texte, adresse):
+    """Le texte sans l'adresse de la boite ni son nom : le sujet des alertes
+    Bouygues commence par le nom de la boite (qui contient « alternance »),
+    donc ce mot y etait toujours trouve, stage compris."""
+    texte = texte or ""
+    for morceau in (adresse, adresse.split("@")[0]):
+        if morceau:
+            texte = re.sub(re.escape(morceau), " ", texte, flags=re.I)
+    return texte
+
 def _entete(valeur):
     try:
         return str(make_header(decode_header(valeur or "")))
@@ -646,12 +708,29 @@ def offres_alertes(adresse, mot_de_passe, deja):
         sujet = _entete(msg.get("Subject"))
         date = _date_mail(msg)
         html, texte = _parties(msg)
-        texte_mail = sujet + " " + (_texte_html(html) if html else texte)
+        sujet = sans_identite(sujet, adresse)
+        texte_mail = sans_identite(sujet + " " + (_texte_html(html) if html else texte), adresse)
         for url, titre, contexte in liens_du_mail(msg):
             ref = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
             if "MAIL|" + ref in deja:
                 continue
-            fiche = fiche_alerte(url, titre, contexte, expediteur, date, texte_mail, sujet)
+            fiche = fiche_alerte(url, titre, sans_identite(contexte, adresse), expediteur, date,
+                                 texte_mail, sujet)
+            if est_lien_suivi(url):
+                # la redirection compte dans le plafond de requetes ; au dela,
+                # le lien est repris au prochain passage
+                if ouvertes >= ALERTES_MAX_PAGES:
+                    continue
+                ouvertes += 1
+                url = resoudre_lien(url)
+                if not url:
+                    fiche["lien_ko"] = True
+                    fiche["url"] = ""
+                    offres.append((ref, fiche))
+                    continue
+            else:
+                url = nettoyer_params(url)
+            fiche["url"] = url
             if ouvertes < ALERTES_MAX_PAGES:
                 ouvertes += 1
                 page = telecharger(url)
@@ -885,7 +964,7 @@ def analyser_fiche(html, url):
             emp = " ".join(str(x) for x in emp)
         fiche["contrat"] = str(emp or "")
         desc = p.get("description") or ""
-        fiche["description"] = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", desc))[:6000]
+        fiche["description"] = texte_brut(desc)[:6000]
 
     if not fiche["titre"]:
         m = re.search(r"<title[^>]*>(.*?)</title>", html, re.S | re.I)
@@ -939,6 +1018,8 @@ def verifier(fiche):
     tout = " ".join([fiche["employeur_declare"], titre, fiche.get("titre_brut", ""),
                      fiche["contrat"], fiche["description"]])
 
+    if fiche.get("lien_ko"):
+        return None, "lien de suivi non resolu"
     groupe = trouver_groupe(fiche)
     if not groupe:
         return None, "employeur hors perimetre (%s)" % (fiche["employeur_declare"] or "inconnu")
@@ -951,6 +1032,11 @@ def verifier(fiche):
     faux = contient_mot(titre, CONTRAT_KO)
     if faux:
         return None, "contrat ecarte (%s)" % faux
+    # « Stagiaire Ingenieur d'Etudes CVC » est un stage, mais « Stage ou
+    # alternance » en est peut-etre un aussi : seul le titre sans alternance est ecarte
+    stage = contient_mot(titre, ["stage", "stages", "stagiaire", "stagiaires"])
+    if stage and not contient_mot(titre, MOTS_ALTERNANCE):
+        return None, "contrat ecarte (%s)" % stage
 
     lieu = fiche["commune"] or ""
     hors = contient_mot(lieu, COMMUNES_KO) or contient_mot(titre, COMMUNES_KO)
@@ -1106,7 +1192,7 @@ def charger_config():
 
 def resume(texte, longueur=280):
     """Debut de la description, coupe au dernier mot entier."""
-    texte = re.sub(r"\s+", " ", texte or "").strip()
+    texte = texte_brut(texte)
     if len(texte) <= longueur:
         return texte
     coupe = texte[:longueur].rsplit(" ", 1)[0].rstrip(" ,;:.-")
