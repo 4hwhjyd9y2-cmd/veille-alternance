@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-14",
- "dernier_passage": "2026-11-17",
+ "dernier_passage": "2026-11-18",
  "pannes": {},
  "signatures": {
   "Bouygues|stagiaire ingenieur d etudes cvc": "2026-11-14",
@@ -305,6 +305,10 @@
   },
   "HELLOWORK|76748227": {
    "le": "2026-11-15",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76938262": {
+   "le": "2026-11-18",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|76941502": {
@@ -778,6 +782,10 @@
   "HELLOWORK|80213860": {
    "le": "2026-11-16",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|80256897": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|80256958": {
    "le": "2026-11-17",
@@ -2083,6 +2091,26 @@
    "le": "2026-11-17",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|85606523": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85612206": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85621866": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85634161": {
+   "le": "2026-11-18",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|85642341": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
    "motif": "employeur hors perimetre (Adecco)"
@@ -2975,6 +3003,10 @@
    "le": "2026-10-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA|54/0e804e675ef83725d7a3c78034c03b8e": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (Adecco)"
+  },
   "JOBIJOBA|54/0f9b3adbe4de8313d4dae54b3a2cfae0": {
    "le": "2026-10-29",
    "motif": "date introuvable"
@@ -3094,6 +3126,10 @@
   "JOBIJOBA|54/75fe5846776350ebf639b8e9d61b2162": {
    "le": "2026-11-04",
    "motif": "commune trop loin (clisson)"
+  },
+  "JOBIJOBA|54/783b684edb58d54f97c716b7c9604db2": {
+   "le": "2026-11-18",
+   "motif": "commune trop loin (saint-nazaire)"
   },
   "JOBIJOBA|54/78bdf9fa0f83c6dd1bc945f549abc003": {
    "le": "2026-11-08",
@@ -3875,6 +3911,22 @@
    "le": "2026-11-17",
    "motif": "employeur hors perimetre (UIMM)"
   },
+  "LBA|6afce041ed6b081e276182a9": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (GEIQ INDUSTRIE LOIRE ATLANTIQUE)"
+  },
+  "LBA|6afd6e6c51dc81ce85d6c09c": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (BRGM)"
+  },
+  "LBA|6afd713751dc81ce85d6c2fa": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (BRGM)"
+  },
+  "LBA|6afd751a9212c6566853f661": {
+   "le": "2026-11-18",
+   "motif": "employeur hors perimetre (BRGM)"
+  },
   "MAIL|014cc6a77c04d036": {
    "le": "2026-11-13",
    "motif": "domaine hors cible"
@@ -3885,6 +3937,10 @@
   },
   "MAIL|0c8f3af8cda3a76d": {
    "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|0cb6bcd66c1b4e63": {
+   "le": "2026-11-18",
    "motif": "contrat non alternance"
   },
   "MAIL|18ef756548c558d6": {
@@ -3903,6 +3959,10 @@
    "le": "2026-11-13",
    "motif": "domaine hors cible"
   },
+  "MAIL|2e289092955cea01": {
+   "le": "2026-11-18",
+   "motif": "contrat non alternance"
+  },
   "MAIL|2f3d8c27b56c50b2": {
    "le": "2026-11-14",
    "motif": "fonction support (assistant)"
@@ -3913,6 +3973,10 @@
   },
   "MAIL|434da2ab04674db3": {
    "le": "2026-11-13",
+   "motif": "contrat non alternance"
+  },
+  "MAIL|44a644e08816a08b": {
+   "le": "2026-11-18",
    "motif": "contrat non alternance"
   },
   "MAIL|4964bfe7005fbaf5": {
@@ -3974,6 +4038,10 @@
   "MAIL|b1e19538b86eca8f": {
    "le": "2026-11-15",
    "motif": "annonce de plus de 30 jours (2026-09-21)"
+  },
+  "MAIL|b80d85586c47607b": {
+   "le": "2026-11-18",
+   "motif": "contrat non alternance"
   },
   "MAIL|c0dcc6d2cbd8c69d": {
    "le": "2026-11-13",
