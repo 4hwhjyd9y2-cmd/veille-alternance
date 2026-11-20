@@ -1,6 +1,6 @@
 {
  "dernier_mail": "2026-11-14",
- "dernier_passage": "2026-11-19",
+ "dernier_passage": "2026-11-20",
  "pannes": {},
  "signatures": {
   "Bouygues|stagiaire ingenieur d etudes cvc": "2026-11-14",
@@ -161,6 +161,10 @@
   },
   "HELLOWORK|75753541": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|75860105": {
+   "le": "2026-11-20",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|75976503": {
@@ -335,12 +339,28 @@
    "le": "2026-10-29",
    "motif": "contrat non alternance"
   },
+  "HELLOWORK|76954501": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|76981445": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|77006584": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|77024818": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77024967": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77036302": {
+   "le": "2026-11-20",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|77038693": {
@@ -671,6 +691,10 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|79173241": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|79193008": {
    "le": "2026-10-29",
    "motif": "commune hors Nantes (non precisee)"
@@ -851,8 +875,28 @@
    "le": "2026-11-19",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|80377910": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80379230": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|80382744": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80390168": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80391219": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80396759": {
+   "le": "2026-11-20",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|80463717": {
@@ -1527,6 +1571,10 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84604309": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|84606992": {
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
@@ -1543,8 +1591,16 @@
    "le": "2026-10-29",
    "motif": "employeur hors perimetre (inconnu)"
   },
+  "HELLOWORK|84620337": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
   "HELLOWORK|84622284": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|84625435": {
+   "le": "2026-11-20",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|84637309": {
@@ -2218,6 +2274,50 @@
   "HELLOWORK|85696896": {
    "le": "2026-11-19",
    "motif": "contrat non alternance"
+  },
+  "HELLOWORK|85707550": {
+   "le": "2026-11-20",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|85707826": {
+   "le": "2026-11-20",
+   "motif": "contrat non alternance"
+  },
+  "HELLOWORK|85708263": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85716136": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85728551": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85728585": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85728602": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85728634": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85728713": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85728734": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85733180": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
    "le": "2026-09-29",
@@ -3203,6 +3303,10 @@
    "le": "2026-10-29",
    "motif": "date introuvable"
   },
+  "JOBIJOBA|54/56b461759a9f2eb44dc80b14bf6af9f0": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (Meteojob)"
+  },
   "JOBIJOBA|54/5a8ae23812121854139969d86abb25e8": {
    "le": "2026-10-29",
    "motif": "commune trop loin (ancenis)"
@@ -3282,6 +3386,10 @@
   "JOBIJOBA|54/b579358df58866838aadb8d97eadf886": {
    "le": "2026-11-12",
    "motif": "commune trop loin (la baule)"
+  },
+  "JOBIJOBA|54/b6f4e93d98ff36128d3601ba0d5de8ce": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (Spie Batignolles)"
   },
   "JOBIJOBA|54/b9f992333bb49fe083b88dbeafb4a62e": {
    "le": "2026-11-03",
@@ -4050,6 +4158,30 @@
   "LBA|6afe3272de83093b496e9fce": {
    "le": "2026-11-19",
    "motif": "employeur hors perimetre (ADECCO)"
+  },
+  "LBA|6aff39d232bf900d7197e811": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (IDEX ENERGIES)"
+  },
+  "LBA|6aff7fabde83093b496e9ff9": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (CT Ingenierie)"
+  },
+  "LBA|6aff806bde83093b496ea083": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (ADAPEILA)"
+  },
+  "LBA|6aff8114de83093b496ea2fe": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (GROUPE DUBREUIL)"
+  },
+  "LBA|6aff81bede83093b496ea75e": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (ADECCO)"
+  },
+  "LBA|6b004776f84716b7a1feea4a": {
+   "le": "2026-11-20",
+   "motif": "employeur hors perimetre (EXPERIS FRANCE)"
   },
   "MAIL|014cc6a77c04d036": {
    "le": "2026-11-13",

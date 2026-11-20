@@ -3977,3 +3977,128 @@
 19/11 15:38:37  MAIL NON ENVOYE : rien de neuf, et un mail est deja parti il y a 5 jour(s) (regle des sept jours).
 19/11 15:38:37  Pour recevoir quand meme un mail, relance le workflow a la main : un lancement manuel force l'envoi.
 
+20/11 15:14:07    API          La bonne alternance        106 annonces
+20/11 15:14:07    API          Alertes mail                 0 annonces
+20/11 15:14:07  Lecture des pages de liste
+20/11 15:14:10    SPIE         SPIE                         8 annonces dont 8 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:12    SPIE         SPIE                         0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:14:14    SPIE         SPIE+Thepault                0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:15    SPIE         SPIE+Industrie               0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:18    SPIE         SPIE+Facilities              8 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:20    SPIE         SPIE+Citynetworks            4 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:22    SPIE         SPIE+Building+Solutions      0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:23    VINCI        VINCI                        6 annonces dont 6 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:25    VINCI        VINCI                        5 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:14:28    VINCI        VINCI+Energies               0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:30    VINCI        VINCI+Construction           6 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:32    VINCI        Omexom                       0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:34    VINCI        Citeos                     page inconnue de Jobijoba, ignoree
+20/11 15:14:36    VINCI        Cegelec                      0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:38    VINCI        Actemium                   page inconnue de Jobijoba, ignoree
+20/11 15:14:40    VINCI        Axians                     page inconnue de Jobijoba, ignoree
+20/11 15:14:42    VINCI        Sogea                        4 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:44    VINCI        SDEL                       page inconnue de Jobijoba, ignoree
+20/11 15:14:46    VINCI        Eurovia                      0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:48    VINCI        Botte+Fondations           page inconnue de Jobijoba, ignoree
+20/11 15:14:50    VINCI        GTM+Ouest                  page inconnue de Jobijoba, ignoree
+20/11 15:14:52    EDF          EDF                          1 annonces dont 1 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:54    EDF          EDF                          0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:14:56    EDF          Enedis                       5 annonces dont 5 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:14:58    EDF          Dalkia                       0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:00    EDF          EDF+Renouvelables            0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:02    EDF          Framatome                  page inconnue de Jobijoba, ignoree
+20/11 15:15:04    Engie        ENGIE                        8 annonces dont 8 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:06    Engie        ENGIE                        2 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:15:08    Engie        Engie+Solutions            page inconnue de Jobijoba, ignoree
+20/11 15:15:10    Engie        Engie+Green                  0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:12    Engie        Endel                      page inconnue de Jobijoba, ignoree
+20/11 15:15:14    Engie        Storengy                   page inconnue de Jobijoba, ignoree
+20/11 15:15:16    Eiffage      Eiffage                      1 annonces dont 1 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:19    Eiffage      Eiffage                      0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:15:21    Eiffage      Eiffage+Energie+Systemes     0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:23    Eiffage      Clemessy                     0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:24    Bouygues     Bouygues                     7 annonces dont 7 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:26    Bouygues     Bouygues                     1 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:15:28    Bouygues     Bouygues+Construction        1 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:30    Bouygues     Axima                       15 annonces dont 11 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:32    Bouygues     Equans                     page inconnue de Jobijoba, ignoree
+20/11 15:15:34    Bouygues     Ineo                       page inconnue de Jobijoba, ignoree
+20/11 15:15:36    Bouygues     Colas                        2 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:38    Bouygues     Aximum                     page inconnue de Jobijoba, ignoree
+20/11 15:15:40    Airbus       Airbus+Group                10 annonces dont 10 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:42    Airbus       Airbus+Group                 1 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:15:44    Airbus       Airbus                      10 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:47    Airbus       Airbus+Atlantic              8 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:49    SNCF         SNCF                        10 annonces dont 10 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:51    SNCF         SNCF                         3 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:15:53    SNCF         SNCF+Reseau                 10 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:56    SNCF         SNCF+Voyageurs              10 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:58    SNCF         Keolis                       6 annonces dont 6 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:15:59    GRDF         GRDF                         7 annonces dont 7 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:16:01    GRDF         GRDF                         3 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:16:03    NaTran       Grtgaz                       0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:16:05    NaTran       Grtgaz                       0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:16:07    NaTran       NaTran                       0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:16:10    RTE          RTE                          0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:16:12    RTE          RTE                          0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:16:15    Naval Group  Naval+Group                  0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:16:16    Naval Group  Naval+Group                  0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:16:19    Veolia       Veolia                       5 annonces dont 5 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:16:20    Veolia       Veolia                       3 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:16:22    Suez         Suez                         0 annonces dont 0 nouvelles pour le groupe  (Loire-atlantique)
+20/11 15:16:24    Suez         Suez                         0 annonces dont 0 nouvelles pour le groupe  (Nantes)
+20/11 15:16:26    HelloWork    hellowork                   13 annonces dont 13 nouvelles pour le groupe  (mot-cle_master-ville_nantes-44000.html)
+20/11 15:16:28    HelloWork    hellowork                   20 annonces dont 20 nouvelles pour le groupe  (ville_nantes-44000.html)
+20/11 15:16:29    HelloWork    hellowork                   20 annonces dont 20 nouvelles pour le groupe  (ville_saint-herblain-44800.html)
+20/11 15:16:31    HelloWork    hellowork                   20 annonces dont 13 nouvelles pour le groupe  (ville_carquefou-44470.html)
+20/11 15:16:33    HelloWork    hellowork                   20 annonces dont 19 nouvelles pour le groupe  (ville_reze-44400.html)
+20/11 15:16:34    HelloWork    hellowork                   20 annonces dont 10 nouvelles pour le groupe  (ville_bouguenais-44340.html)
+20/11 15:16:36    HelloWork    hellowork                   20 annonces dont 13 nouvelles pour le groupe  (ville_orvault-44700.html)
+20/11 15:16:37    Bouygues     hellowork                   20 annonces dont 20 nouvelles pour le groupe  (ville_nantes-44000.html)
+20/11 15:16:39    VINCI        hellowork                   26 annonces dont 26 nouvelles pour le groupe  (actemium-loire-ocean-117258.html)
+20/11 15:16:41    SPIE         hellowork                    5 annonces dont 5 nouvelles pour le groupe  (ville_nantes-44000.html)
+20/11 15:16:42    Bouygues     hellowork                   20 annonces dont 20 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:44    EDF          hellowork                    5 annonces dont 5 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:46    EDF          hellowork                    7 annonces dont 7 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:47    EDF          hellowork                    4 annonces dont 4 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:49    Veolia       hellowork                    9 annonces dont 9 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:50    RTE          hellowork                    0 annonces dont 0 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:52    NaTran       hellowork                    0 annonces dont 0 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:53    Naval Group  hellowork                    1 annonces dont 1 nouvelles pour le groupe  (contrat_alternance.html)
+20/11 15:16:53  33 annonces jamais vues
+20/11 15:16:53    ecartee [LBA] : Architecte Modern Workplace F/H - Puteaux               employeur hors perimetre (EXPERIS FRANCE)
+20/11 15:16:53    ecartee [LBA] : Responsable d'exploitation F/H                          employeur hors perimetre (IDEX ENERGIES)
+20/11 15:16:53    ecartee [LBA] : Ajusteur Monteur Aéronautique h/f                       employeur hors perimetre (ADECCO)
+20/11 15:16:53    ecartee [LBA] : Alternance -Chargé de recrutement / Assistant Administr employeur hors perimetre (CT Ingenierie)
+20/11 15:16:53    ecartee [LBA] : Vendeur comptoir en alternance (H/F)                    employeur hors perimetre (GROUPE DUBREUIL)
+20/11 15:16:53    ecartee [LBA] : Contrat Alternance Aide-Soignant en Mas H/F             employeur hors perimetre (ADAPEILA)
+20/11 15:16:55    ecartee [JOBIJOBA] : Alternant QSE TP H/F                                    employeur hors perimetre (Spie Batignolles)
+20/11 15:16:57    ecartee [JOBIJOBA] : Ingénieur Data Scientist Spécialisé En Analyse Des Donn employeur hors perimetre (Meteojob)
+20/11 15:16:59    ecartee [HELLOWORK] : Offre Emploi Alternance Attaché Commercial Btob Saint-H employeur hors perimetre (inconnu)
+20/11 15:17:00    ecartee [HELLOWORK] : Offre Emploi Alternance -Chargé de Recrutement Assistan employeur hors perimetre (inconnu)
+20/11 15:17:02    ecartee [HELLOWORK] : Offre d'Alternance Alternant Business Developer Nantes  employeur hors perimetre (inconnu)
+20/11 15:17:03    ecartee [HELLOWORK] : Offre d'Alternance Alternant Conseiller de Clientèle Na employeur hors perimetre (inconnu)
+20/11 15:17:05    ecartee [HELLOWORK] : Offre d'Alternance Alternant Conseiller de Vente Nantes employeur hors perimetre (inconnu)
+20/11 15:17:06    ecartee [HELLOWORK] : Offre d'Alternance Alternant Commercial Nantes (44)     employeur hors perimetre (inconnu)
+20/11 15:17:08    ecartee [HELLOWORK] : Offre d'Alternance Alternant Chargé de Recrutement Nant employeur hors perimetre (inconnu)
+20/11 15:17:09    ecartee [HELLOWORK] : Offre d'Alternance Alternant Assistant Conseiller de Cl employeur hors perimetre (inconnu)
+20/11 15:17:11    ecartee [HELLOWORK] : Offre Emploi Alternance Bac+5 Mrh Chargé d'Emploi et de employeur hors perimetre (inconnu)
+20/11 15:17:12    ecartee [HELLOWORK] : Offre Emploi Alternance Bac+2 Gpme Chargé d'Accueil Sta employeur hors perimetre (inconnu)
+20/11 15:17:14    ecartee [HELLOWORK] : Offre Emploi Alternance Assistant Sales Performance Man employeur hors perimetre (inconnu)
+20/11 15:17:15    ecartee [HELLOWORK] : Offre Emploi 44464- Assistant Communication et Administ employeur hors perimetre (inconnu)
+20/11 15:17:17    ecartee [HELLOWORK] : Offre Emploi Chargé de Clientèle Europe & Grand Export  employeur hors perimetre (inconnu)
+20/11 15:17:18    ecartee [HELLOWORK] : Offre Emploi Alternance Cybersécurité Bac+2 Nantes (44) employeur hors perimetre (inconnu)
+20/11 15:17:20    ecartee [HELLOWORK] : Offre Emploi Assistant de Direction en Alternance Nante employeur hors perimetre (inconnu)
+20/11 15:17:22    ecartee [HELLOWORK] : Offre Emploi Alternance Développeur Concepteur Web & IA employeur hors perimetre (inconnu)
+20/11 15:17:24    ecartee [HELLOWORK] : Offre Emploi Assistant Opticien Alternance Afflelou -La employeur hors perimetre (inconnu)
+20/11 15:17:25    ecartee [HELLOWORK] : Offre Emploi Alternance Auditeur Financier chez Kpmg Na employeur hors perimetre (inconnu)
+20/11 15:17:27    ecartee [HELLOWORK] : Offre Emploi Chargé de Recrutement Talent Acquisition I employeur hors perimetre (inconnu)
+20/11 15:17:29    ecartee [HELLOWORK] : Offre Emploi Assistant Opticien Alternance Afflelou -Fo employeur hors perimetre (inconnu)
+20/11 15:17:30    ecartee [HELLOWORK] : Offre Emploi Alternance Chargé de Communication Interne employeur hors perimetre (inconnu)
+20/11 15:17:32    ecartee [HELLOWORK] : Offre Emploi Alternance Assistant Chef de Projet Si & E employeur hors perimetre (inconnu)
+20/11 15:17:34    ecartee [HELLOWORK] : Offre Emploi Auxiliaire de Vie en Alternance Orvault (4 employeur hors perimetre (inconnu)
+20/11 15:17:36    ecartee [HELLOWORK] : Offre Emploi CDI Adjoint Responsable Comptable Nantes ( contrat non alternance
+20/11 15:17:37    ecartee [HELLOWORK] : Offre Emploi CDI Comptable Général Nantes (44)          contrat non alternance
+20/11 15:17:37  MAIL NON ENVOYE : rien de neuf, et un mail est deja parti il y a 6 jour(s) (regle des sept jours).
+20/11 15:17:37  Pour recevoir quand meme un mail, relance le workflow a la main : un lancement manuel force l'envoi.
+
