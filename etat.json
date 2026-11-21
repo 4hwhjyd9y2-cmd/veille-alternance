@@ -1,6 +1,6 @@
 {
- "dernier_mail": "2026-11-14",
- "dernier_passage": "2026-11-20",
+ "dernier_mail": "2026-11-21",
+ "dernier_passage": "2026-11-21",
  "pannes": {},
  "signatures": {
   "Bouygues|stagiaire ingenieur d etudes cvc": "2026-11-14",
@@ -377,6 +377,10 @@
   },
   "HELLOWORK|77059319": {
    "le": "2026-10-29",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|77096628": {
+   "le": "2026-11-21",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|77097156": {
@@ -873,6 +877,10 @@
   },
   "HELLOWORK|80364202": {
    "le": "2026-11-19",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|80377528": {
+   "le": "2026-11-21",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "HELLOWORK|80377910": {
@@ -2317,6 +2325,10 @@
   },
   "HELLOWORK|85733180": {
    "le": "2026-11-20",
+   "motif": "employeur hors perimetre (inconnu)"
+  },
+  "HELLOWORK|85751460": {
+   "le": "2026-11-21",
    "motif": "employeur hors perimetre (inconnu)"
   },
   "JOBIJOBA_AIRBUS|54/1022eb2a5726e5b06ac08ff6caf770b2": {
@@ -4183,6 +4195,34 @@
    "le": "2026-11-20",
    "motif": "employeur hors perimetre (EXPERIS FRANCE)"
   },
+  "LBA|6b00d253de83093b496eaa30": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (ADAPEILA)"
+  },
+  "LBA|6b00d253de83093b496eaa35": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (ADAPEILA)"
+  },
+  "LBA|6b00d254de83093b496eaa54": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (ADAPEILA)"
+  },
+  "LBA|6b00d254de83093b496eaa59": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (ADAPEILA)"
+  },
+  "LBA|6b00d4b6de83093b496eaf37": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (KELIAS)"
+  },
+  "LBA|6b00d4b6de83093b496eaf43": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (U Tech)"
+  },
+  "LBA|6b015720f84716b7a1ff1028": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (VITALLIANCE)"
+  },
   "MAIL|014cc6a77c04d036": {
    "le": "2026-11-13",
    "motif": "domaine hors cible"
@@ -4286,6 +4326,10 @@
   "MAIL|a57bd7488d7a96a5": {
    "le": "2026-11-19",
    "motif": "contrat non alternance"
+  },
+  "MAIL|a69fdacb404ca17a": {
+   "le": "2026-11-21",
+   "motif": "employeur hors perimetre (inconnu)"
   },
   "MAIL|a9d71f8ddf9226cf": {
    "le": "2026-11-13",
